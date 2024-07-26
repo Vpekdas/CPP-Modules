@@ -23,17 +23,16 @@
 #define BWHITE "\033[1;37m"
 
 class PhoneBook {
-public:
-  PhoneBook();
-  ~PhoneBook();
-  void addContact(const Contact &contact);
-  void displayContacts();
-  std::string formatColumn(const std::string &str);
+  public:
+    PhoneBook();
+    ~PhoneBook();
+    void addContact(const Contact &contact);
+    void displayContacts();
 
-private:
-  Contact contacts[8];
-  std::size_t totalContacts;
-  std::size_t nextIndex;
+  private:
+    Contact contacts[8];
+    std::size_t totalContacts;
+    std::size_t nextIndex;
 };
 
 #endif
