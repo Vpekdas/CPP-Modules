@@ -58,6 +58,7 @@ WHITE_BG		:= \033[48;5;15m
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						PhoneBook.cpp \
 						Contact.cpp \
+						main.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
