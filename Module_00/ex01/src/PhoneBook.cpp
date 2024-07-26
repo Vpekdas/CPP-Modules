@@ -3,11 +3,11 @@
 #include <cstddef>
 
 PhoneBook::PhoneBook() : totalContacts(0), nextIndex(0) {
-    std::cout << YELLOW"👷 PhoneBook constructor called 👷" RESET << std::endl;
+    std::cout << BLUE "👷 PhoneBook constructor called 👷" RESET << std::endl;
 }
 
 PhoneBook::~PhoneBook() {
-    std::cout << "🧨 PhoneBook Destructor called 🧨" << std::endl;
+    std::cout << YELLOW "🧨 PhoneBook Destructor called 🧨" RESET << std::endl;
 }
 
 std::string formatColumn(const std::string &str) {
@@ -27,12 +27,20 @@ void PhoneBook::addContact(const Contact &contact) {
 }
 
 void PhoneBook::displayContacts() {
+    std::cout << BCYAN "|"
+              << "     INDEX"
+              << "|"
+              << "FIRST NAME"
+              << "|"
+              << " LAST NAME"
+              << "|"
+              << "  NICKNAME"
+              << "|" RESET << std::endl;
     for (std::size_t i = 0; i < totalContacts; i++) {
-        std::cout << "|" << formatColumn(this->contacts[i].getFirstName())
-                  << "|" << formatColumn(this->contacts[i].getLastName()) << "|"
-                  << formatColumn(this->contacts[i].getNickname()) << "|"
-                  << formatColumn(this->contacts[i].getPhoneNumber()) << "|"
-                  << formatColumn(this->contacts[i].getDarkestSecret()) << "|"
-                  << std::endl;
+        std::cout << "|"
+                  << "         " << this->contacts[i].getIndex() << "|"
+                  << formatColumn(this->contacts[i].getFirstName()) << "|"
+                  << formatColumn(this->contacts[i].getLastName()) << "|"
+                  << formatColumn(this->contacts[i].getNickname()) << "|" << std::endl;
     }
 }

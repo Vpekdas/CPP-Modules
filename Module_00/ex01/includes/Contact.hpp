@@ -1,6 +1,8 @@
 #ifndef CONTACT_H
 #define CONTACT_H
 
+#include <cstddef>
+#include <iterator>
 #include <string>
 
 #define YELLOW "\033[0;33m"
@@ -24,6 +26,7 @@
 
 class Contact {
   private:
+    std::size_t index;
     std::string firstName;
     std::string lastName;
     std::string nickname;
@@ -35,12 +38,14 @@ class Contact {
     Contact(const Contact &other);
     ~Contact();
 
+    void setIndex(const std::size_t &index);
     void setFirstName(const std::string &firstName);
     void setLastName(const std::string &lastName);
     void setNickname(const std::string &nickname);
     void setPhoneNumber(const std::string &phoneNumber);
     void setDarkestSecret(const std::string &darkestSecret);
 
+    std::size_t getIndex() const;
     std::string getFirstName() const;
     std::string getLastName() const;
     std::string getNickname() const;

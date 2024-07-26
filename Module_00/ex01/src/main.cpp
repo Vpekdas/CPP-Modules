@@ -1,43 +1,61 @@
 #include "../includes/Contact.hpp"
 #include "../includes/PhoneBook.hpp"
 #include "iostream"
+#include <cstddef>
 #include <string>
 
+std::string validAddField() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    while (input.empty()) {
+        std::cout << RED << "Error: Field cannot be empty. Please fill in the field." RESET
+                  << std::endl;
+        std::getline(std::cin, input);
+    }
+    return (input);
+}
+
 int main() {
-  PhoneBook phoneBook;
-  std::string command;
-  while (true) {
-    std::getline(std::cin, command);
-    if (command == "ADD") {
-      Contact contact;
-      std::string input;
-      std::cout << "🖊️ Enter first name 🖊️ : ";
-      std::getline(std::cin, input);
-      contact.setFirstName(input);
+    PhoneBook phoneBook;
+    std::string command;
+    std::size_t index = 0;
+    while (true) {
+        std::getline(std::cin, command);
+        if (command == "ADD") {
+            Contact contact;
+            std::cout << BCYAN "🖊️ Enter first name 🖊️ : " RESET;
+            contact.setFirstName(validAddField());
 
-      std::cout << "🖊️ Enter last name 🖊️ : ";
-      std::getline(std::cin, input);
-      contact.setLastName(input);
+            std::cout << BCYAN "🖊️ Enter last name 🖊️ : " RESET;
+            contact.setLastName(validAddField());
 
-      std::cout << "🆔 Enter nickname 🆔 : ";
-      std::getline(std::cin, input);
-      contact.setNickname(input);
+            std::cout << BCYAN "🆔 Enter nickname 🆔 : " RESET;
+            contact.setNickname(validAddField());
 
-      std::cout << "📞 Enter phone number 📞 : ";
-      std::getline(std::cin, input);
-      contact.setPhoneNumber(input);
+            std::cout << BCYAN "📞 Enter phone number 📞 : " RESET;
+            contact.setPhoneNumber(validAddField());
 
-      std::cout << "🤫 Enter darkest secret 🤫 : ";
-      std::getline(std::cin, input);
-      contact.setDarkestSecret(input);
+            std::cout << BCYAN "🤫 Enter darkest secret 🤫 : " RESET;
+            contact.setDarkestSecret(validAddField());
 
-      phoneBook.addContact(contact);
-      std::cout << GREEN "Contact " << contact.getNickname()
-                << " added succesfully ✅" RESET;
+            contact.setIndex(index);
+            index += 1;
+            if (index > 7) {
+                index = 0;
+            }
+            phoneBook.addContact(contact);
+            std::cout << GREEN "Contact " BGREEN << contact.getNickname()
+                      << GREEN " added succesfully ✅ " RESET << std::endl;
+        } else if (command == "SEARCH") {
+            phoneBook.displayContacts();
+        } else if (command == "EXIT") {
+			std::cout << BCYAN "👋 Bye bye 👋 " << std::endl;
+            return 0;
+        } else {
+            std::cout << RED << "Error: The program accepts only these commands: "
+                      << BRED "ADD, SEARCH, EXIT." RESET << RESET << std::endl;
+        }
     }
-    if (command == "SEARCH") {
-      phoneBook.displayContacts();
-    }
-  }
-  return 0;
+    return 0;
 }
