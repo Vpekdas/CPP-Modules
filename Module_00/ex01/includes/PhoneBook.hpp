@@ -1,5 +1,5 @@
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "../includes/Contact.hpp"
 
@@ -28,6 +28,7 @@ class PhoneBook {
     ~PhoneBook();
     void addContact(const Contact &contact);
     void displayContacts();
+    void displaySpecificContact(std::size_t index);
 
   private:
     Contact contacts[8];

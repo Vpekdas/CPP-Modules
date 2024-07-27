@@ -59,6 +59,7 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						PhoneBook.cpp \
 						Contact.cpp \
 						main.cpp \
+						utils.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

@@ -1,8 +1,8 @@
-#ifndef CONTACT_H
-#define CONTACT_H
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
+#include "iostream"
 #include <cstddef>
-#include <iterator>
 #include <string>
 
 #define YELLOW "\033[0;33m"
@@ -35,10 +35,9 @@ class Contact {
 
   public:
     Contact();
-    Contact(const Contact &other);
     ~Contact();
 
-    void setIndex(const std::size_t &index);
+    void setIndex(const std::size_t index);
     void setFirstName(const std::string &firstName);
     void setLastName(const std::string &lastName);
     void setNickname(const std::string &nickname);

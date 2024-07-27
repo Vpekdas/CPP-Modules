@@ -1,23 +1,15 @@
 #include "../includes/Contact.hpp"
-#include "iostream"
-#include <cstddef>
-#include <iterator>
 
-Contact::Contact() {
-    std::cout << BLUE "👷 Contact Constructor called 👷" RESET << std::endl;
-}
-
-Contact::Contact(const Contact &contact)
-    : index(contact.index), firstName(contact.firstName), lastName(contact.lastName),
-      nickname(contact.nickname), phoneNumber(contact.phoneNumber),
-      darkestSecret(contact.darkestSecret) {
+Contact::Contact()
+    : index(0), firstName(""), lastName(""), nickname(""), phoneNumber(""), darkestSecret("") {
+    std::cout << BLUE << "👷 Contact Constructor called 👷" << RESET << std::endl;
 }
 
 Contact::~Contact() {
-    std::cout << YELLOW "🧨 Contact Destructor called 🧨" RESET << std::endl;
+    std::cout << YELLOW << "🧨 Contact Destructor called 🧨" << RESET << std::endl;
 }
 
-void Contact::setIndex(const std::size_t &index) {
+void Contact::setIndex(const std::size_t index) {
     this->index = index;
 }
 

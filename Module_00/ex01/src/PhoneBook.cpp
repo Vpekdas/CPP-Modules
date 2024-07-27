@@ -1,13 +1,11 @@
 #include "../includes/PhoneBook.hpp"
-#include "iostream"
-#include <cstddef>
 
 PhoneBook::PhoneBook() : totalContacts(0), nextIndex(0) {
-    std::cout << BLUE "👷 PhoneBook constructor called 👷" RESET << std::endl;
+    std::cout << BLUE << "👷 PhoneBook constructor called 👷" << RESET << std::endl;
 }
 
 PhoneBook::~PhoneBook() {
-    std::cout << YELLOW "🧨 PhoneBook Destructor called 🧨" RESET << std::endl;
+    std::cout << YELLOW << "🧨 PhoneBook Destructor called 🧨" << RESET << std::endl;
 }
 
 std::string formatColumn(const std::string &str) {
@@ -26,16 +24,34 @@ void PhoneBook::addContact(const Contact &contact) {
         this->totalContacts = 8;
 }
 
+void PhoneBook::displaySpecificContact(std::size_t index) {
+    if (index > this->totalContacts) {
+        std::cout << RED << "Error: Specified index is out of range." << RESET << std::endl;
+        return;
+    }
+    if (this->contacts[index].getFirstName().empty()) {
+        std::cout << RED << "Error: There is nothing to show." << RESET << std::endl;
+        return;
+    }
+    std::cout << PURPLE << "All information for " << BPURPLE << this->contacts[index].getNickname()
+              << ":" << RESET << std::endl;
+    std::cout << BCYAN << "First Name: " << RESET << contacts[index].getFirstName() << std::endl;
+    std::cout << BCYAN << "Last Name: " << RESET << contacts[index].getLastName() << std::endl;
+    std::cout << BCYAN << "Nickname: " << RESET << contacts[index].getNickname() << std::endl;
+    std::cout << BCYAN << "Phone Number: " << RESET << contacts[index].getPhoneNumber()
+              << std::endl;
+    std::cout << BCYAN << "Darkest Secret: " << RESET << contacts[index].getDarkestSecret()
+              << std::endl;
+}
+
 void PhoneBook::displayContacts() {
-    std::cout << BCYAN "|"
-              << "     INDEX"
-              << "|"
-              << "FIRST NAME"
-              << "|"
-              << " LAST NAME"
-              << "|"
-              << "  NICKNAME"
-              << "|" RESET << std::endl;
+    std::string input;
+    std::size_t index;
+    std::cout << BCYAN << "|" << "     INDEX"
+              << "|" << "FIRST NAME"
+              << "|" << " LAST NAME"
+              << "|" << "  NICKNAME"
+              << "|" << RESET << std::endl;
     for (std::size_t i = 0; i < totalContacts; i++) {
         std::cout << "|"
                   << "         " << this->contacts[i].getIndex() << "|"
@@ -43,4 +59,9 @@ void PhoneBook::displayContacts() {
                   << formatColumn(this->contacts[i].getLastName()) << "|"
                   << formatColumn(this->contacts[i].getNickname()) << "|" << std::endl;
     }
+    std::cout << BCYAN << "Enter the contact index to see details." << RESET << std::endl;
+    std::getline(std::cin, input);
+    index = std::stoul(input);
+
+    displaySpecificContact(index);
 }
