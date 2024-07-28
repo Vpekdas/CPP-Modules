@@ -1,5 +1,9 @@
 #include "../includes/Contact.hpp"
 
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	// CONSTRUCTOR / DESTRUCTOR //	+	+	+	+ 	+ 		//
+// -----------------------------------------------------------------------------//
+
 Contact::Contact()
     : index(0), firstName(""), lastName(""), nickname(""), phoneNumber(""), darkestSecret("") {
     std::cout << BLUE << "👷 Contact Constructor called 👷" << RESET << std::endl;
@@ -8,6 +12,10 @@ Contact::Contact()
 Contact::~Contact() {
     std::cout << YELLOW << "🧨 Contact Destructor called 🧨" << RESET << std::endl;
 }
+
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	// SETTER //	+	+	+	+ 	+ 	+ 	+		//
+// -----------------------------------------------------------------------------//
 
 void Contact::setIndex(const std::size_t index) {
     this->index = index;
@@ -32,6 +40,10 @@ void Contact::setPhoneNumber(const std::string &phoneNumber) {
 void Contact::setDarkestSecret(const std::string &darkestSecret) {
     this->darkestSecret = darkestSecret;
 }
+
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	// GETTER //	+	+	+	+ 	+ 	+ 	+		//
+// -----------------------------------------------------------------------------//
 
 std::size_t Contact::getIndex() const {
     return index;

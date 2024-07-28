@@ -1,9 +1,11 @@
 #include "../includes/PhoneBook.hpp"
 
+// Command constants.
 const std::string ADD_COMMAND = "ADD";
 const std::string SEARCH_COMMAND = "SEARCH";
 const std::string EXIT_COMMAND = "EXIT";
 
+// Checks if the input string contains only digits.
 bool onlyDigit(std::string input) {
     for (std::size_t i = 0; i < input.length(); i++)
         if (!std::isdigit(input[i])) {
@@ -12,6 +14,7 @@ bool onlyDigit(std::string input) {
     return true;
 }
 
+// Checks if the input is not empty when adding a contact.
 std::string validAddField(bool digitsOnly = false) {
     std::string input;
     std::getline(std::cin, input);
@@ -28,6 +31,7 @@ std::string validAddField(bool digitsOnly = false) {
     return input;
 }
 
+// Handles the ADD command.
 void addCommand(PhoneBook &phoneBook, std::size_t &index) {
     Contact contact;
     std::cout << BCYAN << "🖊️ Enter first name 🖊️ : " << RESET;
@@ -55,6 +59,7 @@ void addCommand(PhoneBook &phoneBook, std::size_t &index) {
               << " added succesfully ✅ " << RESET << std::endl;
 }
 
+// Function that wrap all commands.
 void handleCommand(const std::string &command, PhoneBook &phoneBook, std::size_t &index) {
     if (command == ADD_COMMAND) {
         addCommand(phoneBook, index);

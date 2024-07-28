@@ -24,14 +24,23 @@ class Account {
     static int getTotalAmount(void);
     static int getNbDeposits(void);
     static int getNbWithdrawals(void);
+    // Display all information such as the number of accounts, total amounts, deposits, and
+    // withdrawals.
     static void displayAccountsInfos(void);
 
+    // Constructor, create an account with an initial deposit.
     Account(int initial_deposit);
     ~Account(void);
 
+    // Increase the amount of an account with the deposit and print updated information with
+    // previous and current amounts.
     void makeDeposit(int deposit);
+    // Decrease the amount of an account with the withdrawal and print updated information with
+    // previous and current amounts.
     bool makeWithdrawal(int withdrawal);
+
     int checkAmount(void) const;
+    // Display this information for an account: index, amount, deposits, and withdrawals.
     void displayStatus(void) const;
 
   private:
@@ -39,7 +48,7 @@ class Account {
     static int _totalAmount;
     static int _totalNbDeposits;
     static int _totalNbWithdrawals;
-
+    // Display the timestamp in the format YYMMDD and hour minute second.
     static void _displayTimestamp(void);
 
     int _accountIndex;
