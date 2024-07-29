@@ -1,4 +1,6 @@
 #include "../includes/PhoneBook.hpp"
+#include "../includes/Contact.hpp"
+#include "../includes/utils.hpp"
 
 PhoneBook::PhoneBook() : totalContacts(0), nextIndex(0) {
     std::cout << BLUE << "👷 PhoneBook constructor called 👷" << RESET << std::endl;
@@ -26,11 +28,12 @@ void PhoneBook::addContact(const Contact &contact) {
 
 void PhoneBook::displaySpecificContact(std::size_t index) {
     if (index > this->totalContacts) {
-        std::cout << RED << "Error: Specified index is out of range." << RESET << std::endl;
+        std::cout << RED << "Error: Specified index is out of range." << BRED
+                  << " Exiting SEARCH mode." << RESET << std::endl;
         return;
-    }
-    if (this->contacts[index].getFirstName().empty()) {
-        std::cout << RED << "Error: There is nothing to show." << RESET << std::endl;
+    } else if (this->contacts[index].getFirstName().empty()) {
+        std::cout << RED << "Error: No contact found at the specified index." << BRED
+                  << " Exiting SEARCH mode." << RESET << std::endl;
         return;
     }
     std::cout << PURPLE << "All information for " << BPURPLE << this->contacts[index].getNickname()
@@ -47,10 +50,14 @@ void PhoneBook::displaySpecificContact(std::size_t index) {
 void PhoneBook::displayContacts() {
     std::string input;
     std::size_t index;
-    std::cout << BCYAN << "|" << "     INDEX"
-              << "|" << "FIRST NAME"
-              << "|" << " LAST NAME"
-              << "|" << "  NICKNAME"
+    std::cout << BCYAN << "|"
+              << "     INDEX"
+              << "|"
+              << "FIRST NAME"
+              << "|"
+              << " LAST NAME"
+              << "|"
+              << "  NICKNAME"
               << "|" << RESET << std::endl;
     for (std::size_t i = 0; i < totalContacts; i++) {
         std::cout << "|"
@@ -60,8 +67,9 @@ void PhoneBook::displayContacts() {
                   << formatColumn(this->contacts[i].getNickname()) << "|" << std::endl;
     }
     std::cout << BCYAN << "Enter the contact index to see details." << RESET << std::endl;
-    std::getline(std::cin, input);
-    index = std::stoul(input);
+
+    input = validAddField(true);
+    index = strtoul(input.c_str(), NULL, 10);
 
     displaySpecificContact(index);
 }
