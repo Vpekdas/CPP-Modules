@@ -57,9 +57,6 @@
 // -----------------------------------------------------------------------------//
 
 class Weapon {
-  private:
-    std::string type;
-
   public:
     // Constructor that initializes the weapon with a given type name.
     Weapon(const std::string &type);
@@ -71,6 +68,9 @@ class Weapon {
 
     // Setter for the weapon's type.
     void setType(std::string type);
+
+  private:
+    std::string type;
 };
 
 #endif

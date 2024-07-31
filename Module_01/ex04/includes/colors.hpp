@@ -1,9 +1,6 @@
-#ifndef ZOMBIE_HPP
+#ifndef COLORS_HPP
 
-#define ZOMBIE_HPP
-
-#include <iostream>
-#include <string>
+#define COLORS_HPP
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	+	+		// COLORS //	+	+	+	+ 	+	+	+	//
@@ -48,18 +45,4 @@
 #define NWHITE "\033[1;97m"
 #define NPINK "\033[1;95m"
 
-class Zombie {
-  public:
-    void announce(void);
-
-    std::string getName() const;
-    void setName(std::string name);
-    ~Zombie();
-
-  private:
-    std::string name;
-};
-
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
 #endif

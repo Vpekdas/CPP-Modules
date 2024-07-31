@@ -50,9 +50,6 @@
 #define NPINK "\033[1;95m"
 
 class Zombie {
-  private:
-    std::string name;
-
   public:
     ~Zombie();
 
@@ -60,6 +57,9 @@ class Zombie {
 
     std::string getName() const;
     void setName(std::string name);
+
+  private:
+    std::string name;
 };
 
 Zombie *zombieHorde(int N, std::string name);

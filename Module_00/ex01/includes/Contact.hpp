@@ -37,14 +37,6 @@
 // -----------------------------------------------------------------------------//
 
 class Contact {
-  private:
-    std::size_t index;
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;
-
   public:
     Contact();
     ~Contact();
@@ -62,6 +54,14 @@ class Contact {
     std::string getNickname() const;
     std::string getPhoneNumber() const;
     std::string getDarkestSecret() const;
+
+  private:
+    std::size_t index;
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string phoneNumber;
+    std::string darkestSecret;
 };
 
 #endif

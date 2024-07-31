@@ -1,14 +1,12 @@
-#ifndef ZOMBIE_HPP
+#ifndef HARL_HPP
 
-#define ZOMBIE_HPP
-
-#include <iostream>
-#include <string>
+#define HARL_HPP
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	+	+		// COLORS //	+	+	+	+ 	+	+	+	//
 // -----------------------------------------------------------------------------//
 
+#include <string>
 #define YELLOW "\033[0;33m"
 #define GREEN "\033[0;32m"
 #define BLUE "\033[0;34m"
@@ -48,18 +46,40 @@
 #define NWHITE "\033[1;97m"
 #define NPINK "\033[1;95m"
 
-class Zombie {
-  public:
-    void announce(void);
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	+	// LIBRARIES //	+	+	+	+ 	+	+	+	//
+// -----------------------------------------------------------------------------//
 
-    std::string getName() const;
-    void setName(std::string name);
-    ~Zombie();
+#include <iostream>
+#include <map>
 
-  private:
-    std::string name;
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	+	// ENUME //	+	+	+	+ 	+	+	+	+	//
+// -----------------------------------------------------------------------------//
+
+enum LogLevel {
+    LL_DEBUG,
+    LL_INFO,
+    LL_WARNING,
+    LL_ERROR
 };
 
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	+	// CLASS //	+	+	+	+ 	+	+	+	+	//
+// -----------------------------------------------------------------------------//
+
+class Harl {
+  public:
+    Harl();
+    ~Harl();
+    void complain(std::string level);
+
+  private:
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+};
+
+
 #endif

@@ -13,10 +13,6 @@
 // -----------------------------------------------------------------------------//
 
 class HumanB {
-  private:
-    Weapon *weapon;
-    std::string name;
-
   public:
     //   Constructor
     HumanB(const std::string &name);
@@ -31,6 +27,10 @@ class HumanB {
 
     // Display an attack message that shows the name and the weapon type.
     void attack();
+
+  private:
+    Weapon *weapon;
+    std::string name;
 };
 
 #endif
