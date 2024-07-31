@@ -1,6 +1,6 @@
-#ifndef COLORS_HPP
+#ifndef WEAPON_H
 
-#define COLORS_HPP
+#define WEAPON_H
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	+	+		// COLORS //	+	+	+	+ 	+	+	+	//
@@ -15,6 +15,7 @@
 #define BLACK "\033[0;30m"
 #define WHITE "\033[0;37m"
 #define RESET "\033[0m"
+#define PINK "\033[0;95m"
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	+	+		// BOLD COLORS //	+	+	+	+ 	+	+	//
@@ -28,6 +29,7 @@
 #define BCYAN "\033[1;36m"
 #define BBLACK "\033[1;30m"
 #define BWHITE "\033[1;37m"
+#define BPINK "\033[1;95m"
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	+	+		// NEON COLORS //	+	+	+	+ 	+	+	//
@@ -41,5 +43,34 @@
 #define NCYAN "\033[1;96m"
 #define NBLACK "\033[1;90m"
 #define NWHITE "\033[1;97m"
+#define NPINK "\033[1;95m"
+
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	//  LIBRARIES //	+	+	+	+ 	+	+	+	//
+// -----------------------------------------------------------------------------//
+
+#include <iostream>
+#include <string>
+
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+	//  CLASS //	+	+	+	+ 	+	+	+	+	//
+// -----------------------------------------------------------------------------//
+
+class Weapon {
+  private:
+    std::string type;
+
+  public:
+    // Constructor that initializes the weapon with a given type name.
+    Weapon(const std::string &type);
+    // Deconstructor
+    ~Weapon();
+
+    // Returns a const reference to avoid copying the string.
+    const std::string &getType();
+
+    // Setter for the weapon's type.
+    void setType(std::string type);
+};
 
 #endif

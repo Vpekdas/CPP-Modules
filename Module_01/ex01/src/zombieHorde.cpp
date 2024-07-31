@@ -1,5 +1,4 @@
 #include "../includes/Zombie.hpp"
-#include "../includes/colors.hpp"
 
 Zombie *zombieHorde(int N, std::string name) {
     if (N < 0) {

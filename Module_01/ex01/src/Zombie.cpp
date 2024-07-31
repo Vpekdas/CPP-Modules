@@ -1,5 +1,4 @@
 #include "../includes/Zombie.hpp"
-#include "../includes/colors.hpp"
 
 void Zombie::announce() {
     std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;

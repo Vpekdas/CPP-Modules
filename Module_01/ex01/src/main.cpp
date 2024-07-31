@@ -1,8 +1,4 @@
 #include "../includes/Zombie.hpp"
-#include "../includes/colors.hpp"
-#include <ostream>
-#include <sstream>
-#include <string>
 
 int main() {
 

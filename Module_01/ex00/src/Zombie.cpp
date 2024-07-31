@@ -1,14 +1,7 @@
 #include "../includes/Zombie.hpp"
-#include "../includes/colors.hpp"
 
 void Zombie::announce() {
     std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-Zombie *newZombie(std::string name) {
-    Zombie *zombie = new Zombie();
-    zombie->setName(name);
-    return zombie;
 }
 
 Zombie::~Zombie() {
