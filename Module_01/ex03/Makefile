@@ -1,6 +1,6 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= HI_THIS_IS_BRAIN
-PROJECT_NAME	:= HI THIS IS BRAIN
+NAME			:= UnnecessaryViolence
+PROJECT_NAME	:= Unnecessary violence
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++

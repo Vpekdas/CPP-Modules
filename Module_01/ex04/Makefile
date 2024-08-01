@@ -1,5 +1,5 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= Sed_is_for_losers
+NAME			:= SedIsForLosers
 PROJECT_NAME	:= Sed is for losers
 
 # =========================== COMPILER AND FLAGS ============================= #

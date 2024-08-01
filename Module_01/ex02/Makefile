@@ -1,5 +1,5 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= HI_THIS_IS_BRAIN
+NAME			:= HiThisIsBrain
 PROJECT_NAME	:= HI THIS IS BRAIN
 
 # =========================== COMPILER AND FLAGS ============================= #

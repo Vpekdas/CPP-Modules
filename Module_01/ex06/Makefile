@@ -1,6 +1,6 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= Harl2.0
-PROJECT_NAME	:= Harl 2.0
+NAME			:= HarlFilter
+PROJECT_NAME	:= Harl filter
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++

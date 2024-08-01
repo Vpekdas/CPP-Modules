@@ -1,5 +1,5 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= Moar_brainz!
+NAME			:= MoarBrainz!
 PROJECT_NAME	:= Moar brainz!
 
 # =========================== COMPILER AND FLAGS ============================= #

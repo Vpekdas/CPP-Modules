@@ -19,6 +19,7 @@ Harl::~Harl() {
 void Harl::complain(std::string level) {
     if (complaints.find(level) != complaints.end()) {
         (this->*complaints[level])();
+        std::cout << std::endl;
     } else {
         std::cerr << PURPLE << "❓ Unknown complaint ❓ : " << level << RESET << std::endl;
     }
