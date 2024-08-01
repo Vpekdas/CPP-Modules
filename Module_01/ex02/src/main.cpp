@@ -16,16 +16,16 @@ int main() {
 
     std::cout << NCYAN << "Memory adress of string variable : " NGREEN << &string << RESET
               << std::endl;
-    std::cout << NCYAN << "Memory address held by stringPTR : " NPURPLE << &stringPTR << RESET
+    std::cout << NCYAN << "Memory address held by stringPTR : " NPURPLE << stringPTR << RESET
               << std::endl;
     std::cout << NCYAN << "Memory address held by stringREF : " NYELLOW << &stringREF << RESET
               << std::endl;
 
-    std::cout << NCYAN << "------------------------------------------------------------" << RESET << std::endl;
+    std::cout << NYELLOW << "------------------------------------------------------------" << RESET << std::endl;
 
     std::cout << NCYAN << "Value of string variable : " NGREEN << string << RESET << std::endl;
-    std::cout << NCYAN << "Value pointed to by stringPTR : " NPURPLE << *stringPTR << RESET
+    std::cout << NCYAN << "Value pointed to stringPTR : " NPURPLE << *stringPTR << RESET
               << std::endl;
-    std::cout << NCYAN << "Value pointed to byby stringREF : " NYELLOW << stringREF << RESET
+    std::cout << NCYAN << "Value pointed to stringREF : " NYELLOW << stringREF << RESET
               << std::endl;
 }

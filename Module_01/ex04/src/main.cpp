@@ -41,6 +41,11 @@ int main(int ac, char **av) {
             // Return the index of the first occurrence of the search string in the line.
             indexOccurence = line.find(occurence);
 
+            // Skip replacement if the search string and replacement string are identical.
+            if (replaceBy == occurence || occurence.empty()) {
+                indexOccurence = -1;
+            }
+
             // Continue replacing occurrences of the search string in the line as long as they are
             // found.
             while (indexOccurence != -1) {

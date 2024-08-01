@@ -12,9 +12,8 @@ int main() {
     std::cout << NCYAN << "Number is : " << zombieNb << RESET << std::endl;
     horde = zombieHorde(zombieNb, name);
 
-    // when you new an array, use delete [].
     delete[] horde;
-    std::cout << NYELLOW << "---------------------------------" << RESET << std::endl;
+    std::cout << NPURPLE << "---------------------------------" << RESET << std::endl;
 
     name = "";
     zombieNb = 1;
@@ -22,7 +21,7 @@ int main() {
     std::cout << NCYAN << "Number is : " << zombieNb << RESET << std::endl;
     horde = zombieHorde(zombieNb, name);
     delete[] horde;
-    std::cout << NYELLOW << "---------------------------------" << RESET << std::endl;
+    std::cout << NPURPLE << "---------------------------------" << RESET << std::endl;
 
     name = "zero zombie";
     zombieNb = 0;
@@ -30,7 +29,7 @@ int main() {
     std::cout << NCYAN << "Number is : " << zombieNb << RESET << std::endl;
     horde = zombieHorde(zombieNb, name);
     delete[] horde;
-    std::cout << NYELLOW << "---------------------------------" << RESET << std::endl;
+    std::cout << NPURPLE << "---------------------------------" << RESET << std::endl;
 
     name = "negative zombie";
     zombieNb = -42;
@@ -38,5 +37,5 @@ int main() {
     std::cout << NCYAN << "Number is : " << zombieNb << RESET << std::endl;
     horde = zombieHorde(zombieNb, name);
     delete[] horde;
-    std::cout << NYELLOW << "---------------------------------" << RESET << std::endl;
+    std::cout << NPURPLE << "---------------------------------" << RESET << std::endl;
 }
