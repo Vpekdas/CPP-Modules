@@ -53,7 +53,6 @@
 // -----------------------------------------------------------------------------//
 
 #include <iostream>
-#include <map>
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	+	+	+	// ENUM //	+	+	+	+ 	+	+	+	+	//
@@ -88,8 +87,13 @@ class Harl {
     void warning(void);
     // Handles the ERROR level complaint.
     void error(void);
-    // Create a map to store complaints and their pointers to member functions.
-    std::map<std::string, void (Harl::*)(void)> complaints;
+
+    struct Complaints {
+        std::string level;
+        void (Harl::*complain)();
+    };
+
+    Complaints complaints[4];
 };
 
 #endif

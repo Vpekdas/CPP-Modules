@@ -2,11 +2,14 @@
 
 // Constructor: Initializes the Harl object and sets up the complaint handlers.
 Harl::Harl() {
-    // Map complaint levels to their corresponding member functions.
-    complaints["DEBUG"] = &Harl::debug;
-    complaints["INFO"] = &Harl::info;
-    complaints["WARNING"] = &Harl::warning;
-    complaints["ERROR"] = &Harl::error;
+    complaints[0].level = "DEBUG";
+    complaints[0].complain = &Harl::debug;
+    complaints[1].level = "INFO";
+    complaints[1].complain = &Harl::info;
+    complaints[2].level = "WARNING";
+    complaints[2].complain = &Harl::warning;
+    complaints[3].level = "ERROR";
+    complaints[3].complain = &Harl::error;
     std::cout << YELLOW << "🛠️ Harl Constructor called 🛠️" << RESET << std::endl;
 }
 
@@ -17,11 +20,11 @@ Harl::~Harl() {
 
 // Given a complaint level, use the find method to determine which one should be called.
 void Harl::complain(std::string level) {
-    if (complaints.find(level) != complaints.end()) {
-        (this->*complaints[level])();
-        std::cout << std::endl;
-    } else {
-        std::cerr << PURPLE << "❓ Unknown complaint ❓ : " << level << RESET << std::endl;
+    for (int i = 0; i < 4; ++i) {
+        if (this->complaints[i].level == level) {
+            (this->*complaints[i].complain)();
+            return;
+        }
     }
 }
 
