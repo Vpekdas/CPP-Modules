@@ -1,4 +1,5 @@
 #include "../includes/PhoneBook.hpp"
+#include "../includes/colors.hpp"
 
 // Command constants.
 const std::string ADD_COMMAND = "ADD";
@@ -34,19 +35,19 @@ std::string validAddField(bool digitsOnly = false) {
 // Handles the ADD command.
 void addCommand(PhoneBook &phoneBook, std::size_t &index) {
     Contact contact;
-    std::cout << BCYAN << "🖊️ Enter first name 🖊️ : " << RESET;
+    std::cout << NCYAN << "🖊️ Enter first name 🖊️ : " << RESET;
     contact.setFirstName(validAddField());
 
-    std::cout << BCYAN << "🖊️ Enter last name 🖊️ : " << RESET;
+    std::cout << NCYAN << "🖊️ Enter last name 🖊️ : " << RESET;
     contact.setLastName(validAddField());
 
-    std::cout << BCYAN << "🆔 Enter nickname 🆔 : " << RESET;
+    std::cout << NCYAN << "🆔 Enter nickname 🆔 : " << RESET;
     contact.setNickname(validAddField());
 
-    std::cout << BCYAN << "📞 Enter phone number 📞 : " << RESET;
+    std::cout << NCYAN << "📞 Enter phone number 📞 : " << RESET;
     contact.setPhoneNumber(validAddField(true));
 
-    std::cout << BCYAN << "🤫 Enter darkest secret 🤫 : " << RESET;
+    std::cout << NCYAN << "🤫 Enter darkest secret 🤫 : " << RESET;
     contact.setDarkestSecret(validAddField());
 
     contact.setIndex(index);
@@ -55,7 +56,7 @@ void addCommand(PhoneBook &phoneBook, std::size_t &index) {
         index = 0;
     }
     phoneBook.addContact(contact);
-    std::cout << GREEN << "Contact " BGREEN << contact.getNickname() << GREEN
+    std::cout << GREEN << "Contact " NGREEN << contact.getNickname() << GREEN
               << " added succesfully ✅ " << RESET << std::endl;
 }
 
@@ -66,10 +67,10 @@ void handleCommand(const std::string &command, PhoneBook &phoneBook, std::size_t
     } else if (command == SEARCH_COMMAND) {
         phoneBook.displayContacts();
     } else if (command == EXIT_COMMAND) {
-        std::cout << BCYAN << "👋 Bye bye 👋 " << RESET << std::endl;
+        std::cout << NCYAN << "👋 Bye bye 👋 " << RESET << std::endl;
         exit(0);
     } else {
-        std::cout << RED << "Error: The program accepts only these commands: " << BRED
+        std::cout << RED << "Error: The program accepts only these commands: " << NRED
                   << "ADD, SEARCH, EXIT." << RESET << std::endl;
     }
 }

@@ -1,4 +1,5 @@
 #include "../includes/Weapon.hpp"
+#include "../includes/colors.hpp"
 
 // Weapon Constructor that create a weapon with the given type.
 Weapon::Weapon(const std::string &type) {

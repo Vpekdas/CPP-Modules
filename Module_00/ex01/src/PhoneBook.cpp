@@ -1,5 +1,6 @@
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Contact.hpp"
+#include "../includes/colors.hpp"
 #include "../includes/utils.hpp"
 
 PhoneBook::PhoneBook() : totalContacts(0), nextIndex(0) {
@@ -28,29 +29,29 @@ void PhoneBook::addContact(const Contact &contact) {
 
 void PhoneBook::displaySpecificContact(std::size_t index) {
     if (index > this->totalContacts) {
-        std::cout << RED << "Error: Specified index is out of range." << BRED
+        std::cout << RED << "Error: Specified index is out of range." << NRED
                   << " Exiting SEARCH mode." << RESET << std::endl;
         return;
     } else if (this->contacts[index].getFirstName().empty()) {
-        std::cout << RED << "Error: No contact found at the specified index." << BRED
+        std::cout << RED << "Error: No contact found at the specified index." << NRED
                   << " Exiting SEARCH mode." << RESET << std::endl;
         return;
     }
-    std::cout << PURPLE << "All information for " << BPURPLE << this->contacts[index].getNickname()
+    std::cout << PURPLE << "All information for " << NPURPLE << this->contacts[index].getNickname()
               << ":" << RESET << std::endl;
-    std::cout << BCYAN << "First Name: " << RESET << contacts[index].getFirstName() << std::endl;
-    std::cout << BCYAN << "Last Name: " << RESET << contacts[index].getLastName() << std::endl;
-    std::cout << BCYAN << "Nickname: " << RESET << contacts[index].getNickname() << std::endl;
-    std::cout << BCYAN << "Phone Number: " << RESET << contacts[index].getPhoneNumber()
+    std::cout << NCYAN << "First Name: " << RESET << contacts[index].getFirstName() << std::endl;
+    std::cout << NCYAN << "Last Name: " << RESET << contacts[index].getLastName() << std::endl;
+    std::cout << NCYAN << "Nickname: " << RESET << contacts[index].getNickname() << std::endl;
+    std::cout << NCYAN << "Phone Number: " << RESET << contacts[index].getPhoneNumber()
               << std::endl;
-    std::cout << BCYAN << "Darkest Secret: " << RESET << contacts[index].getDarkestSecret()
+    std::cout << NCYAN << "Darkest Secret: " << RESET << contacts[index].getDarkestSecret()
               << std::endl;
 }
 
 void PhoneBook::displayContacts() {
     std::string input;
     std::size_t index;
-    std::cout << BCYAN << "|"
+    std::cout << NCYAN << "|"
               << "     INDEX"
               << "|"
               << "FIRST NAME"
@@ -66,7 +67,7 @@ void PhoneBook::displayContacts() {
                   << formatColumn(this->contacts[i].getLastName()) << "|"
                   << formatColumn(this->contacts[i].getNickname()) << "|" << std::endl;
     }
-    std::cout << BCYAN << "Enter the contact index to see details." << RESET << std::endl;
+    std::cout << NCYAN << "Enter the contact index to see details." << RESET << std::endl;
 
     input = validAddField(true);
     index = strtoul(input.c_str(), NULL, 10);

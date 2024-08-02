@@ -1,4 +1,5 @@
 #include "../includes/HumanB.hpp"
+#include "../includes/colors.hpp"
 
 // HumanB Constructor by giving him a name.
 HumanB::HumanB(const std::string &name) {
@@ -18,7 +19,7 @@ void HumanB::setWeapon(Weapon &weapon) {
 
 // HumanABattack that displays the name of the human and the name of the weapon.
 void HumanB::attack() {
-    std::cout << BPURPLE << this->getName() << " attacks with their " << this->weapon->getType()
+    std::cout << NPURPLE << this->getName() << " attacks with their " << this->weapon->getType()
               << std::endl;
 }
 

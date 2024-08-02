@@ -1,4 +1,6 @@
 #include "../includes/Zombie.hpp"
+#include "../includes/colors.hpp"
+
 
 // Display the zombie's name followed by a specific message.
 void Zombie::announce() {

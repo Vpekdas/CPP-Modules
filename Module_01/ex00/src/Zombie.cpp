@@ -1,4 +1,5 @@
 #include "../includes/Zombie.hpp"
+#include "../includes/colors.hpp"
 
 // Print the zombie's announcement message to standard output.
 void Zombie::announce() {

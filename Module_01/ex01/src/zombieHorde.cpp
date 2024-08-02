@@ -1,4 +1,6 @@
 #include "../includes/Zombie.hpp"
+#include "../includes/colors.hpp"
+
 
 // Create an array of Zombie objects by specifying the number of zombies and their name.
 Zombie *zombieHorde(int N, std::string name) {

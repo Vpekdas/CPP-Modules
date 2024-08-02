@@ -1,4 +1,6 @@
 #include "../includes/Zombie.hpp"
+#include "../includes/colors.hpp"
+
 
 int main() {
     std::string name = "Zombie 1";

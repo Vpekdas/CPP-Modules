@@ -1,4 +1,5 @@
 #include "../includes/Harl.hpp"
+#include "../includes/colors.hpp"
 
 // Return the case number for switch based on an enum.
 std::size_t returnChoiceIndex(std::string choice) {

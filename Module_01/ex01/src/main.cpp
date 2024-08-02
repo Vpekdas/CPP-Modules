@@ -1,4 +1,5 @@
 #include "../includes/Zombie.hpp"
+#include "../includes/colors.hpp"
 
 int main() {
 

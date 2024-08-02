@@ -1,4 +1,5 @@
 #include "../includes/Contact.hpp"
+#include "../includes/colors.hpp"
 
 // -----------------------------------------------------------------------------//
 //	+	+	+	+	+	// CONSTRUCTOR / DESTRUCTOR //	+	+	+	+ 	+ 		//

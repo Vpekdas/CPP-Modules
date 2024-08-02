@@ -4,7 +4,7 @@ PROJECT_NAME	:= Unnecessary violence
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O3 -fno-builtin -I includes/
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O3 -I includes/
 DEPFLAGS		:= -MMD -MP
 
 # ================================= ALIASES ================================== #

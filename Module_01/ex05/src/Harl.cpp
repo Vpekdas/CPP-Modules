@@ -1,4 +1,5 @@
 #include "../includes/Harl.hpp"
+#include "../includes/colors.hpp"
 
 // Constructor: Initializes the Harl object and sets up the complaint handlers.
 Harl::Harl() {

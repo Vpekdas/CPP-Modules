@@ -1,4 +1,5 @@
 #include "../includes/HumanA.hpp"
+#include "../includes/colors.hpp"
 
 // Must initialize weapon because it's a reference.
 
@@ -15,7 +16,7 @@ HumanA::~HumanA() {
 
 // HumanA attack that displays the name of the human and the name of the weapon.
 void HumanA::attack() {
-    std::cout << BPURPLE << this->getName() << " attacks with their " << this->weapon.getType()
+    std::cout << NPURPLE << this->getName() << " attacks with their " << this->weapon.getType()
               << std::endl;
 }
 
