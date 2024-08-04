@@ -29,9 +29,5 @@ int Fixed::getRawBits(void) const {
 }
 
 void Fixed::setRawBits(int const raw) {
-    if (raw < 0) {
-        std::cerr << RED << "❌ Error: raw bits cannot be negative. ❌" << RESET << std::endl;
-        return;
-    }
     this->rawBits = raw;
 }
