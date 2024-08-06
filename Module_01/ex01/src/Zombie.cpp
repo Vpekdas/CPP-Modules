@@ -1,29 +1,25 @@
 #include "../includes/Zombie.hpp"
 #include "../includes/colors.hpp"
 
-
-// Display the zombie's name followed by a specific message.
 void Zombie::announce() {
     std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-// Constructor that displays a message.
+// Logs the creation of a Zombie object to help with debugging and tracking object lifecycle.
 Zombie::Zombie() {
     std::cout << YELLOW << "🧟🛠️ Zombie Constructor called 🧟🛠️" << RESET
               << std::endl;
 }
 
-// Destructor that displays a message.
+// Logs the destruction of a Zombie object to help with debugging and tracking object lifecycle.
 Zombie::~Zombie() {
     std::cout << RED << "🧟🔫 Zombie Destructor called 🧟🔫" << RESET << std::endl;
 }
 
-// Returns the name of the Zombie instance.
 std::string Zombie::getName() const {
     return name;
 }
 
-// Sets the name of the current Zombie instance.
 void Zombie::setName(std::string name) {
     this->name = name;
 }

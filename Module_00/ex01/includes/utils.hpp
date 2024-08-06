@@ -4,16 +4,18 @@
 #include "../includes/PhoneBook.hpp"
 #include <string>
 
-// Checks if the input string contains only digits.
 bool onlyDigit(std::string input);
 
-// Checks if the input is not empty when adding a contact.
+// Ensures that the input is valid and not empty when adding a contact, optionally checking for
+// digits only. This helps maintain data integrity by preventing empty or invalid entries.
 std::string validAddField(bool digitsOnly = false);
 
-// Handles the ADD command.
+// Adds a new contact to the phone book, updating the index accordingly.
+// This function encapsulates the logic for adding contacts, ensuring consistency.
 void addCommand(PhoneBook &phoneBook, std::size_t &index);
 
-// Wraps all command handling.
+// Handles all commands related to the phone book, providing a single entry point for command
+// processing. This centralizes command handling, making the code easier to maintain and extend.
 void handleCommand(const std::string &command, PhoneBook &phoneBook, std::size_t &index);
 
 #endif

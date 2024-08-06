@@ -15,15 +15,13 @@
 
 class Weapon {
   public:
-    // Constructor that initializes the weapon with a given type name.
+    // Constructor that initializes the Weapon with a specific type.
+    // This ensures that every Weapon object starts with a valid type.
     Weapon(const std::string &type);
-    // Deconstructor
     ~Weapon();
 
-    // Returns a const reference to avoid copying the string.
     const std::string &getType();
 
-    // Setter for the weapon's type.
     void setType(std::string type);
 
   private:

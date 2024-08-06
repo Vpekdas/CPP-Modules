@@ -14,31 +14,20 @@
 
 class Fixed {
   public:
-    // Default Constructor
     Fixed();
-
-    // Int Constructor
     Fixed(const int number);
-
-    // Float Constructor
     Fixed(const float number);
 
-    // Destructor
     ~Fixed();
-
-    // Copy Constructor
     Fixed(const Fixed &other);
 
-    // Copy Assignment Operator
     Fixed &operator=(const Fixed &other);
 
-    // Converts the Fixed-point value to a floating-point value
     float toFloat(void) const;
 
-    // Converts the fixed-point value to an integer value
     int toInt(void) const;
 
-    // Overloads the comparison operators
+    // Comparison operators to enable fixed-point number comparisons.
     bool operator>(const Fixed &other) const;
     bool operator<(const Fixed &other) const;
     bool operator>=(const Fixed &other) const;
@@ -46,42 +35,42 @@ class Fixed {
     bool operator==(const Fixed &other) const;
     bool operator!=(const Fixed &other) const;
 
-    // Overload the arithmetic operators
+    // Arithmetic operators to enable fixed-point number arithmetic.
     Fixed operator+(const Fixed &other) const;
     Fixed operator-(const Fixed &other) const;
     Fixed operator*(const Fixed &other) const;
     Fixed operator/(const Fixed &other) const;
 
-    // Overload the increment and decrement operators
+    // Increment and decrement operators for fixed-point numbers.
+    Fixed &operator++();   // Prefix increment
+    Fixed operator++(int); // Postfix increment
+    Fixed &operator--();   // Prefix decrement
+    Fixed operator--(int); // Postfix decrement
 
-    // Prefix/Postfix increment
-    Fixed &operator++();
-    Fixed operator++(int);
-    Fixed &operator--();
-    Fixed operator--(int);
-
-    // Return a reference to the smallest fixed point.
+    // Returns the smaller of two fixed-point numbers, allowing modification of the result.
     static Fixed &min(Fixed &nb1, Fixed &nb2);
 
-    // Return a reference to the smallest constant fixed point.
+    // Returns the smaller of two fixed-point numbers, without allowing modification of the result.
     static const Fixed &min(const Fixed &nb1, const Fixed &nb2);
 
-    // Return a reference to the greated fixed point.
+    // Returns the larger of two fixed-point numbers, allowing modification of the result.
     static Fixed &max(Fixed &nb1, Fixed &nb2);
 
-    // Return a reference to the greatest constant fixed point.
+    // Returns the larger of two fixed-point numbers, without allowing modification of the result.
     static const Fixed &max(const Fixed &nb1, const Fixed &nb2);
 
     int getRawBits(void) const;
-
     void setRawBits(int const raw);
 
   private:
+    // Stores the fixed-point number value
     int rawBits;
+
+    // Number of fractional bits for fixed-point representation
     static const int fractionalBits = 8;
 };
 
-// Declaration of the << operator
+// Overloads the << operator to provide a convenient way to output the fixed-point number.
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif // FIXED_HPP

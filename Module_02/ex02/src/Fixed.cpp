@@ -10,6 +10,7 @@ Fixed::Fixed(const int number) {
     std::cout << YELLOW << "🛠️ Int Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
+// Converts a float to the fixed-point representation by scaling and rounding.
 Fixed::Fixed(const float number) {
     this->rawBits = static_cast<int>(roundf(number * (1 << fractionalBits)));
     std::cout << YELLOW << "🛠️ Float Fixed Constructor called 🛠️" << RESET << std::endl;
@@ -19,12 +20,14 @@ Fixed::~Fixed() {
     std::cout << RED << "🧨 Fixed Destructor called 🧨" << RESET << std::endl;
 }
 
+// Copy constructor to create a new object as a copy of an existing one.
 Fixed::Fixed(const Fixed &other) {
     this->rawBits = other.rawBits;
     std::cout << YELLOW << "🖨️ Fixed Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
+    // Ensures proper assignment of rawBits when using the assignment operator.
     if (this != &other) {
         this->rawBits = other.rawBits;
     }

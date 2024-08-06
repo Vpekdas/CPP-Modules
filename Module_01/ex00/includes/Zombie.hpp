@@ -15,28 +15,24 @@
 
 class Zombie {
   public:
-    void announce(void);
-
-    // Getter for the Zombie's name.
-    std::string getName() const;
-
-    // Setter for the Zombie's name.
-    void setName(std::string name);
-
-    // COnstructor
     Zombie();
-
-    // Deconstructor
     ~Zombie();
+
+    void announce(void);
+    std::string getName() const;
+    void setName(std::string name);
 
   private:
     std::string name;
 };
 
-// Dynamically allocate and return a pointer to a new Zombie object using the 'new' keyword.
+// Creates a new Zombie object on the heap to allow for dynamic lifetime management.
+// This is useful when the Zombie's lifetime needs to extend beyond the scope in which it was
+// created.
 Zombie *newZombie(std::string name);
 
-// Instantiate a Zombie object on the stack and initialize it with the given name.
+// Creates a Zombie object on the stack and immediately announces its presence.
+// This is useful for temporary Zombies that do not need to persist beyond the function scope.
 void randomChump(std::string name);
 
 #endif

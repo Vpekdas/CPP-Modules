@@ -2,7 +2,8 @@
 #include "../includes/colors.hpp"
 
 Fixed::Fixed() : rawBits(0) {
-    // std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET << std::endl;
+    // std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET <<
+    // std::endl;
 }
 
 Fixed::Fixed(const int number) {
@@ -12,7 +13,8 @@ Fixed::Fixed(const int number) {
 
 Fixed::Fixed(const float number) {
     this->rawBits = static_cast<int>(roundf(number * (1 << fractionalBits)));
-    // std::cout << YELLOW << "🛠️ Float Fixed Constructor called 🛠️" << RESET << std::endl;
+    // std::cout << YELLOW << "🛠️ Float Fixed Constructor called 🛠️" << RESET <<
+    // std::endl;
 }
 
 Fixed::~Fixed() {
@@ -40,6 +42,7 @@ int Fixed::toInt(void) const {
     return this->getRawBits() >> fractionalBits;
 }
 
+// Provides a convenient way to output the fixed-point number as a float.
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
     return out << fixed.toFloat();
 }

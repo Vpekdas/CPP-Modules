@@ -2,9 +2,8 @@
 #include <iostream>
 #include <ostream>
 
-// Convert character to uppercase safely
-// std::toupper expects an unsigned char value or EOF, so we cast to unsigned char
-// to avoid undefined behavior with negative char values, then cast back to char.
+// Converts a character to uppercase, ensuring correct behavior for characters with negative values
+// by first casting to unsigned char before using std::toupper.
 char my_toupper(char ch) {
     return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
 }
