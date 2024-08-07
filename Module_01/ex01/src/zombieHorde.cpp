@@ -2,7 +2,6 @@
 #include "../includes/colors.hpp"
 
 
-// Create an array of Zombie objects by specifying the number of zombies and their name.
 Zombie *zombieHorde(int N, std::string name) {
     if (N < 0) {
         std::cout << NRED << "Error: The number of zombies in a horde must be at least 0." << RESET

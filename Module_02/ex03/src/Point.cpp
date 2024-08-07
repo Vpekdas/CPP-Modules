@@ -34,6 +34,7 @@ Fixed const &Point::getY() const {
 Fixed area(const Point &a, const Point &b, const Point &c) {
     Fixed result;
 
+    // Calculate the area using the determinant method to handle fixed-point arithmetic.
     result = (a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) +
               c.getX() * (a.getY() - b.getY())) /
              Fixed(2.0f);

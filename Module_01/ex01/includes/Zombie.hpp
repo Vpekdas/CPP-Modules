@@ -16,19 +16,13 @@
 
 class Zombie {
   public:
-    void announce(void);
+    Zombie();
+    ~Zombie();
 
-    // Getter for the Zombie's name.
     std::string getName() const;
-
-    // Setter for the Zombie's name.
     void setName(std::string name);
 
-    // COnstructor
-    Zombie();
-
-    // Deconstructor
-    ~Zombie();
+    void announce(void);
 
   private:
     std::string name;
@@ -38,8 +32,8 @@ class Zombie {
 //	+	+	+	+	+	+	+		// FUNCTIONS //	+	+	+	+ 	+	+	+	//
 // -----------------------------------------------------------------------------//
 
-// Dynamically allocate an array of N Zombie objects, set their names to 'name', and return a
-// pointer to the first Zombie.
+// Creates an array of Zombies on the heap, each with the given name.
+// This is useful for creating a group of Zombies that can be managed together.
 Zombie *zombieHorde(int N, std::string name);
 
 #endif

@@ -14,8 +14,8 @@ Fixed::Fixed(const Fixed &other) {
     std::cout << BLUE << "🖨️  Fixed Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
+// Ensures proper assignment of rawBits when using the assignment operator.
 Fixed &Fixed::operator=(const Fixed &other) {
-    // Check for self-assignment
     if (this != &other) {
         this->rawBits = other.rawBits;
     }

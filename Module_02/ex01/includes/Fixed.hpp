@@ -14,36 +14,31 @@
 
 class Fixed {
   public:
-    // Default Constructor
     Fixed();
 
-    // Int Constructor
+    // Allows initialization with an integer
     Fixed(const int number);
 
-    // Float Constructor
+    // Allows initialization with a float
     Fixed(const float number);
 
-    // Destructor
     ~Fixed();
 
-    // Copy Constructor
     Fixed(const Fixed &other);
 
-    // Copy Assignment Operator
     Fixed &operator=(const Fixed &other);
 
-    // Converts the Fixed-point value to a floating-point value
     float toFloat(void) const;
-
-    // Converts the fixed-point value to an integer value
     int toInt(void) const;
 
   private:
+    // Stores the fixed-point number value
     int rawBits;
+    // Number of fractional bits for fixed-point representation
     static const int fractionalBits = 8;
 };
 
-// Declaration of the << operator
+// Overloads the << operator to output the fixed-point number
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif // FIXED_HPP

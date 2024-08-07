@@ -2,33 +2,36 @@
 #include "../includes/colors.hpp"
 
 Fixed::Fixed() : rawBits(0) {
-    // std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
 Fixed::Fixed(const int number) {
     this->rawBits = number << fractionalBits;
-    // std::cout << YELLOW << "🛠️ Int Fixed Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Int Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
+// Converts a float to the fixed-point representation by scaling and rounding.
 Fixed::Fixed(const float number) {
     this->rawBits = static_cast<int>(roundf(number * (1 << fractionalBits)));
-    // std::cout << YELLOW << "🛠️ Float Fixed Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Float Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
 Fixed::~Fixed() {
-    // std::cout << RED << "🧨 Fixed Destructor called 🧨" << RESET << std::endl;
+    std::cout << RED << "🧨 Fixed Destructor called 🧨" << RESET << std::endl;
 }
 
+// Copy constructor to create a new object as a copy of an existing one.
 Fixed::Fixed(const Fixed &other) {
     this->rawBits = other.rawBits;
-    // std::cout << YELLOW << "🖨️ Fixed Copy Constructor called 🖨️" << RESET << std::endl;
+    std::cout << YELLOW << "🖨️ Fixed Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
+    // Ensures proper assignment of rawBits when using the assignment operator.
     if (this != &other) {
         this->rawBits = other.rawBits;
     }
-    // std::cout << YELLOW << "📞 Fixed Copy Assignment Operator called 📞" << RESET << std::endl;
+    std::cout << YELLOW << "📞 Fixed Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
 }
 
@@ -119,6 +122,7 @@ Fixed Fixed::operator--(int) {
 }
 
 int Fixed::getRawBits(void) const {
+    std::cout << CYAN << "🔍 getRawBits member function called 🔍" << RESET << std::endl;
     return this->rawBits;
 }
 

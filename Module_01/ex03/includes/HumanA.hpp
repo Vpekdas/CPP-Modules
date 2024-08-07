@@ -14,15 +14,14 @@
 
 class HumanA {
   public:
-    //   Constructor
+    // Constructor that initializes HumanA with a name and a reference to a Weapon.
+    // Using a reference ensures that HumanA always has a valid weapon and reflects any changes to
+    // the weapon.
     HumanA(const std::string &name, Weapon &weapon);
-    //   Deconstructor
     ~HumanA();
 
-    // Returns a const string to ensure the state of the object is not modified.
     const std::string getName() const;
 
-    // Display an attack message that shows the name and the weapon type.
     void attack();
 
   private:
