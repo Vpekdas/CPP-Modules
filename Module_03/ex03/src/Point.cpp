@@ -1,8 +1,12 @@
 #include "../includes/Point.hpp"
 #include "../includes/colors.hpp"
 
-Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y)) {
+Point::Point() : x(0), y(0) {
     // std::cout << "🛠️ Default Point Constructor called 🛠️" << std::endl;
+}
+
+Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y)) {
+    // std::cout << "🛠️ Parameterized Point Constructor called 🛠️" << std::endl;
 }
 
 Point::~Point() {
@@ -40,12 +44,11 @@ Fixed area(const Point &a, const Point &b, const Point &c) {
     return result;
 }
 
-bool isInside(const Point &a, const Point &b, const Point &c, const Point &p) {
-
+bool bsp(Point const &a, Point const &b, Point const &c, Point const &point) {
     Fixed totalArea = area(a, b, c);
-    Fixed area1 = area(p, b, c);
-    Fixed area2 = area(a, p, c);
-    Fixed area3 = area(a, b, p);
+    Fixed area1 = area(point, b, c);
+    Fixed area2 = area(a, point, c);
+    Fixed area3 = area(a, b, point);
 
     return (totalArea == (area1 + area2 + area3));
 }

@@ -15,6 +15,7 @@
 class Point {
   public:
     // Constructor
+    Point();
     Point(const float x, const float y);
 
     // Destructor
@@ -39,6 +40,6 @@ class Point {
 Fixed area(const Point &a, const Point &b, const Point &c);
 
 // Function to check if a point is inside the triangle formed by three points
-bool isInside(const Point &a, const Point &b, const Point &c, const Point &p);
+bool bsp(Point const &a, Point const &b, Point const &c, Point const &point);
 
 #endif // POINT_HPP
