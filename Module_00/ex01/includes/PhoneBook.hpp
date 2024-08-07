@@ -21,9 +21,11 @@ class PhoneBook {
     void displaySpecificContact(std::size_t index);
 
   private:
-    Contact contacts[8];
-    std::size_t totalContacts;
-    std::size_t nextIndex;
+    Contact _contacts[8];
+    std::size_t _totalContacts;
+    std::size_t _nextIndex;
 };
+
+void handleCommand(const std::string &command, PhoneBook &phoneBook, std::size_t &index);
 
 #endif

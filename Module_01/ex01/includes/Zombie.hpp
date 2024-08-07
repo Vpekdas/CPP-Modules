@@ -2,17 +2,9 @@
 
 #define ZOMBIE_HPP
 
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+		// LIBRARIES //	+	+	+	+ 	+	+	+	//
-// -----------------------------------------------------------------------------//
-
 #include <cstdlib>
 #include <iostream>
 #include <string>
-
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+		// CLASS //	+	+	+	+ 	+	+	+	+	//
-// -----------------------------------------------------------------------------//
 
 class Zombie {
   public:
@@ -25,15 +17,9 @@ class Zombie {
     void announce(void);
 
   private:
-    std::string name;
+    std::string _name;
 };
 
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+		// FUNCTIONS //	+	+	+	+ 	+	+	+	//
-// -----------------------------------------------------------------------------//
-
-// Creates an array of Zombies on the heap, each with the given name.
-// This is useful for creating a group of Zombies that can be managed together.
 Zombie *zombieHorde(int N, std::string name);
 
 #endif

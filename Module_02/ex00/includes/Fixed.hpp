@@ -2,32 +2,26 @@
 
 #define FIXED_HPP
 
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+	+	// LIBRARIES //		+	+	+	+ 	+	+	//
-// -----------------------------------------------------------------------------//
-
 #include <iostream>
-
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+	+	// CLASS //		+	+	+	+ 	+	+	+	//
-// -----------------------------------------------------------------------------//
 
 class Fixed {
   public:
     Fixed();
     ~Fixed();
+
+    // Copy assignment operator: Ensures that the current object gets the same state as the other
+    // object. This is necessary to correctly manage the internal state and avoid issues with
+    // resource management.
     Fixed(const Fixed &other);
+
     Fixed &operator=(const Fixed &other);
 
     int getRawBits(void) const;
     void setRawBits(int const raw);
 
   private:
-    // Stores the fixed-point number value
-    int rawBits;
-
-    // Number of fractional bits for fixed-point representation
-    static const int fractionalBits = 8;
+    int _rawBits;
+    static const int _fractionalBits = 8;
 };
 
 #endif

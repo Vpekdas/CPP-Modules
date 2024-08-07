@@ -1,19 +1,17 @@
 #include "../includes/Fixed.hpp"
 #include "../includes/colors.hpp"
 
-Fixed::Fixed() : rawBits(0) {
+Fixed::Fixed() : _rawBits(0) {
     std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
-// Ensures a valid default state by initializing rawBits to 0.
 Fixed::Fixed(const int number) {
-    this->rawBits = number << fractionalBits;
+    _rawBits = number << _fractionalBits;
     std::cout << YELLOW << "🛠️ Int Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
-// Initializes the fixed-point number using a float by scaling and rounding.
 Fixed::Fixed(const float number) {
-    this->rawBits = static_cast<int>(roundf(number * (1 << fractionalBits)));
+    _rawBits = static_cast<int>(roundf(number * (1 << _fractionalBits)));
     std::cout << YELLOW << "🛠️ Float Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
@@ -21,29 +19,33 @@ Fixed::~Fixed() {
     std::cout << RED << "🧨 Fixed Destructor called 🧨" << RESET << std::endl;
 }
 
-// Copy constructor to create a new object as a copy of an existing one.
 Fixed::Fixed(const Fixed &other) {
-    this->rawBits = other.rawBits;
+    _rawBits = other._rawBits;
     std::cout << YELLOW << "🖨️ Fixed Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
-// Ensures proper assignment of rawBits when using the assignment operator.
 Fixed &Fixed::operator=(const Fixed &other) {
     if (this != &other) {
-        this->rawBits = other.rawBits;
+        _rawBits = other._rawBits;
     }
     std::cout << YELLOW << "📞 Fixed Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
 }
 
+// Convert the fixed-point value to a floating-point number
+// by dividing by 2^fractionalBits.
 float Fixed::toFloat(void) const {
-    return this->rawBits / static_cast<float>(1 << fractionalBits);
+    return _rawBits / static_cast<float>(1 << _fractionalBits);
 }
 
+// Convert the fixed-point value to an integer
+// to allow for operations and comparisons in integer arithmetic.
 int Fixed::toInt(void) const {
-    return this->rawBits >> fractionalBits;
+    return _rawBits >> _fractionalBits;
 }
 
+// Output the fixed-point value as a floating-point number
+// to provide a human-readable representation of the value.
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
     return out << fixed.toFloat();
 }

@@ -3,7 +3,6 @@
 #include <ctime>
 #include <ostream>
 
-// Initialize static member variables to keep track of overall account statistics.
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;

@@ -33,12 +33,12 @@ class Contact {
     std::string getDarkestSecret() const;
 
   private:
-    std::size_t index;
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;
+    std::size_t _index;
+    std::string _firstName;
+    std::string _lastName;
+    std::string _nickname;
+    std::string _phoneNumber;
+    std::string _darkestSecret;
 };
 
 #endif

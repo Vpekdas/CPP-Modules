@@ -1,9 +1,12 @@
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Contact.hpp"
 #include "../includes/colors.hpp"
-#include "../includes/utils.hpp"
 
-PhoneBook::PhoneBook() : totalContacts(0), nextIndex(0) {
+const std::string ADD_COMMAND = "ADD";
+const std::string SEARCH_COMMAND = "SEARCH";
+const std::string EXIT_COMMAND = "EXIT";
+
+PhoneBook::PhoneBook() : _totalContacts(0), _nextIndex(0) {
     std::cout << BLUE << "👷 PhoneBook constructor called 👷" << RESET << std::endl;
 }
 
@@ -19,32 +22,86 @@ std::string formatColumn(const std::string &str) {
     }
 }
 
+bool onlyDigit(std::string input) {
+    for (std::size_t i = 0; i < input.length(); i++)
+        if (!std::isdigit(input[i])) {
+            return false;
+        }
+    return true;
+}
+
+// Ensure that the field is always correct by repeatedly prompting the user until valid input is
+// provided. This function handles both empty input and non-digit input (if digitsOnly is true) to
+// maintain data integrity.
+std::string validAddField(bool digitsOnly = false) {
+    std::string input;
+    std::getline(std::cin, input);
+
+    while (input.empty() || (digitsOnly && !onlyDigit(input))) {
+        if (input.empty()) {
+            std::cout << RED << "Error: Field cannot be empty. Please fill in the field." << RESET
+                      << std::endl;
+        } else if (digitsOnly && !onlyDigit(input)) {
+            std::cout << RED << "Error: Please enter only digits." << RESET << std::endl;
+        }
+        std::getline(std::cin, input);
+    }
+    return input;
+}
+
+void addCommand(PhoneBook &phoneBook, std::size_t &index) {
+    Contact contact;
+    std::cout << NCYAN << "🖊️ Enter first name 🖊️ : " << RESET;
+    contact.setFirstName(validAddField());
+
+    std::cout << NCYAN << "🖊️ Enter last name 🖊️ : " << RESET;
+    contact.setLastName(validAddField());
+
+    std::cout << NCYAN << "🆔 Enter nickname 🆔 : " << RESET;
+    contact.setNickname(validAddField());
+
+    std::cout << NCYAN << "📞 Enter phone number 📞 : " << RESET;
+    contact.setPhoneNumber(validAddField(true));
+
+    std::cout << NCYAN << "🤫 Enter darkest secret 🤫 : " << RESET;
+    contact.setDarkestSecret(validAddField());
+
+    contact.setIndex(index);
+    index += 1;
+    if (index > 7) {
+        index = 0;
+    }
+    phoneBook.addContact(contact);
+    std::cout << GREEN << "Contact " NGREEN << contact.getNickname() << GREEN
+              << " added succesfully ✅ " << RESET << std::endl;
+}
+
 void PhoneBook::addContact(const Contact &contact) {
-    this->contacts[nextIndex] = contact;
-    this->nextIndex = (nextIndex + 1) % 8;
-    this->totalContacts += 1;
-    if (this->totalContacts > 8)
-        this->totalContacts = 8;
+    this->_contacts[_nextIndex] = contact;
+    this->_nextIndex = (_nextIndex + 1) % 8;
+    this->_totalContacts += 1;
+    if (this->_totalContacts > 8)
+        this->_totalContacts = 8;
 }
 
 void PhoneBook::displaySpecificContact(std::size_t index) {
-    if (index > this->totalContacts) {
+    if (index > this->_totalContacts) {
         std::cout << RED << "Error: Specified index is out of range." << NRED
                   << " Exiting SEARCH mode." << RESET << std::endl;
         return;
-    } else if (this->contacts[index].getFirstName().empty()) {
+    } else if (this->_contacts[index].getFirstName().empty()) {
         std::cout << RED << "Error: No contact found at the specified index." << NRED
                   << " Exiting SEARCH mode." << RESET << std::endl;
         return;
     }
-    std::cout << PURPLE << "All information for " << NPURPLE << this->contacts[index].getNickname()
+    std::cout << PURPLE << "All information for " << NPURPLE << this->_contacts[index].getNickname()
               << ":" << RESET << std::endl;
-    std::cout << NCYAN << "First Name: " << RESET << contacts[index].getFirstName() << std::endl;
-    std::cout << NCYAN << "Last Name: " << RESET << contacts[index].getLastName() << std::endl;
-    std::cout << NCYAN << "Nickname: " << RESET << contacts[index].getNickname() << std::endl;
-    std::cout << NCYAN << "Phone Number: " << RESET << contacts[index].getPhoneNumber()
+    std::cout << NCYAN << "First Name: " << RESET << _contacts[index].getFirstName() << std::endl;
+    std::cout << NCYAN << "Last Name: " << RESET << _contacts[index].getLastName() << std::endl;
+    std::cout << NCYAN << "Nickname: " << RESET << _contacts[index].getNickname() << std::endl;
+    std::cout << NCYAN << "Phone Number: " << RESET << _contacts[index].getPhoneNumber()
               << std::endl;
-    std::cout << NCYAN << "Darkest Secret: " << RESET << contacts[index].getDarkestSecret()
+    std::cout << NCYAN << "Darkest Secret: " << RESET << _contacts[index].getDarkestSecret()
               << std::endl;
 }
 
@@ -60,12 +117,12 @@ void PhoneBook::displayContacts() {
               << "|"
               << "  NICKNAME"
               << "|" << RESET << std::endl;
-    for (std::size_t i = 0; i < totalContacts; i++) {
+    for (std::size_t i = 0; i < _totalContacts; i++) {
         std::cout << "|"
-                  << "         " << this->contacts[i].getIndex() << "|"
-                  << formatColumn(this->contacts[i].getFirstName()) << "|"
-                  << formatColumn(this->contacts[i].getLastName()) << "|"
-                  << formatColumn(this->contacts[i].getNickname()) << "|" << std::endl;
+                  << "         " << this->_contacts[i].getIndex() << "|"
+                  << formatColumn(this->_contacts[i].getFirstName()) << "|"
+                  << formatColumn(this->_contacts[i].getLastName()) << "|"
+                  << formatColumn(this->_contacts[i].getNickname()) << "|" << std::endl;
     }
     std::cout << NCYAN << "Enter the contact index to see details." << RESET << std::endl;
 
@@ -73,4 +130,18 @@ void PhoneBook::displayContacts() {
     index = strtoul(input.c_str(), NULL, 10);
 
     displaySpecificContact(index);
+}
+
+void handleCommand(const std::string &command, PhoneBook &phoneBook, std::size_t &index) {
+    if (command == ADD_COMMAND) {
+        addCommand(phoneBook, index);
+    } else if (command == SEARCH_COMMAND) {
+        phoneBook.displayContacts();
+    } else if (command == EXIT_COMMAND) {
+        std::cout << NCYAN << "👋 Bye bye 👋 " << RESET << std::endl;
+        exit(0);
+    } else {
+        std::cout << RED << "Error: The program accepts only these commands: " << NRED
+                  << "ADD, SEARCH, EXIT." << RESET << std::endl;
+    }
 }

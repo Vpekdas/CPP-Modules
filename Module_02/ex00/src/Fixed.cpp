@@ -1,7 +1,7 @@
 #include "../includes/Fixed.hpp"
 #include "../includes/colors.hpp"
 
-Fixed::Fixed() : rawBits(0) {
+Fixed::Fixed() : _rawBits(0) {
     std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET << std::endl;
 }
 
@@ -10,14 +10,13 @@ Fixed::~Fixed() {
 }
 
 Fixed::Fixed(const Fixed &other) {
-    this->rawBits = other.rawBits;
+    _rawBits = other._rawBits;
     std::cout << BLUE << "🖨️  Fixed Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
-// Ensures proper assignment of rawBits when using the assignment operator.
 Fixed &Fixed::operator=(const Fixed &other) {
     if (this != &other) {
-        this->rawBits = other.rawBits;
+        _rawBits = other._rawBits;
     }
     std::cout << GREEN << "📞 Fixed Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
@@ -25,9 +24,9 @@ Fixed &Fixed::operator=(const Fixed &other) {
 
 int Fixed::getRawBits(void) const {
     std::cout << CYAN << "🔍 getRawBits member function called 🔍" << RESET << std::endl;
-    return this->rawBits;
+    return _rawBits;
 }
 
 void Fixed::setRawBits(int const raw) {
-    this->rawBits = raw;
+    _rawBits = raw;
 }

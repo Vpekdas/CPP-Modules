@@ -1,16 +1,7 @@
 #ifndef HUMAN_B_HPP
-
 #define HUMAN_B_HPP
 
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+	//  HEADERS //	+	+	+	+ 	+	+	+	+	//
-// -----------------------------------------------------------------------------//
-
 #include "../includes/Weapon.hpp"
-
-// -----------------------------------------------------------------------------//
-//	+	+	+	+	+	+	+	//  CLASS //	+	+	+	+ 	+	+	+	+	//
-// -----------------------------------------------------------------------------//
 
 class HumanB {
   public:
@@ -20,14 +11,13 @@ class HumanB {
     ~HumanB();
 
     void setWeapon(Weapon &weapon);
-
     const std::string getName() const;
 
     void attack();
 
   private:
-    Weapon *weapon;
-    std::string name;
+    Weapon *_weapon;
+    std::string _name;
 };
 
 #endif

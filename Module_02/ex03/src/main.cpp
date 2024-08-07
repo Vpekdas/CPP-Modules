@@ -2,40 +2,101 @@
 #include "../includes/colors.hpp"
 
 int main() {
+    {
+        /*edge*/
+        Point a(0, 0);
+        Point b(20, 0);
+        Point c(10, 30);
+        Point to_check(10, 0);
 
-    Fixed fixedX1(20.0f);
-    Fixed fixedY1(0.0f);
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*point of the triangle*/
+        Point a(0, 0);
+        Point b(20, 0);
+        Point c(10, 30);
+        Point to_check(10, 30);
 
-    Fixed fixedX2(-5.0f);
-    Fixed fixedY2(4.0f);
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*edge with floats*/
+        Point a(10.2, 15.6);
+        Point b(20.55, 15.6);
+        Point c(15.78, 42.42);
+        Point to_check(13.8, 15.6);
 
-    Fixed fixedX3(10.0f);
-    Fixed fixedY3(10.0f);
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*point with floats*/
+        Point a(10.2, 15.6);
+        Point b(20.55, 15.6);
+        Point c(15.78, 42.42);
+        Point to_check(15.78, 42.42);
 
-    Fixed fixedX4(10.0f);
-    Fixed fixedY4(10.0f);
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*inside*/
+        Point a(10.2, 15.6);
+        Point b(20.55, 15.6);
+        Point c(15.78, 42.42);
+        Point to_check(15.78, 41.42);
 
-    float x1 = fixedX1.toFloat();
-    float y1 = fixedY1.toFloat();
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*inside*/
+        Point a(10.2, 15.6);
+        Point b(20.55, 15.6);
+        Point c(15.78, 42.42);
+        Point to_check(15.78, 39.42);
 
-    float x2 = fixedX2.toFloat();
-    float y2 = fixedY2.toFloat();
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*inside*/
+        Point a(10.2, 15.6);
+        Point b(20.55, 15.6);
+        Point c(15.78, 42.42);
+        Point to_check(12.28, 16.6);
 
-    float x3 = fixedX3.toFloat();
-    float y3 = fixedY3.toFloat();
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
+    }
+    {
+        /*inside*/
+        Point a(10.2, 15.6);
+        Point b(20.55, 15.6);
+        Point c(15.78, 42.42);
+        Point to_check(19.54, 16.7);
 
-    float x4 = fixedX4.toFloat();
-    float y4 = fixedY4.toFloat();
-
-    Point a(x1, y1);
-    Point b(x2, y2);
-    Point c(x3, y3);
-    Point p(x4, y4);
-
-    if (bsp(a, b, c, p)) {
-        std::cout << NGREEN << "Point is in triangle" << RESET << std::endl;
-    } else {
-        std::cout << NRED << "Point is not in triangle" << RESET << std::endl;
+        if (bsp(a, b, c, to_check))
+            std::cout << NGREEN << "Inside" << std::endl;
+        else
+            std::cout << NRED << "Not Inside" << std::endl;
     }
     return 0;
 }

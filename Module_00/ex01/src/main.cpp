@@ -1,5 +1,5 @@
+#include "../includes/PhoneBook.hpp"
 #include "../includes/colors.hpp"
-#include "../includes/utils.hpp"
 
 int main() {
     PhoneBook phoneBook;
