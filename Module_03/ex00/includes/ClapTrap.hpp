@@ -11,9 +11,9 @@
 //  +   +   +   +   +   +   +   +   // CLASS //     +   +   +   +   +   +   +   //
 // -----------------------------------------------------------------------------//
 
-#define MAX_HEALTH 10
-#define ENERGY_POINTS 10
-#define ATTACK_DAMAGE 1
+#define C_MAX_HEALTH 10
+#define C_ENERGY_POINTS 10
+#define C_ATTACK_DAMAGE 1
 
 class ClapTrap {
   public:
@@ -37,10 +37,12 @@ class ClapTrap {
     const std::string &getName() const;
     const unsigned int &getHitPoints() const;
     const unsigned int &getEnergyPoints() const;
+    const unsigned int &getAttackDamage() const;
 
     void setName(const std::string &name);
     void setHitPoints(unsigned int hitPoints);
     void setEnergyPoints(unsigned int energyPoints);
+    void setAttackDamage(unsigned int attackDamage);
 
     void displayStatus();
 

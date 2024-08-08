@@ -13,30 +13,30 @@ int main() {
     std::cout << NCYAN << "Gangplank will attack MAX_HEALTH - 1 times" << RESET << std::endl;
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
 
-    for (int i = 0; i < MAX_HEALTH - 1; i++) {
+    for (int i = 0; i < C_MAX_HEALTH - 1; i++) {
         Gangplank.attack("EKKO");
-        Ekko.takeDamage(ATTACK_DAMAGE);
+        Ekko.takeDamage(C_ATTACK_DAMAGE);
     }
 
     Illaoi.attack("Ekko");
-    Ekko.takeDamage(ATTACK_DAMAGE);
+    Ekko.takeDamage(C_ATTACK_DAMAGE);
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
     std::cout << NCYAN << "Ekko will try to repair himself but he is dead" << RESET << std::endl;
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
-    Ekko.beRepaired(ATTACK_DAMAGE);
+    Ekko.beRepaired(C_ATTACK_DAMAGE);
 
     Illaoi.attack("GANPLANK");
-    Gangplank.takeDamage(ATTACK_DAMAGE);
+    Gangplank.takeDamage(C_ATTACK_DAMAGE);
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
     std::cout << NCYAN << "Gangplank will repair himself" << RESET << std::endl;
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
-    Gangplank.beRepaired(ATTACK_DAMAGE);
+    Gangplank.beRepaired(C_ATTACK_DAMAGE);
 
     Illaoi.attack("GANGPLANK");
-    Gangplank.takeDamage(ATTACK_DAMAGE);
+    Gangplank.takeDamage(C_ATTACK_DAMAGE);
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
     std::cout << NCYAN << "Gangplank will try to repair himself but has no energy" << RESET
               << std::endl;
     std::cout << NYELLOW << "------------------------------------" << RESET << std::endl;
-    Gangplank.beRepaired(ATTACK_DAMAGE);
+    Gangplank.beRepaired(C_ATTACK_DAMAGE);
 }
