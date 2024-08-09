@@ -1,19 +1,11 @@
 #ifndef CLAP_TRAP_HPP
 #define CLAP_TRAP_HPP
 
-// -----------------------------------------------------------------------------//
-//  +   +   +   +   +   +   +   +   // LIBRARIES //      +   +   +   +   +   +  //
-// -----------------------------------------------------------------------------//
-
 #include <iostream>
 
-// -----------------------------------------------------------------------------//
-//  +   +   +   +   +   +   +   +   // CLASS //     +   +   +   +   +   +   +   //
-// -----------------------------------------------------------------------------//
-
-#define C_MAX_HEALTH 10
-#define C_ENERGY_POINTS 10
-#define C_ATTACK_DAMAGE 1
+#define CLAP_TRAP_HIT_POINT 10
+#define CLAP_TRAP_ENERGY_POINT 10
+#define CLAP_TRAP_ATTACK_DAMAGE 1
 
 class ClapTrap {
   public:

@@ -2,13 +2,12 @@
 #include "../includes/colors.hpp"
 
 ClapTrap::ClapTrap() : _name(""), _hitPoints(0), _energyPoints(0), _attackDamage(0) {
-    std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string &name)
-    : _name(name), _hitPoints(C_MAX_HEALTH), _energyPoints(C_ENERGY_POINTS),
-      _attackDamage(C_ATTACK_DAMAGE) {
+    : _name(name), _hitPoints(CLAP_TRAP_HIT_POINT), _energyPoints(CLAP_TRAP_ENERGY_POINT),
+      _attackDamage(CLAP_TRAP_ATTACK_DAMAGE) {
     std::cout << YELLOW << "🛠️ ClapTrap Constructor called 🛠️" << RESET << std::endl;
 }
 
@@ -82,7 +81,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
     if (isClapTrapDead() || !isClapTrapHasEnergy()) {
         return;
     }
-    if (_hitPoints >= C_MAX_HEALTH) {
+    if (_hitPoints >= CLAP_TRAP_HIT_POINT) {
         std::cout << BLUE << _name << " is already full life." << RESET << std::endl;
     } else {
         _hitPoints += amount;

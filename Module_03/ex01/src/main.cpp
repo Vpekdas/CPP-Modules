@@ -16,11 +16,11 @@ int main() {
     std::cout << PURPLE << "-------------------------" << RESET << std::endl;
     for (int i = 0; i < 6; i++) {
         Ekko.attack(gangplank);
-        Gangplank.takeDamage(S_ATTACK_DAMAGE);
+        Gangplank.takeDamage(SCAV_TRAP_ATTACK_DAMAGE);
     }
 
     std::cout << PURPLE << "-------------------------" << RESET << std::endl;
-    std::cout << PURPLE << "Gangplank try to attack but he is dead" << RESET << std::endl;
+    std::cout << PURPLE << "Gangplank try to attack but he has not hitPoint." << RESET << std::endl;
     std::cout << PURPLE << "-------------------------" << RESET << std::endl;
     Gangplank.attack(ekko);
 
@@ -30,16 +30,16 @@ int main() {
     Ekko.guardGate();
 
     Ekko.attack(illaoi);
-    Illaoi.takeDamage(S_ATTACK_DAMAGE);
+    Illaoi.takeDamage(SCAV_TRAP_ATTACK_DAMAGE);
     std::cout << PURPLE << "-------------------------" << RESET << std::endl;
     std::cout << PURPLE << "Illaoi will use all of her energy and heal with the last one " << RESET
               << std::endl;
     std::cout << PURPLE << "-------------------------" << RESET << std::endl;
-    for (int i = 0; i < C_ENERGY_POINTS / 1 - 1; i++) {
+    for (int i = 0; i < CLAP_TRAP_ENERGY_POINT / 1 - 1; i++) {
         Illaoi.attack(ekko);
-        Ekko.takeDamage(C_ATTACK_DAMAGE);
+        Ekko.takeDamage(CLAP_TRAP_ATTACK_DAMAGE);
     }
-    Illaoi.beRepaired(S_ATTACK_DAMAGE);
+    Illaoi.beRepaired(SCAV_TRAP_ATTACK_DAMAGE);
     Illaoi.attack(ekko);
-    Ekko.takeDamage(C_ATTACK_DAMAGE);
+    Ekko.takeDamage(CLAP_TRAP_ATTACK_DAMAGE);
 }
