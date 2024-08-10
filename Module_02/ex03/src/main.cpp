@@ -3,7 +3,9 @@
 
 int main() {
     {
-        /*edge*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Edge." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(0, 0);
         Point b(20, 0);
         Point c(10, 30);
@@ -15,7 +17,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*point of the triangle*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Point of the triangle." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(0, 0);
         Point b(20, 0);
         Point c(10, 30);
@@ -27,7 +31,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*edge with floats*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Edge with floats." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(10.2, 15.6);
         Point b(20.55, 15.6);
         Point c(15.78, 42.42);
@@ -39,7 +45,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*point with floats*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Point of the triangle with floats." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(10.2, 15.6);
         Point b(20.55, 15.6);
         Point c(15.78, 42.42);
@@ -51,7 +59,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*inside*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Point inside the triangle (1)." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(10.2, 15.6);
         Point b(20.55, 15.6);
         Point c(15.78, 42.42);
@@ -63,7 +73,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*inside*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Point inside the triangle (2)." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(10.2, 15.6);
         Point b(20.55, 15.6);
         Point c(15.78, 42.42);
@@ -75,7 +87,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*inside*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Point inside the triangle (3)." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(10.2, 15.6);
         Point b(20.55, 15.6);
         Point c(15.78, 42.42);
@@ -87,7 +101,9 @@ int main() {
             std::cout << NRED << "Not Inside" << std::endl;
     }
     {
-        /*inside*/
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
+        std::cout << NGREEN << "Point inside the triangle (4)." << RESET << std::endl;
+        std::cout << NPURPLE << "------------------------------------------" << RESET << std::endl;
         Point a(10.2, 15.6);
         Point b(20.55, 15.6);
         Point c(15.78, 42.42);

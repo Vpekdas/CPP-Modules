@@ -53,7 +53,7 @@ class Fixed {
     static const Fixed &max(const Fixed &nb1, const Fixed &nb2);
 
     int getRawBits(void) const;
-    void setRawBits(int const raw);
+    void setRawBits(int raw);
 
   private:
     int _rawBits;

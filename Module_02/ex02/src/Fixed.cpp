@@ -125,11 +125,10 @@ Fixed Fixed::operator--(int) {
 }
 
 int Fixed::getRawBits(void) const {
-    std::cout << CYAN << "🔍 getRawBits member function called 🔍" << RESET << std::endl;
     return _rawBits;
 }
 
-void Fixed::setRawBits(int const raw) {
+void Fixed::setRawBits(int raw) {
     _rawBits = raw;
 }
 
