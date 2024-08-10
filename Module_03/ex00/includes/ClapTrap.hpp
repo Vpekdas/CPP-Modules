@@ -5,12 +5,12 @@
 
 #define CLAP_TRAP_HIT_POINT 10
 #define CLAP_TRAP_ENERGY_POINT 10
-#define CLAP_TRAP_ATTACK_DAMAGE 1
+#define CLAP_TRAP_ATTACK_DAMAGE 0
 
 class ClapTrap {
   public:
     ClapTrap();
-    ClapTrap(std::string &name);
+    ClapTrap(const std::string &name);
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other
     // object. This is necessary to correctly manage the internal state and avoid issues with
@@ -35,8 +35,6 @@ class ClapTrap {
     void setHitPoints(unsigned int hitPoints);
     void setEnergyPoints(unsigned int energyPoints);
     void setAttackDamage(unsigned int attackDamage);
-
-    void displayStatus();
 
   private:
     std::string _name;

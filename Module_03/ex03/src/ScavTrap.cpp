@@ -40,5 +40,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 
 void ScavTrap::guardGate() {
     setEnergyPoints(getEnergyPoints() - 1);
-    std::cout << CYAN << getName() << " is 🛡️ protecting 🛡️ himself." << RESET << std::endl;
+    std::cout << "🛡️ " << NBLUE << getName() << BLUE << " is protecting themselves. " << getName()
+              << " has " << getEnergyPoints() << " energy points left." << RESET << std::endl;
 }

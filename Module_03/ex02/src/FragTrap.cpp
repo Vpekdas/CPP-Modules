@@ -39,5 +39,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
 
 void FragTrap::highFivesGuys(void) {
     setEnergyPoints(getEnergyPoints() - 1);
-    std::cout << CYAN << getName() << " has requested a 🤜 fist bump. 🤛" << RESET << std::endl;
+    std::cout << "🤜 🤛" << NBLUE << getName() << BLUE << " has requested a fist bump. "
+              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
+              << std::endl;
 }

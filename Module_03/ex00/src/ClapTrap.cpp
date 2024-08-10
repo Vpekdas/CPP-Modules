@@ -5,7 +5,7 @@ ClapTrap::ClapTrap() : _name(""), _hitPoints(0), _energyPoints(0), _attackDamage
     std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string &name)
+ClapTrap::ClapTrap(const std::string &name)
     : _name(name), _hitPoints(CLAP_TRAP_HIT_POINT), _energyPoints(CLAP_TRAP_ENERGY_POINT),
       _attackDamage(CLAP_TRAP_ATTACK_DAMAGE) {
     std::cout << YELLOW << "🛠️ ClapTrap Constructor called 🛠️" << RESET << std::endl;
@@ -37,7 +37,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 
 bool ClapTrap::isClapTrapDead() {
     if (getHitPoints() <= 0) {
-        std::cout << NRED << _name << " has no more 🫀 hitPoints🫀. cannot do action." << RESET
+        std::cout << NRED << _name << RED
+                  << " has no more 🫀 hit points🫀 and cannot perform any actions." << RESET
                   << std::endl;
         return true;
     }
@@ -46,7 +47,8 @@ bool ClapTrap::isClapTrapDead() {
 
 bool ClapTrap::isClapTrapHasEnergy() {
     if (getEnergyPoints() <= 0) {
-        std::cout << NRED << _name << " has no more 🔋 energy 🔋. cannot do action." << RESET
+        std::cout << NRED << _name << RED
+                  << " has no more 🔋 energy 🔋 and cannot perform any actions." << RESET
                   << std::endl;
         return false;
     }
@@ -59,22 +61,23 @@ void ClapTrap::attack(const std::string &target) {
     }
     std::string attack;
     _energyPoints -= 1;
-    std::cout << BLUE << _name << " has attacked " << target << RESET << std::endl;
-    displayStatus();
+    std::cout << "🗡️ " << NBLUE << _name << BLUE << " has attacked " << NBLUE << target << BLUE
+              << " with " << _attackDamage << " attack damage. " << _name << " has "
+              << _energyPoints << " energy points left." << RESET << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
 
     if (amount > _hitPoints) {
         _hitPoints = 0;
-        std::cout << BLUE << _name << " has taken " << _hitPoints << " damage " << RESET
-                  << std::endl;
+        std::cout << "💥 " << NBLUE << _name << BLUE << " has taken " << _hitPoints
+                  << " damage and now has " << _hitPoints << " hit points." << RESET << std::endl;
 
     } else {
         _hitPoints -= amount;
-        std::cout << BLUE << _name << " has taken " << amount << " damage " << RESET << std::endl;
+        std::cout << "💥 " << NBLUE << _name << BLUE << " has taken " << amount
+                  << " damage and now has " << _hitPoints << " hit points." << RESET << std::endl;
     }
-    displayStatus();
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
@@ -82,28 +85,15 @@ void ClapTrap::beRepaired(unsigned int amount) {
         return;
     }
     if (_hitPoints >= CLAP_TRAP_HIT_POINT) {
-        std::cout << BLUE << _name << " is already full life." << RESET << std::endl;
+        std::cout << "⛑️ " << NBLUE << _name << BLUE << " is already at full health. " << _name
+                  << " has " << _energyPoints << " energy points left." << RESET << std::endl;
     } else {
         _hitPoints += amount;
-        std::cout << BLUE << _name << " has been repaired for " << amount << RESET << std::endl;
+        std::cout << "💊 " << NBLUE << _name << BLUE << " healed themselves for " << amount
+                  << " health points and now has " << _hitPoints << " hit points. " << _name
+                  << " has " << _energyPoints << " energy points left." << RESET << std::endl;
     }
     _energyPoints -= 1;
-    displayStatus();
-}
-
-void ClapTrap::displayStatus() {
-    std::string color = NYELLOW;
-
-    if (getName() == "Ekko") {
-        color = NCYAN;
-    } else if (getName() == "Gangplank") {
-        color = NGREEN;
-    }
-
-    std::cout << color << _name << " has " << _hitPoints << " hitPoints." << RESET << std::endl;
-    std::cout << color << _name << " has " << _energyPoints << " energyPoints." << RESET
-              << std::endl;
-    std::cout << YELLOW << "--------------------------" << RESET << std::endl;
 }
 
 const std::string &ClapTrap::getName() const {
