@@ -8,6 +8,11 @@ int main() {
     std::string illaoi = "Illaoi";
     std::string ekko = "Ekko";
 
+    std::cout << NPURPLE << "--------------------------------------------------------------"
+              << RESET << std::endl;
+    std::cout << NGREEN << "Creating instances of each class." << RESET << std::endl;
+    std::cout << NPURPLE << "--------------------------------------------------------------"
+              << RESET << std::endl;
     ScavTrap Gangplank(gangplank);
     ClapTrap Illaoi(illaoi);
     FragTrap Ekko(ekko);
