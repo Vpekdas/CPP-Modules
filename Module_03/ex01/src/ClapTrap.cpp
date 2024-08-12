@@ -2,7 +2,8 @@
 #include "../includes/colors.hpp"
 
 ClapTrap::ClapTrap() : _name(""), _hitPoints(0), _energyPoints(0), _attackDamage(0) {
-    std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name)
@@ -61,9 +62,9 @@ void ClapTrap::attack(const std::string &target) {
     }
     std::string attack;
     _energyPoints -= 1;
-    std::cout << "🗡️ " << NBLUE << _name << BLUE << " has attacked " << NBLUE << target << BLUE
-              << " with " << _attackDamage << " attack damage. " << _name << " has "
-              << _energyPoints << " energy points left." << RESET << std::endl;
+    std::cout << "🗡️ " << NBLUE << "[ClapTrap " << _name << "]" << BLUE << " has attacked "
+              << NBLUE << target << BLUE << " with " << _attackDamage << " attack damage. " << _name
+              << " has " << _energyPoints << " energy points left." << RESET << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {

@@ -2,7 +2,8 @@
 #include "../includes/colors.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap() {
-    std::cout << YELLOW << "🛠️ Default ScavTrap Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Default ScavTrap Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
@@ -38,8 +39,21 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
     return *this;
 }
 
+void ScavTrap::attack(const std::string &target) {
+    if (isClapTrapDead() || !isClapTrapHasEnergy()) {
+        return;
+    }
+    std::string attack;
+    setEnergyPoints(getEnergyPoints() - 1);
+    std::cout << "🗡️ " << NBLUE << "[ScavTrap " << getName() << "]" << BLUE << " has attacked "
+              << NBLUE << target << BLUE << " with " << getAttackDamage() << " attack damage. "
+              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
+              << std::endl;
+}
+
 void ScavTrap::guardGate() {
     setEnergyPoints(getEnergyPoints() - 1);
-    std::cout << "🛡️ " << NBLUE << getName() << BLUE << " is protecting themselves. " << getName()
-              << " has " << getEnergyPoints() << " energy points left." << RESET << std::endl;
+    std::cout << "🛡️ " << NBLUE << getName() << BLUE << " is protecting themselves. "
+              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
+              << std::endl;
 }

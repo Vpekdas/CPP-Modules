@@ -2,7 +2,8 @@
 #include "../includes/colors.hpp"
 
 FragTrap::FragTrap() : ClapTrap() {
-    std::cout << YELLOW << "🛠️ Default FragTrap Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Default FragTrap Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
@@ -35,6 +36,18 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
     }
     std::cout << YELLOW << "📞 FragTrap Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
+}
+
+void FragTrap::attack(const std::string &target) {
+    if (isClapTrapDead() || !isClapTrapHasEnergy()) {
+        return;
+    }
+    std::string attack;
+    setEnergyPoints(getEnergyPoints() - 1);
+    std::cout << "🗡️ " << NBLUE << "[FragTrap " << getName() << "]" << BLUE << " has attacked "
+              << NBLUE << target << BLUE << " with " << getAttackDamage() << " attack damage. "
+              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
+              << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {

@@ -1,23 +1,23 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONG_ANIMAL_HPP
+#define WRONG_ANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-class Animal {
+class WrongAnimal {
   public:
-    Animal();
-    Animal(const std::string &name);
+    WrongAnimal();
+    WrongAnimal(const std::string &name);
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other
     // object. This is necessary to correctly manage the internal state and avoid issues with
     // resource management.
-    Animal(const Animal &other);
-    Animal &operator=(const Animal &other);
+    WrongAnimal(const WrongAnimal &other);
+    WrongAnimal &operator=(const WrongAnimal &other);
 
     // Virtual destructor to ensure derived class destructors are called,
     // preventing resource leaks when deleting objects through base class pointers.
-    virtual ~Animal();
+    virtual ~WrongAnimal();
 
     void setName(const std::string &name);
     void setType(const std::string &type);
