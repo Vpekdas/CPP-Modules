@@ -14,7 +14,7 @@ int main() {
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
     for (int i = 0; i < 50; i++) {
-        animals[i] = new Dog("Nasus" + std::to_string(i));
+        animals[i] = new Dog("Nasus");
     }
 
     std::cout << NPURPLE << "--------------------------------------------------------------"
@@ -23,7 +23,7 @@ int main() {
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
     for (int i = 50; i < 100; i++) {
-        animals[i] = new Cat("Yuumi" + std::to_string(i));
+        animals[i] = new Cat("Yuumi");
     }
 
     std::cout << NPURPLE << "--------------------------------------------------------------"
@@ -59,7 +59,7 @@ int main() {
     std::cout << NGREEN << "Creating a dogcopy and setting new idea." << RESET << std::endl;
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
-    Dog *dogCopy = new Dog(*dog);
+    Dog *dogCopy = new Dog("CopyDog");
     dogCopy->setIdea("New idea for original dog");
 
     std::cout << NPURPLE << "--------------------------------------------------------------"

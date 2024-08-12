@@ -9,7 +9,8 @@ Dog::Dog() : Animal(), _brain(new Brain()) {
 Dog::Dog(const std::string &name)
     : Animal(name), _brain(new Brain("🦴 Dream about chasing the biggest bone 🦴")) {
     setType("Dog");
-    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 Dog::~Dog() {
@@ -45,7 +46,5 @@ std::string &Dog::getIdea(int index) const {
 }
 
 void Dog::setIdea(const std::string &newIdea) {
-    for (int i = 0; i < 100; i++) {
-        _brain[i] = newIdea;
-    }
+    _brain->setIdea(newIdea);
 }

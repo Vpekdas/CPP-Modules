@@ -4,14 +4,14 @@
 
 Brain::Brain() {
     for (int i = 0; i < 100; i++) {
-        _ideas[i] = "idea " + std::to_string(i);
+        _ideas[i] = "idea";
     }
     std::cout << YELLOW << "🛠️ Default Brain Constructor called 🛠️" << RESET << std::endl;
 }
 
 Brain::Brain(const std::string &idea) {
     for (int i = 0; i < 100; i++) {
-        _ideas[i] = idea + " " + std::to_string(i);
+        _ideas[i] = idea;
     }
     std::cout << YELLOW << "🛠️ Default Brain Constructor called 🛠️" << RESET << std::endl;
 }
@@ -40,4 +40,10 @@ Brain &Brain::operator=(const Brain &other) {
 
 std::string &Brain::getIdea(int &index) {
     return _ideas[index];
+}
+
+void Brain::setIdea(const std::string &newIdea) {
+    for (int i = 0; i < 100; i++) {
+        _ideas[i] = newIdea;
+    }
 }

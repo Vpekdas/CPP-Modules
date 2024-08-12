@@ -9,7 +9,8 @@ Cat::Cat() : Animal(), _brain(new Brain()) {
 Cat::Cat(const std::string &name)
     : Animal(name), _brain(new Brain("🐠 Dream about catching the biggest fish 🐠")) {
     setType("Cat");
-    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 Cat::~Cat() {
@@ -45,7 +46,5 @@ std::string &Cat::getIdea(int index) const {
 }
 
 void Cat::setIdea(const std::string &newIdea) {
-    for (int i = 0; i < 100; i++) {
-        _brain[i] = newIdea;
-    }
+    _brain->setIdea(newIdea);
 }
