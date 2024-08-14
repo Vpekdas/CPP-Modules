@@ -1,7 +1,7 @@
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/colors.hpp"
 
-WrongAnimal::WrongAnimal() : _type(""), _name("") {
+WrongAnimal::WrongAnimal() : _type("WrongAnimal"), _name("") {
     std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET
               << std::endl;
 }
@@ -15,7 +15,7 @@ WrongAnimal::~WrongAnimal() {
     std::cout << RED << "🧨 WrongAnimal Destructor called 🧨" << RESET << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type("WrongAnimal"), _name(other._name) {
+WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type(other._type), _name(other._name) {
     std::cout << YELLOW << "🖨️ WrongAnimal Copy Constructor called 🖨️" << RESET
               << std::endl;
 }

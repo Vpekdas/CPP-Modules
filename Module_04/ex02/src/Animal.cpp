@@ -15,7 +15,7 @@ Animal::~Animal() {
     std::cout << RED << "🧨 Animal Destructor called 🧨" << RESET << std::endl;
 }
 
-Animal::Animal(const Animal &other) : _type("Animal"), _name(other._name) {
+Animal::Animal(const Animal &other) : _type(other._type), _name(other._name) {
     std::cout << YELLOW << "🖨️ Animal Copy Constructor called 🖨️" << RESET << std::endl;
 }
 

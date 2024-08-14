@@ -3,6 +3,7 @@
 
 Cat::Cat() : Animal() {
     _type = "Cat";
+    _name = "";
     std::cout << YELLOW << "🛠️ Default Cat Constructor called 🛠️" << RESET << std::endl;
 }
 
