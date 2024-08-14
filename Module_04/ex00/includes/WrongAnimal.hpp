@@ -24,9 +24,7 @@ class WrongAnimal {
     const std::string &getName() const;
     const std::string &getType() const;
 
-    // Each derived class must be able to provide its own implementation of makeSound.
-    // This is why the method is declared virtual.
-    virtual void makeSound() const;
+    void makeSound() const;
 
   protected:
     std::string _type;

@@ -1,6 +1,6 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= IDontWantToSetTheWorldOnFire
-PROJECT_NAME	:= I don’t want to set the world on fire
+NAME			:= Interface&Recap
+PROJECT_NAME	:= Interface & recap
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
@@ -56,13 +56,13 @@ WHITE_BG		:= \033[48;5;15m
 # ================================ SRC FILES ================================= #
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
-						main.cpp \
-						Animal.cpp \
-						Cat.cpp \
-						Dog.cpp \
-						WrongAnimal.cpp \
-						WrongCat.cpp \
-						Brain.cpp \
+					AMateria.cpp \
+					Character.cpp \
+					Cure.cpp \
+					Ice.cpp \
+					ICharacter.cpp \
+					IMateriaSource.cpp \
+					main.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

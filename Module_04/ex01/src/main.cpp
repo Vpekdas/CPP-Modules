@@ -3,7 +3,6 @@
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
 #include "../includes/colors.hpp"
-#include <string>
 
 int main() {
     Animal *animals[100];
