@@ -2,13 +2,13 @@
 #include "../includes/colors.hpp"
 
 Cat::Cat() : Animal(), _brain(new Brain()) {
-    setType("Cat");
+    _type = "Cat";
     std::cout << YELLOW << "🛠️ Default Cat Constructor called 🛠️" << RESET << std::endl;
 }
 
 Cat::Cat(const std::string &name)
     : Animal(name), _brain(new Brain("🐠 Dream about catching the biggest fish 🐠")) {
-    setType("Cat");
+    _type = "Cat";
     std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET
               << std::endl;
 }
@@ -19,8 +19,8 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat &other) : Animal(other), _brain(new Brain(*other._brain)) {
-    setName(other.getName());
-    setType(other.getType());
+    _name = other._name;
+    _name = other._type;
     std::cout << YELLOW << "🖨️ Cat Copy Constructor called 🖨️" << RESET << std::endl;
 }
 

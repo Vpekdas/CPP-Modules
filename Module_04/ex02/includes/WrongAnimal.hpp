@@ -30,8 +30,6 @@ class WrongAnimal {
 
   protected:
     std::string _type;
-
-  private:
     std::string _name;
 };
 

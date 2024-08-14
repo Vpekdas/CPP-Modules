@@ -2,13 +2,16 @@
 #include "../includes/colors.hpp"
 
 Dog::Dog() : Animal() {
-    setType("Dog");
+    _type = "Dog";
+    _name = "";
     std::cout << YELLOW << "🛠️ Default Dog Constructor called 🛠️" << RESET << std::endl;
 }
 
 Dog::Dog(const std::string &name) : Animal(name) {
-    setType("Dog");
-    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET << std::endl;
+    _type = "Dog";
+    _name = name;
+    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 Dog::~Dog() {
@@ -16,8 +19,8 @@ Dog::~Dog() {
 }
 
 Dog::Dog(const Dog &other) : Animal(other) {
-    setName(other.getName());
-    setType(other.getType());
+    _type = other._type;
+    _name = other._name;
     std::cout << YELLOW << "🖨️ Dog Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
@@ -25,8 +28,8 @@ Dog &Dog::operator=(const Dog &other) {
     // Check for self-assignment
     if (this != &other) {
         Animal::operator=(other);
-        setName(other.getName());
-        setType(other.getType());
+        _type = other._type;
+        _name = other._name;
     }
     std::cout << YELLOW << "📞 Dog Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;

@@ -1,13 +1,13 @@
 #include "../includes/Animal.hpp"
 #include "../includes/colors.hpp"
 
-Animal::Animal() : _type("Animal") {
+Animal::Animal() : _type("Animal"), _name("") {
     std::cout << YELLOW << "🛠️ Default Animal Constructor called 🛠️" << RESET
               << std::endl;
 }
 
 Animal::Animal(const std::string &name) : _type("Animal"), _name(name) {
-    std::cout << YELLOW << "🛠️ Default Animal Constructor called 🛠️" << RESET
+    std::cout << YELLOW << "🛠️ Parameterized Animal Constructor called 🛠️" << RESET
               << std::endl;
 }
 
@@ -43,4 +43,8 @@ void Animal::setType(const std::string &type) {
 
 const std::string &Animal::getType() const {
     return _type;
+}
+
+void Animal::makeSound() const {
+    std::cout << CYAN << "🤔 *Mysterious Animal Roar* 🤔" << RESET << std::endl;
 }

@@ -42,7 +42,6 @@ void FragTrap::attack(const std::string &target) {
     if (isClapTrapDead() || !isClapTrapHasEnergy()) {
         return;
     }
-    std::string attack;
     setEnergyPoints(getEnergyPoints() - 1);
     std::cout << "🗡️ " << NBLUE << "[FragTrap " << getName() << "]" << BLUE << " has attacked "
               << NBLUE << target << BLUE << " with " << getAttackDamage() << " attack damage. "

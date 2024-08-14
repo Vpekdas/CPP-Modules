@@ -5,7 +5,6 @@
 #include <iostream>
 
 class AMateria {
-  protected:
   public:
     AMateria();
     AMateria(std::string const &type);

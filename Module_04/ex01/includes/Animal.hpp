@@ -30,8 +30,6 @@ class Animal {
 
   protected:
     std::string _type;
-
-  private:
     std::string _name;
 };
 

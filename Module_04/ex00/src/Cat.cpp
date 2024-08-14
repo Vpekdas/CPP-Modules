@@ -2,13 +2,15 @@
 #include "../includes/colors.hpp"
 
 Cat::Cat() : Animal() {
-    setType("Cat");
+    _type = "Cat";
     std::cout << YELLOW << "🛠️ Default Cat Constructor called 🛠️" << RESET << std::endl;
 }
 
 Cat::Cat(const std::string &name) : Animal(name) {
-    setType("Cat");
-    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET << std::endl;
+    _type = "Cat";
+    _name = name;
+    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 Cat::~Cat() {
@@ -16,8 +18,8 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat &other) : Animal(other) {
-    setName(other.getName());
-    setType(other.getType());
+    _type = other._type;
+    _name = other._name;
     std::cout << YELLOW << "🖨️ Cat Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
@@ -25,8 +27,8 @@ Cat &Cat::operator=(const Cat &other) {
     // Check for self-assignment
     if (this != &other) {
         Animal::operator=(other);
-        setName(other.getName());
-        setType(other.getType());
+        _type = other._type;
+        _name = other._name;
     }
     std::cout << YELLOW << "📞 Cat Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;

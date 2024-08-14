@@ -43,11 +43,11 @@ void ScavTrap::attack(const std::string &target) {
     if (isClapTrapDead() || !isClapTrapHasEnergy()) {
         return;
     }
-    std::string attack;
     setEnergyPoints(getEnergyPoints() - 1);
     std::cout << "🗡️ " << NBLUE << "[ScavTrap " << getName() << "]" << BLUE << " has attacked "
-              << NBLUE << target << BLUE << " with " << getAttackDamage() << " attack damage. " << getName()
-              << " has " << getEnergyPoints() << " energy points left." << RESET << std::endl;
+              << NBLUE << target << BLUE << " with " << getAttackDamage() << " attack damage. "
+              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
+              << std::endl;
 }
 
 void ScavTrap::guardGate() {

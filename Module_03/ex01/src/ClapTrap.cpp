@@ -60,7 +60,6 @@ void ClapTrap::attack(const std::string &target) {
     if (isClapTrapDead() || !isClapTrapHasEnergy()) {
         return;
     }
-    std::string attack;
     _energyPoints -= 1;
     std::cout << "🗡️ " << NBLUE << "[ClapTrap " << _name << "]" << BLUE << " has attacked "
               << NBLUE << target << BLUE << " with " << _attackDamage << " attack damage. " << _name

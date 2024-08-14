@@ -8,6 +8,7 @@ class AMateria;
 class ICharacter {
   public:
     ICharacter();
+    ICharacter(const std::string &name);
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other
     // object. This is necessary to correctly manage the internal state and avoid issues with
@@ -20,9 +21,6 @@ class ICharacter {
     virtual void equip(AMateria *m) = 0;
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter &target) = 0;
-
-  private:
-    AMateria *inventory[4];
 };
 
 #endif // I_CHARACTER_HPP

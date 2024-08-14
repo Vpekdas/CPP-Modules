@@ -1,12 +1,14 @@
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/colors.hpp"
 
-WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
-    std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET << std::endl;
+WrongAnimal::WrongAnimal() : _type(""), _name("") {
+    std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const std::string &name) : _type("WrongAnimal"), _name(name) {
-    std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized WrongAnimal Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
@@ -14,7 +16,8 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type("WrongAnimal"), _name(other._name) {
-    std::cout << YELLOW << "🖨️ WrongAnimal Copy Constructor called 🖨️" << RESET << std::endl;
+    std::cout << YELLOW << "🖨️ WrongAnimal Copy Constructor called 🖨️" << RESET
+              << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other) {
@@ -44,5 +47,5 @@ const std::string &WrongAnimal::getType() const {
 }
 
 void WrongAnimal::makeSound() const {
-    std::cout << CYAN << "🤔 *Mysterious Wrong Roar* 🤔" << RESET << std::endl;
+    std::cout << CYAN << "🤔 *Mysterious Wrong Animal Roar* 🤔" << RESET << std::endl;
 }

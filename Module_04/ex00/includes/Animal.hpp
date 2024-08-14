@@ -26,12 +26,10 @@ class Animal {
 
     // Each derived class must be able to provide its own implementation of makeSound.
     // This is why the method is declared virtual.
-    void makeSound() const;
+    virtual void makeSound() const;
 
   protected:
     std::string _type;
-
-  private:
     std::string _name;
 };
 

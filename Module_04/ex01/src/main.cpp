@@ -33,7 +33,7 @@ int main() {
               << RESET << std::endl;
     Dog *dog = static_cast<Dog *>(animals[0]);
     dog->makeSound();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         std::cout << CYAN << dog->getIdea(i) << RESET << std::endl;
     }
 
@@ -44,7 +44,7 @@ int main() {
               << RESET << std::endl;
     Cat *cat = static_cast<Cat *>(animals[50]);
     cat->makeSound();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         std::cout << CYAN << cat->getIdea(i) << RESET << std::endl;
     }
 
@@ -68,7 +68,7 @@ int main() {
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
     dogCopy->makeSound();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         std::cout << CYAN << dogCopy->getIdea(i) << RESET << std::endl;
     }
 
@@ -78,7 +78,7 @@ int main() {
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
     dogCopy->makeSound();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         std::cout << CYAN << dog->getIdea(i) << RESET << std::endl;
     }
 
@@ -96,7 +96,7 @@ int main() {
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
     catCopy->makeSound();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         std::cout << CYAN << catCopy->getIdea(i) << RESET << std::endl;
     }
 
@@ -106,7 +106,7 @@ int main() {
     std::cout << NPURPLE << "--------------------------------------------------------------"
               << RESET << std::endl;
     catCopy->makeSound();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         std::cout << CYAN << cat->getIdea(i) << RESET << std::endl;
     }
 
