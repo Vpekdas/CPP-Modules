@@ -1,5 +1,5 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= Interface&Recap
+NAME			:= InterfaceRecap
 PROJECT_NAME	:= Interface & recap
 
 # =========================== COMPILER AND FLAGS ============================= #
@@ -60,9 +60,8 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 					Character.cpp \
 					Cure.cpp \
 					Ice.cpp \
-					ICharacter.cpp \
-					IMateriaSource.cpp \
 					main.cpp \
+					MateriaSource.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

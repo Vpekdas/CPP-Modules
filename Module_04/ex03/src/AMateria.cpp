@@ -1,4 +1,5 @@
 #include "../includes/AMateria.hpp"
+#include "../includes/ICharacter.hpp"
 #include "../includes/colors.hpp"
 
 AMateria::AMateria() : _type("") {
@@ -25,4 +26,12 @@ AMateria &AMateria::operator=(const AMateria &other) {
     }
     std::cout << YELLOW << "📞 AMateria Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
+}
+
+std::string const &AMateria::getType() const {
+    return _type;
+}
+
+void AMateria::use(ICharacter &target) {
+    std::cout << "* uses " << _type << " on " << target.getName() << " *" << std::endl;
 }

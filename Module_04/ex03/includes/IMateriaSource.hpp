@@ -8,14 +8,6 @@ class AMateria;
 
 class IMateriaSource {
   public:
-    IMateriaSource();
-
-    // Copy assignment operator: Ensures that the current object gets the same state as the other
-    // object. This is necessary to correctly manage the internal state and avoid issues with
-    // resource management.
-    IMateriaSource(const IMateriaSource &other);
-    IMateriaSource &operator=(const IMateriaSource &other);
-
     virtual ~IMateriaSource() {
     }
     virtual void learnMateria(AMateria *) = 0;

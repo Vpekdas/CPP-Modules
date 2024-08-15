@@ -2,6 +2,7 @@
 #define MATERIA_SOURCE_HPP
 
 #include "../includes/IMateriaSource.hpp"
+#include "AMateria.hpp"
 #include <iostream>
 
 class MateriaSource : public IMateriaSource {
@@ -20,6 +21,8 @@ class MateriaSource : public IMateriaSource {
     AMateria *createMateria(std::string const &type);
 
   private:
+    AMateria *_materias[4];
+    int _nextIndex;
 };
 
 #endif // MATERIA_SOURCE_HPP
