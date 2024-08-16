@@ -22,6 +22,15 @@ MateriaSource::MateriaSource(const MateriaSource &other) : _nextIndex(other._nex
               << std::endl;
 }
 
+MateriaSource::~MateriaSource() {
+    for (int i = 0; i < 4; i++) {
+        if (_materias[i]) {
+            delete _materias[i];
+            _materias[i] = 0;
+        }
+    }
+}
+
 MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
     // Check for self-assignment
     if (this != &other) {
@@ -36,22 +45,23 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
 }
 
 void MateriaSource::learnMateria(AMateria *m) {
-    _materias[_nextIndex] = m->clone();
-    _nextIndex += 1;
-    if (_nextIndex > 3) {
-        _nextIndex = 3;
+    if (_nextIndex < 4) {
+        _materias[_nextIndex] = m;
+        _nextIndex += 1;
+    } else {
+        delete m;
+        std::cout << NRED << "❌ Error: MateriaSource storage is full. Cannot learn more Materia. ❌"
+                  << RESET << std::endl;
     }
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
     for (int i = 0; i < 4; i++) {
-        if (_materias[i]->getType() == type && type == "ice") {
-            Cure *cure = new (Cure);
-            return cure;
-        } else if (_materias[i]->getType() == type && type == "cure") {
-            Ice *ice = new (Ice);
-            return ice;
+        if (_materias[i] != 0 && _materias[i]->getType() == type) {
+            return _materias[i]->clone();
         }
     }
+    std::cout << NRED << "❌ Materia of type '" << type << "' not found in MateriaSource. ❌" << RESET
+              << std::endl;
     return NULL;
 }
