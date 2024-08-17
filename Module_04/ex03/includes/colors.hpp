@@ -33,4 +33,19 @@
 #define NPINK "\033[1;95m"
 #define NORANGE "\033[1;38;5;208m"
 
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+		// BOLD ITALIC COLORS //	+	+	+	+ 	+	+	//
+// -----------------------------------------------------------------------------//
+
+#define BIYELLOW "\033[1;3;93m"
+#define BIGREEN "\033[1;3;92m"
+#define BIBLUE "\033[1;3;94m"
+#define BIRED "\033[1;3;91m"
+#define BIPURPLE "\033[1;3;95m"
+#define BICYAN "\033[1;3;96m"
+#define BIBLACK "\033[1;3;90m"
+#define BIWHITE "\033[1;3;97m"
+#define BIPINK "\033[1;3;95m"
+#define BIORANGE "\033[1;3;38;5;208m"
+
 #endif

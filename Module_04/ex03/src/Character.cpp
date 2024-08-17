@@ -49,6 +49,7 @@ Character::Character(const Character &other) {
             _floor[i] = 0;
         }
     }
+    _nextIndex = other._nextIndex;
     std::cout << YELLOW << "🖨️ Character Copy Constructor called 🖨️" << RESET
               << std::endl;
 }
@@ -61,6 +62,7 @@ Character &Character::operator=(const Character &other) {
             _floor[i] = other._floor[i]->clone();
         }
         _name = other._name;
+        _nextIndex = other._nextIndex;
     }
     std::cout << YELLOW << "📞 Character Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
@@ -73,18 +75,30 @@ void Character::use(int idx, ICharacter &target) {
         return;
     } else if (!_inventory[idx]) {
         std::cout << NRED << "❌ Warning: Inventory slot " << idx
-                  << " is empty. Cannot perform the action. ❌" << RESET << std::endl;
+                  << " is empty. Action cannot be performed. ❌" << RESET << std::endl;
         return;
     }
+    std::cout << NCYAN << "[" << _name << "]" << RESET;
     _inventory[idx]->use(target);
 }
 
 void Character::equip(AMateria *m) {
+    for (int i = 0; i < 4; ++i) {
+        if (_inventory[i] == m) {
+            std::cout << NRED << "❌ Error: Materia already equipped! ❌" << RESET << std::endl;
+            return;
+        }
+    }
     if (_nextIndex > 3) {
-        _nextIndex = 3;
+        std::cout << NRED << "❌ Error: No available slots to equip new Materia. ❌" << RESET
+                  << std::endl;
+        delete m;
+        return;
     }
     _inventory[_nextIndex] = m;
     _nextIndex += 1;
+    std::cout << NGREEN << "[" << _name << "]" << GREEN << " successfully equipped " << BIGREEN
+              << m->getType() << GREEN << " materia. 🎒" << RESET << std::endl;
 }
 
 std::string const &Character::getName() const {
@@ -104,4 +118,24 @@ void Character::unequip(int idx) {
     }
     _floor[idx] = _inventory[idx];
     _inventory[idx] = 0;
+    std::cout << NRED << "[" << _name << "]" << RED << " successfully unequipped " << BIRED
+              << _floor[idx]->getType() << RED << " materia. 🔄" << RESET << std::endl;
+}
+
+void Character::equipFromFloor(int idx) {
+    if (idx < 0 || idx > 3) {
+        std::cout << NRED << "❌ Error: Index " << idx
+                  << " is out of bounds. Valid range is 0 to 3. ❌" << RESET << std::endl;
+        return;
+    }
+    if (_floor[idx] == 0) {
+        std::cout << NRED << "❌ Error: Floor slot " << idx << " is already empty. ❌" << RESET
+                  << std::endl;
+        return;
+    }
+    _inventory[idx] = _floor[idx];
+    _floor[idx] = 0;
+    std::cout << NGREEN << "[" << _name << "]" << GREEN << " successfully equipped " << BIGREEN
+              << _inventory[idx]->getType() << GREEN << " materia from the floor 🎒." << RESET
+              << std::endl;
 }

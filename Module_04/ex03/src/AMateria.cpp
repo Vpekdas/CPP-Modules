@@ -22,7 +22,6 @@ AMateria::AMateria(const AMateria &other) : _type(other._type) {
 AMateria &AMateria::operator=(const AMateria &other) {
     // Check for self-assignment
     if (this != &other) {
-        _type = other._type;
     }
     std::cout << YELLOW << "📞 AMateria Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;

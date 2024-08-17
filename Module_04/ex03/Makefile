@@ -62,6 +62,8 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 					Ice.cpp \
 					main.cpp \
 					MateriaSource.cpp \
+					Fire.cpp \
+					Lightning.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
