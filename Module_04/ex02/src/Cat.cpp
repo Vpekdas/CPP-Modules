@@ -21,7 +21,7 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat &other) : Animal(other), _brain(new Brain(*other._brain)) {
-    _name = other._type;
+    _type = other._type;
     _name = other._name;
     std::cout << YELLOW << "🖨️ Cat Copy Constructor called 🖨️" << RESET << std::endl;
 }
@@ -30,7 +30,7 @@ Cat &Cat::operator=(const Cat &other) {
     // Check for self-assignment
     if (this != &other) {
         Animal::operator=(other);
-        _name = other._type;
+        _type = other._type;
         _name = other._name;
         delete _brain;
         _brain = new Brain(*other._brain);

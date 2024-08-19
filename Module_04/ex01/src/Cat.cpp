@@ -30,7 +30,7 @@ Cat &Cat::operator=(const Cat &other) {
     // Check for self-assignment
     if (this != &other) {
         Animal::operator=(other);
-        _name = other._type;
+        _type = other._type;
         _name = other._name;
         delete _brain;
         _brain = new Brain(*other._brain);

@@ -35,3 +35,7 @@ WrongCat &WrongCat::operator=(const WrongCat &other) {
     std::cout << YELLOW << "📞 WrongCat Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
 }
+
+void WrongCat::makeSound() const {
+    std::cout << "🐈 " << CYAN << "MEOW! I'm a Cat, hear me roar!" << RESET << std::endl;
+}
