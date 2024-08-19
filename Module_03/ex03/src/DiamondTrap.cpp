@@ -2,7 +2,8 @@
 #include "../includes/colors.hpp"
 
 DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap() {
-    std::cout << YELLOW << "🛠️ Default DiamondTrap Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Default DiamondTrap Constructor called 🛠️" << RESET
+              << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string &name)
@@ -25,7 +26,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other)
     setHitPoints(other.getHitPoints());
     setEnergyPoints(other.getEnergyPoints());
     setAttackDamage(other.getAttackDamage());
-    std::cout << YELLOW << "🖨️ DiamondTrap Copy Constructor called 🖨️" << RESET << std::endl;
+    std::cout << YELLOW << "🖨️ DiamondTrap Copy Constructor called 🖨️" << RESET
+              << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other) {
@@ -35,16 +37,21 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other) {
         ScavTrap::operator=(other);
         ClapTrap::setName(other._name + "_clap_name");
     }
-    std::cout << YELLOW << "📞 DiamondTrap Copy Assignment Operator called 📞" << RESET
-              << std::endl;
+    std::cout << YELLOW << "📞 DiamondTrap Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
 }
 
 void DiamondTrap::attack(const std::string &target) {
+    if (isClapTrapDead() || !isClapTrapHasEnergy()) {
+        return;
+    }
     ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI() {
+    if (isClapTrapDead() || !isClapTrapHasEnergy()) {
+        return;
+    }
     std::cout << "👋😊 " << BLUE << "Hello there, my name is " << NBLUE << _name << BLUE
               << " and my ClapTrap name is " << NBLUE << ClapTrap::getName() << RESET << std::endl;
 }

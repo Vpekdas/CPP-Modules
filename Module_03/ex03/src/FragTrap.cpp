@@ -50,6 +50,9 @@ void FragTrap::attack(const std::string &target) {
 }
 
 void FragTrap::highFivesGuys(void) {
+    if (isClapTrapDead() || !isClapTrapHasEnergy()) {
+        return;
+    }
     setEnergyPoints(getEnergyPoints() - 1);
     std::cout << "🤜 🤛" << NBLUE << getName() << BLUE << " has requested a fist bump. "
               << getName() << " has " << getEnergyPoints() << " energy points left." << RESET

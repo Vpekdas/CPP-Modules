@@ -51,6 +51,9 @@ void ScavTrap::attack(const std::string &target) {
 }
 
 void ScavTrap::guardGate() {
+    if (isClapTrapDead() || !isClapTrapHasEnergy()) {
+        return;
+    }
     setEnergyPoints(getEnergyPoints() - 1);
     std::cout << "🛡️ " << NBLUE << getName() << BLUE << " is protecting themselves. "
               << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
