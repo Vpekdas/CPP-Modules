@@ -40,7 +40,7 @@ int main(int ac, char **av) {
                     line.substr(indexOccurence + occurenceLength, initialLength - indexOccurence);
                 std::string previousLine = line.substr(0, indexOccurence) + replaceBy;
                 line = previousLine + nextLine;
-                indexOccurence = line.find(occurence);
+                indexOccurence = line.find(occurence, indexOccurence + replaceBy.length());
             }
             outputFile << line;
             if (!inputFile.eof()) {
