@@ -41,8 +41,7 @@ std::string validAddField(bool digitsOnly = false) {
             exit(0);
         }
         if (input.empty()) {
-            std::cout << RED << "Error: Field cannot be empty. Please fill in the field." << RESET
-                      << std::endl;
+            std::cout << RED << "Error: Field cannot be empty. Please fill in the field." << RESET << std::endl;
         } else if (digitsOnly && !onlyDigit(input)) {
             std::cout << RED << "Error: Please enter only digits." << RESET << std::endl;
         }
@@ -74,8 +73,8 @@ void addCommand(PhoneBook &phoneBook, std::size_t &index) {
         index = 0;
     }
     phoneBook.addContact(contact);
-    std::cout << GREEN << "Contact " NGREEN << contact.getNickname() << GREEN
-              << " added succesfully ✅ " << RESET << std::endl;
+    std::cout << GREEN << "Contact " NGREEN << contact.getNickname() << GREEN << " added succesfully ✅ " << RESET
+              << std::endl;
 }
 
 void PhoneBook::addContact(const Contact &contact) {
@@ -88,30 +87,28 @@ void PhoneBook::addContact(const Contact &contact) {
 
 void PhoneBook::displaySpecificContact(std::size_t index) {
     if (index > this->_totalContacts) {
-        std::cout << RED << "Error: Specified index is out of range." << NRED
-                  << " Exiting SEARCH mode." << RESET << std::endl;
+        std::cout << RED << "Error: Specified index is out of range." << NRED << " Exiting SEARCH mode." << RESET
+                  << std::endl;
         return;
     } else if (this->_contacts[index].getFirstName().empty()) {
-        std::cout << RED << "Error: No contact found at the specified index." << NRED
-                  << " Exiting SEARCH mode." << RESET << std::endl;
+        std::cout << RED << "Error: No contact found at the specified index." << NRED << " Exiting SEARCH mode."
+                  << RESET << std::endl;
         return;
     }
-    std::cout << PURPLE << "All information for " << NPURPLE << this->_contacts[index].getNickname()
-              << ":" << RESET << std::endl;
+    std::cout << PURPLE << "All information for " << NPURPLE << this->_contacts[index].getNickname() << ":" << RESET
+              << std::endl;
     std::cout << NCYAN << "First Name: " << RESET << _contacts[index].getFirstName() << std::endl;
     std::cout << NCYAN << "Last Name: " << RESET << _contacts[index].getLastName() << std::endl;
     std::cout << NCYAN << "Nickname: " << RESET << _contacts[index].getNickname() << std::endl;
-    std::cout << NCYAN << "Phone Number: " << RESET << _contacts[index].getPhoneNumber()
-              << std::endl;
-    std::cout << NCYAN << "Darkest Secret: " << RESET << _contacts[index].getDarkestSecret()
-              << std::endl;
+    std::cout << NCYAN << "Phone Number: " << RESET << _contacts[index].getPhoneNumber() << std::endl;
+    std::cout << NCYAN << "Darkest Secret: " << RESET << _contacts[index].getDarkestSecret() << std::endl;
 }
 
 void PhoneBook::displayContacts() {
     std::string input;
     std::size_t index;
-    std::cout << NCYAN << "|" << "     INDEX" << "|" << "FIRST NAME" << "|" << " LAST NAME" << "|"
-              << "  NICKNAME" << "|" << RESET << std::endl;
+    std::cout << NCYAN << "|" << "     INDEX" << "|" << "FIRST NAME" << "|" << " LAST NAME" << "|" << "  NICKNAME"
+              << "|" << RESET << std::endl;
     for (std::size_t i = 0; i < _totalContacts; i++) {
         std::cout << "|" << "         " << this->_contacts[i].getIndex() << "|"
                   << formatColumn(this->_contacts[i].getFirstName()) << "|"
@@ -135,7 +132,7 @@ void handleCommand(const std::string &command, PhoneBook &phoneBook, std::size_t
         std::cout << NCYAN << "👋 Bye bye 👋 " << RESET << std::endl;
         exit(0);
     } else {
-        std::cout << RED << "Error: The program accepts only these commands: " << NRED
-                  << "ADD, SEARCH, EXIT." << RESET << std::endl;
+        std::cout << RED << "Error: The program accepts only these commands: " << NRED << "ADD, SEARCH, EXIT." << RESET
+                  << std::endl;
     }
 }

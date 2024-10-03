@@ -6,7 +6,7 @@
 #include <iostream>
 
 class Cat : public Animal {
-  public:
+    public:
     Cat();
     Cat(const std::string &name);
 
@@ -18,10 +18,10 @@ class Cat : public Animal {
     ~Cat();
 
     std::string &getIdea(int index) const;
-	void setIdea(const std::string &newIdea);
+    void setIdea(const std::string &newIdea);
     void makeSound() const;
 
-  private:
+    private:
     Brain *_brain;
 };
 

@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Lightning : public AMateria {
-  public:
+    public:
     Lightning();
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other

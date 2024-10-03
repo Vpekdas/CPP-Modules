@@ -5,7 +5,7 @@
 #include <string>
 
 class WrongAnimal {
-  public:
+    public:
     WrongAnimal();
     WrongAnimal(const std::string &name);
 
@@ -26,7 +26,7 @@ class WrongAnimal {
 
     void makeSound() const;
 
-  protected:
+    protected:
     std::string _type;
     std::string _name;
 };

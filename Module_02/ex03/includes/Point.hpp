@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Point {
-  public:
+    public:
     Point();
     Point(const float x, const float y);
 
@@ -21,7 +21,7 @@ class Point {
     const Fixed &getX() const;
     const Fixed &getY() const;
 
-  private:
+    private:
     const Fixed _x;
     const Fixed _y;
 };

@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Fire : public AMateria {
-  public:
+    public:
     Fire();
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other

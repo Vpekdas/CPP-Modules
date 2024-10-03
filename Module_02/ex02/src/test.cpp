@@ -84,15 +84,13 @@ void testIncrementDecrementOperators(Fixed &a) {
     std::cout << CYAN << "Pre-increment: ++a = " << ++a << RESET << std::endl;
 
     // Test post-increment
-    std::cout << CYAN << "Post-increment: a++ = " << a++ << " (after increment: " << a << ")"
-              << RESET << std::endl;
+    std::cout << CYAN << "Post-increment: a++ = " << a++ << " (after increment: " << a << ")" << RESET << std::endl;
 
     // Test pre-decrement
     std::cout << CYAN << "Pre-decrement: --a = " << --a << RESET << std::endl;
 
     // Test post-decrement
-    std::cout << CYAN << "Post-decrement: a-- = " << a-- << " (after decrement: " << a << ")"
-              << RESET << std::endl;
+    std::cout << CYAN << "Post-decrement: a-- = " << a-- << " (after decrement: " << a << ")" << RESET << std::endl;
 }
 
 void testMinMax(const Fixed &a, const Fixed &b) {
@@ -105,8 +103,7 @@ void testMinMax(const Fixed &a, const Fixed &b) {
     std::cout << CYAN << "min(a, b) = " << minResult << RESET << std::endl;
 
     // Test const min
-    const Fixed &constMinResult =
-        Fixed::min(static_cast<const Fixed &>(a), static_cast<const Fixed &>(b));
+    const Fixed &constMinResult = Fixed::min(static_cast<const Fixed &>(a), static_cast<const Fixed &>(b));
     std::cout << CYAN << "const min(a, b) = " << constMinResult << RESET << std::endl;
 
     // Test non-const max
@@ -114,7 +111,6 @@ void testMinMax(const Fixed &a, const Fixed &b) {
     std::cout << CYAN << "max(a, b) = " << maxResult << RESET << std::endl;
 
     // Test const max
-    const Fixed &constMaxResult =
-        Fixed::max(static_cast<const Fixed &>(a), static_cast<const Fixed &>(b));
+    const Fixed &constMaxResult = Fixed::max(static_cast<const Fixed &>(a), static_cast<const Fixed &>(b));
     std::cout << CYAN << "const max(a, b) = " << constMaxResult << RESET << std::endl;
 }

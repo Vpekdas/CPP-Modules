@@ -7,12 +7,10 @@ Dog::Dog() : Animal(), _brain(new Brain()) {
     std::cout << YELLOW << "🛠️ Default Dog Constructor called 🛠️" << RESET << std::endl;
 }
 
-Dog::Dog(const std::string &name)
-    : Animal(name), _brain(new Brain("🦴 Dream about chasing the biggest bone 🦴")) {
+Dog::Dog(const std::string &name) : Animal(name), _brain(new Brain("🦴 Dream about chasing the biggest bone 🦴")) {
     _type = "Dog";
     _name = name;
-    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET << std::endl;
 }
 
 Dog::~Dog() {

@@ -10,8 +10,7 @@ Cat::Cat() : Animal() {
 Cat::Cat(const std::string &name) : Animal(name) {
     _type = "Cat";
     _name = name;
-    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET << std::endl;
 }
 
 Cat::~Cat() {

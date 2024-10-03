@@ -9,7 +9,7 @@
 #define FRAG_TRAP_ATTACK_DAMAGE 30
 
 class FragTrap : virtual public ClapTrap {
-  public:
+    public:
     FragTrap();
     FragTrap(const std::string &name);
     // Copy assignment operator: Ensures that the current object gets the same state as the other
@@ -18,11 +18,11 @@ class FragTrap : virtual public ClapTrap {
     FragTrap(const FragTrap &other);
     FragTrap &operator=(const FragTrap &other);
     ~FragTrap();
-	
+
     void attack(const std::string &target);
     void highFivesGuys(void);
 
-  private:
+    private:
 };
 
 #endif // FRAG_TRAP_HPP

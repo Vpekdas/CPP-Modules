@@ -12,8 +12,7 @@ Brain::Brain(const std::string &idea) {
     for (int i = 0; i < 100; i++) {
         _ideas[i] = idea;
     }
-    std::cout << YELLOW << "🛠️ Parameterized Brain Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Brain Constructor called 🛠️" << RESET << std::endl;
 }
 
 Brain::~Brain() {

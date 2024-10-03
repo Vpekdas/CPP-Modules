@@ -7,7 +7,7 @@
 #include <string>
 
 class Zombie {
-  public:
+    public:
     Zombie();
     ~Zombie();
 
@@ -16,7 +16,7 @@ class Zombie {
 
     void announce(void);
 
-  private:
+    private:
     std::string _name;
 };
 

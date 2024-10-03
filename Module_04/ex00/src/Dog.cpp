@@ -10,8 +10,7 @@ Dog::Dog() : Animal() {
 Dog::Dog(const std::string &name) : Animal(name) {
     _type = "Dog";
     _name = name;
-    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Dog Constructor called 🛠️" << RESET << std::endl;
 }
 
 Dog::~Dog() {

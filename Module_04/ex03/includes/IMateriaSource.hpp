@@ -7,7 +7,7 @@
 class AMateria;
 
 class IMateriaSource {
-  public:
+    public:
     virtual ~IMateriaSource() {
     }
     virtual void learnMateria(AMateria *) = 0;

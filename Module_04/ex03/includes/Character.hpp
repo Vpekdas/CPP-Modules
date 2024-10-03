@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Character : public ICharacter {
-  public:
+    public:
     Character();
     Character(const std::string &name);
     // Copy assignment operator: Ensures that the current object gets the same state as the other
@@ -22,7 +22,7 @@ class Character : public ICharacter {
     void use(int idx, ICharacter &target);
     void equipFromFloor(int idx);
 
-  private:
+    private:
     AMateria *_inventory[4];
     AMateria *_floor[4];
     int _nextIndex;

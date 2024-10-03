@@ -31,8 +31,7 @@ void Harl::_debug(void) {
 }
 
 void Harl::_info(void) {
-    std::cout << NORANGE << "🍊 They're not just oranges. They're blood oranges. 🍊" << RESET
-              << std::endl;
+    std::cout << NORANGE << "🍊 They're not just oranges. They're blood oranges. 🍊" << RESET << std::endl;
 }
 
 void Harl::_warning(void) {
@@ -40,8 +39,6 @@ void Harl::_warning(void) {
 }
 
 void Harl::_error(void) {
-    std::cout
-        << NRED
-        << "😮‍💨 Yar ha har argh! — (coughs) — Had something in my throat. 😮‍💨"
-        << RESET << std::endl;
+    std::cout << NRED << "😮‍💨 Yar ha har argh! — (coughs) — Had something in my throat. 😮‍💨"
+              << RESET << std::endl;
 }

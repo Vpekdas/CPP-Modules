@@ -5,7 +5,7 @@
 #include <string>
 
 class Animal {
-  public:
+    public:
     Animal();
     Animal(const std::string &name);
 
@@ -29,7 +29,7 @@ class Animal {
     // Abstract class, so we cannot create an instance of Animal.
     virtual void makeSound() const = 0;
 
-  protected:
+    protected:
     std::string _type;
     std::string _name;
 };

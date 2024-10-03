@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Fixed {
-  public:
+    public:
     Fixed();
     Fixed(const int number);
     Fixed(const float number);
@@ -26,7 +26,7 @@ class Fixed {
     // to allow for operations and comparisons in integer arithmetic.
     int toInt(void) const;
 
-  private:
+    private:
     int _rawBits;
     static const int _fractionalBits = 8;
 };

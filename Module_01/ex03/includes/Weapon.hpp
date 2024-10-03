@@ -6,7 +6,7 @@
 #include <string>
 
 class Weapon {
-  public:
+    public:
     // Constructor that initializes the Weapon with a specific type.
     // This ensures that every Weapon object starts with a valid type.
     Weapon(const std::string &type);
@@ -15,7 +15,7 @@ class Weapon {
     const std::string &getType();
     void setType(std::string type);
 
-  private:
+    private:
     std::string _type;
 };
 

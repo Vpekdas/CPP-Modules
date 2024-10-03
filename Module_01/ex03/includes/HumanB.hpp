@@ -4,7 +4,7 @@
 #include "../includes/Weapon.hpp"
 
 class HumanB {
-  public:
+    public:
     // Constructor that initializes HumanB with a name.
     // HumanB does not require a weapon at initialization, allowing for more flexibility.
     HumanB(const std::string &name);
@@ -15,7 +15,7 @@ class HumanB {
 
     void attack();
 
-  private:
+    private:
     Weapon *_weapon;
     std::string _name;
 };

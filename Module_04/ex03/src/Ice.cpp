@@ -28,6 +28,6 @@ AMateria *Ice::clone() const {
 }
 
 void Ice::use(ICharacter &target) {
-    std::cout << CYAN << " casts 🧊 " << BICYAN << _type << CYAN << " on " << NCYAN
-              << target.getName() << RESET << std::endl;
+    std::cout << CYAN << " casts 🧊 " << BICYAN << _type << CYAN << " on " << NCYAN << target.getName() << RESET
+              << std::endl;
 }

@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Fixed {
-  public:
+    public:
     Fixed();
     Fixed(const int number);
     Fixed(const float number);
@@ -56,7 +56,7 @@ class Fixed {
     int getRawBits(void) const;
     void setRawBits(int const raw);
 
-  private:
+    private:
     int _rawBits;
     static const int _fractionalBits = 8;
 };

@@ -5,7 +5,7 @@
 #include <string>
 
 class Animal {
-  public:
+    public:
     Animal();
     Animal(const std::string &name);
 
@@ -28,7 +28,7 @@ class Animal {
     // This is why the method is declared virtual.
     virtual void makeSound() const;
 
-  protected:
+    protected:
     std::string _type;
     std::string _name;
 };

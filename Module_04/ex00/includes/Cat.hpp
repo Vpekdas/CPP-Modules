@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Cat : public Animal {
-  public:
+    public:
     Cat();
     Cat(const std::string &name);
 

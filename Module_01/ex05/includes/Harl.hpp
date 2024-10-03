@@ -4,12 +4,12 @@
 #include <iostream>
 
 class Harl {
-  public:
+    public:
     Harl();
     ~Harl();
     void complain(std::string level);
 
-  private:
+    private:
     void _debug(void);
     void _info(void);
     void _warning(void);

@@ -6,7 +6,7 @@
 #include <iostream>
 
 class DiamondTrap : public ScavTrap, public FragTrap {
-  public:
+    public:
     DiamondTrap();
     DiamondTrap(const std::string &name);
 
@@ -20,7 +20,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
     void whoAmI();
     void attack(const std::string &target);
 
-  private:
+    private:
     std::string _name;
 };
 

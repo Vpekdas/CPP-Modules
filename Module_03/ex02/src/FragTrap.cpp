@@ -2,8 +2,7 @@
 #include "../includes/colors.hpp"
 
 FragTrap::FragTrap() : ClapTrap() {
-    std::cout << YELLOW << "🛠️ Default FragTrap Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default FragTrap Constructor called 🛠️" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
@@ -43,10 +42,9 @@ void FragTrap::attack(const std::string &target) {
         return;
     }
     setEnergyPoints(getEnergyPoints() - 1);
-    std::cout << "🗡️ " << NBLUE << "[FragTrap " << getName() << "]" << BLUE << " has attacked "
-              << NBLUE << target << BLUE << " with " << getAttackDamage() << " attack damage. "
-              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
-              << std::endl;
+    std::cout << "🗡️ " << NBLUE << "[FragTrap " << getName() << "]" << BLUE << " has attacked " << NBLUE << target
+              << BLUE << " with " << getAttackDamage() << " attack damage. " << getName() << " has "
+              << getEnergyPoints() << " energy points left." << RESET << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {
@@ -54,7 +52,6 @@ void FragTrap::highFivesGuys(void) {
         return;
     }
     setEnergyPoints(getEnergyPoints() - 1);
-    std::cout << "🤜 🤛" << NBLUE << getName() << BLUE << " has requested a fist bump. "
-              << getName() << " has " << getEnergyPoints() << " energy points left." << RESET
-              << std::endl;
+    std::cout << "🤜 🤛" << NBLUE << getName() << BLUE << " has requested a fist bump. " << getName() << " has "
+              << getEnergyPoints() << " energy points left." << RESET << std::endl;
 }

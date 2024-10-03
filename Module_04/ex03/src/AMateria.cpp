@@ -3,13 +3,11 @@
 #include "../includes/colors.hpp"
 
 AMateria::AMateria() : _type("") {
-    std::cout << YELLOW << "🛠️ Default AMateria Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default AMateria Constructor called 🛠️" << RESET << std::endl;
 }
 
 AMateria::AMateria(std::string const &type) : _type(type) {
-    std::cout << YELLOW << "🛠️ Parameterized AMateria Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized AMateria Constructor called 🛠️" << RESET << std::endl;
 }
 AMateria::~AMateria() {
     std::cout << RED << "🧨 AMateria Destructor called 🧨" << RESET << std::endl;

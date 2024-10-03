@@ -13,14 +13,14 @@
 // -----------------------------------------------------------------------------//
 
 class PhoneBook {
-  public:
+    public:
     PhoneBook();
     ~PhoneBook();
     void addContact(const Contact &contact);
     void displayContacts();
     void displaySpecificContact(std::size_t index);
 
-  private:
+    private:
     Contact _contacts[8];
     std::size_t _totalContacts;
     std::size_t _nextIndex;

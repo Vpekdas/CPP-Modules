@@ -4,15 +4,13 @@
 WrongCat::WrongCat() : WrongAnimal() {
     _type = "WrongCat";
     _name = "";
-    std::cout << YELLOW << "🛠️ Default WrongCat Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default WrongCat Constructor called 🛠️" << RESET << std::endl;
 }
 
 WrongCat::WrongCat(const std::string &name) : WrongAnimal(name) {
     _type = "WrongCat";
     _name = name;
-    std::cout << YELLOW << "🛠️ Parameterized WrongCat Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized WrongCat Constructor called 🛠️" << RESET << std::endl;
 }
 
 WrongCat::~WrongCat() {

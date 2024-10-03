@@ -8,7 +8,7 @@
 #define CLAP_TRAP_ATTACK_DAMAGE 0
 
 class ClapTrap {
-  public:
+    public:
     ClapTrap();
     ClapTrap(const std::string &name);
 
@@ -36,7 +36,7 @@ class ClapTrap {
     void setEnergyPoints(unsigned int energyPoints);
     void setAttackDamage(unsigned int attackDamage);
 
-  protected:
+    protected:
     std::string _name;
     unsigned int _hitPoints;
     unsigned int _energyPoints;

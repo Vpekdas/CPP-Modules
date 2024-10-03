@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Ice : public AMateria {
-  public:
+    public:
     Ice();
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other

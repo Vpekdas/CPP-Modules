@@ -11,10 +11,8 @@
 // the integrity of the original string structure.
 int main(int ac, char **av) {
     if (ac != 4) {
-        std::cout
-            << RED
-            << "Error: Exactly 4 arguments are expected: the filename, and two strings, s1 and s2."
-            << RESET << std::endl;
+        std::cout << RED << "Error: Exactly 4 arguments are expected: the filename, and two strings, s1 and s2."
+                  << RESET << std::endl;
         return 0;
     }
     std::ifstream inputFile(av[1]);
@@ -36,8 +34,7 @@ int main(int ac, char **av) {
                 indexOccurence = -1;
             }
             while (indexOccurence != -1) {
-                std::string nextLine =
-                    line.substr(indexOccurence + occurenceLength, initialLength - indexOccurence);
+                std::string nextLine = line.substr(indexOccurence + occurenceLength, initialLength - indexOccurence);
                 std::string previousLine = line.substr(0, indexOccurence) + replaceBy;
                 line = previousLine + nextLine;
                 indexOccurence = line.find(occurence, indexOccurence + replaceBy.length());

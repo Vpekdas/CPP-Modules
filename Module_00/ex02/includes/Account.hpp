@@ -17,7 +17,7 @@
 
 class Account {
 
-  public:
+    public:
     typedef Account t;
 
     static int getNbAccounts(void);
@@ -43,7 +43,7 @@ class Account {
     // Display this information for an account: index, amount, deposits, and withdrawals.
     void displayStatus(void) const;
 
-  private:
+    private:
     static int _nbAccounts;
     static int _totalAmount;
     static int _totalNbDeposits;

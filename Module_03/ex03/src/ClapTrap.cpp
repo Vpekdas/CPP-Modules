@@ -2,8 +2,7 @@
 #include "../includes/colors.hpp"
 
 ClapTrap::ClapTrap() : _name(""), _hitPoints(0), _energyPoints(0), _attackDamage(0) {
-    std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default ClapTrap Constructor called 🛠️" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name)
@@ -38,8 +37,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 
 bool ClapTrap::isClapTrapDead() {
     if (getHitPoints() <= 0) {
-        std::cout << NRED << _name << RED
-                  << " has no more 🫀 hit points🫀 and cannot perform any actions." << RESET
+        std::cout << NRED << _name << RED << " has no more 🫀 hit points🫀 and cannot perform any actions." << RESET
                   << std::endl;
         return true;
     }
@@ -48,8 +46,7 @@ bool ClapTrap::isClapTrapDead() {
 
 bool ClapTrap::isClapTrapHasEnergy() {
     if (getEnergyPoints() <= 0) {
-        std::cout << NRED << _name << RED
-                  << " has no more 🔋 energy 🔋 and cannot perform any actions." << RESET
+        std::cout << NRED << _name << RED << " has no more 🔋 energy 🔋 and cannot perform any actions." << RESET
                   << std::endl;
         return false;
     }
@@ -61,22 +58,22 @@ void ClapTrap::attack(const std::string &target) {
         return;
     }
     _energyPoints -= 1;
-    std::cout << "🗡️ " << NBLUE << "[ClapTrap " << _name << "]" << BLUE << " has attacked "
-              << NBLUE << target << BLUE << " with " << _attackDamage << " attack damage. " << _name
-              << " has " << _energyPoints << " energy points left." << RESET << std::endl;
+    std::cout << "🗡️ " << NBLUE << "[ClapTrap " << _name << "]" << BLUE << " has attacked " << NBLUE << target << BLUE
+              << " with " << _attackDamage << " attack damage. " << _name << " has " << _energyPoints
+              << " energy points left." << RESET << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
 
     if (amount > _hitPoints) {
         _hitPoints = 0;
-        std::cout << "💥 " << NBLUE << _name << BLUE << " has taken " << _hitPoints
-                  << " damage and now has " << _hitPoints << " hit points." << RESET << std::endl;
+        std::cout << "💥 " << NBLUE << _name << BLUE << " has taken " << _hitPoints << " damage and now has "
+                  << _hitPoints << " hit points." << RESET << std::endl;
 
     } else {
         _hitPoints -= amount;
-        std::cout << "💥 " << NBLUE << _name << BLUE << " has taken " << amount
-                  << " damage and now has " << _hitPoints << " hit points." << RESET << std::endl;
+        std::cout << "💥 " << NBLUE << _name << BLUE << " has taken " << amount << " damage and now has " << _hitPoints
+                  << " hit points." << RESET << std::endl;
     }
 }
 
@@ -85,13 +82,13 @@ void ClapTrap::beRepaired(unsigned int amount) {
         return;
     }
     if (_hitPoints >= CLAP_TRAP_HIT_POINT) {
-        std::cout << "⛑️ " << NBLUE << _name << BLUE << " is already at full health. " << _name
-                  << " has " << _energyPoints << " energy points left." << RESET << std::endl;
+        std::cout << "⛑️ " << NBLUE << _name << BLUE << " is already at full health. " << _name << " has "
+                  << _energyPoints << " energy points left." << RESET << std::endl;
     } else {
         _hitPoints += amount;
         std::cout << "💊 " << NBLUE << _name << BLUE << " healed themselves for " << amount
-                  << " health points and now has " << _hitPoints << " hit points. " << _name
-                  << " has " << _energyPoints << " energy points left." << RESET << std::endl;
+                  << " health points and now has " << _hitPoints << " hit points. " << _name << " has " << _energyPoints
+                  << " energy points left." << RESET << std::endl;
     }
     _energyPoints -= 1;
 }

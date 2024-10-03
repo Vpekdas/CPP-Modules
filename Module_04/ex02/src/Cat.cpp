@@ -7,12 +7,10 @@ Cat::Cat() : Animal(), _brain(new Brain()) {
     std::cout << YELLOW << "🛠️ Default Cat Constructor called 🛠️" << RESET << std::endl;
 }
 
-Cat::Cat(const std::string &name)
-    : Animal(name), _brain(new Brain("🐠 Dream about catching the biggest fish 🐠")) {
+Cat::Cat(const std::string &name) : Animal(name), _brain(new Brain("🐠 Dream about catching the biggest fish 🐠")) {
     _type = "Cat";
     _name = name;
-    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Cat Constructor called 🛠️" << RESET << std::endl;
 }
 
 Cat::~Cat() {

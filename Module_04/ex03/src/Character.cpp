@@ -7,8 +7,7 @@ Character::Character() : _nextIndex(0) {
         _inventory[i] = 0;
         _floor[i] = 0;
     }
-    std::cout << YELLOW << "🛠️ Default Character Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default Character Constructor called 🛠️" << RESET << std::endl;
 }
 
 Character::Character(const std::string &name) : _nextIndex(0) {
@@ -17,8 +16,7 @@ Character::Character(const std::string &name) : _nextIndex(0) {
         _inventory[i] = 0;
         _floor[i] = 0;
     }
-    std::cout << YELLOW << "🛠️ Parameterized Character Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Character Constructor called 🛠️" << RESET << std::endl;
 }
 
 Character::~Character() {
@@ -50,8 +48,7 @@ Character::Character(const Character &other) {
         }
     }
     _nextIndex = other._nextIndex;
-    std::cout << YELLOW << "🖨️ Character Copy Constructor called 🖨️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🖨️ Character Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
 Character &Character::operator=(const Character &other) {
@@ -70,12 +67,12 @@ Character &Character::operator=(const Character &other) {
 
 void Character::use(int idx, ICharacter &target) {
     if (idx < 0 || idx > 3) {
-        std::cout << NRED << "❌ Error: Index " << idx
-                  << " is out of bounds. Valid range is 0 to 3. ❌" << RESET << std::endl;
+        std::cout << NRED << "❌ Error: Index " << idx << " is out of bounds. Valid range is 0 to 3. ❌" << RESET
+                  << std::endl;
         return;
     } else if (!_inventory[idx]) {
-        std::cout << NRED << "❌ Warning: Inventory slot " << idx
-                  << " is empty. Action cannot be performed. ❌" << RESET << std::endl;
+        std::cout << NRED << "❌ Warning: Inventory slot " << idx << " is empty. Action cannot be performed. ❌"
+                  << RESET << std::endl;
         return;
     }
     std::cout << NCYAN << "[" << _name << "]" << RESET;
@@ -90,15 +87,14 @@ void Character::equip(AMateria *m) {
         }
     }
     if (_nextIndex > 3) {
-        std::cout << NRED << "❌ Error: No available slots to equip new Materia. ❌" << RESET
-                  << std::endl;
+        std::cout << NRED << "❌ Error: No available slots to equip new Materia. ❌" << RESET << std::endl;
         delete m;
         return;
     }
     _inventory[_nextIndex] = m;
     _nextIndex += 1;
-    std::cout << NGREEN << "[" << _name << "]" << GREEN << " successfully equipped " << BIGREEN
-              << m->getType() << GREEN << " materia. 🎒" << RESET << std::endl;
+    std::cout << NGREEN << "[" << _name << "]" << GREEN << " successfully equipped " << BIGREEN << m->getType() << GREEN
+              << " materia. 🎒" << RESET << std::endl;
 }
 
 std::string const &Character::getName() const {
@@ -107,35 +103,32 @@ std::string const &Character::getName() const {
 
 void Character::unequip(int idx) {
     if (idx < 0 || idx > 3) {
-        std::cout << NRED << "❌ Error: Index " << idx
-                  << " is out of bounds. Valid range is 0 to 3. ❌" << RESET << std::endl;
+        std::cout << NRED << "❌ Error: Index " << idx << " is out of bounds. Valid range is 0 to 3. ❌" << RESET
+                  << std::endl;
         return;
     }
     if (_inventory[idx] == 0) {
-        std::cout << NRED << "❌ Error: Inventory slot " << idx << " is already empty. ❌" << RESET
-                  << std::endl;
+        std::cout << NRED << "❌ Error: Inventory slot " << idx << " is already empty. ❌" << RESET << std::endl;
         return;
     }
     _floor[idx] = _inventory[idx];
     _inventory[idx] = 0;
-    std::cout << NRED << "[" << _name << "]" << RED << " successfully unequipped " << BIRED
-              << _floor[idx]->getType() << RED << " materia. 🔄" << RESET << std::endl;
+    std::cout << NRED << "[" << _name << "]" << RED << " successfully unequipped " << BIRED << _floor[idx]->getType()
+              << RED << " materia. 🔄" << RESET << std::endl;
 }
 
 void Character::equipFromFloor(int idx) {
     if (idx < 0 || idx > 3) {
-        std::cout << NRED << "❌ Error: Index " << idx
-                  << " is out of bounds. Valid range is 0 to 3. ❌" << RESET << std::endl;
+        std::cout << NRED << "❌ Error: Index " << idx << " is out of bounds. Valid range is 0 to 3. ❌" << RESET
+                  << std::endl;
         return;
     }
     if (_floor[idx] == 0) {
-        std::cout << NRED << "❌ Error: Floor slot " << idx << " is already empty. ❌" << RESET
-                  << std::endl;
+        std::cout << NRED << "❌ Error: Floor slot " << idx << " is already empty. ❌" << RESET << std::endl;
         return;
     }
     _inventory[idx] = _floor[idx];
     _floor[idx] = 0;
     std::cout << NGREEN << "[" << _name << "]" << GREEN << " successfully equipped " << BIGREEN
-              << _inventory[idx]->getType() << GREEN << " materia from the floor 🎒." << RESET
-              << std::endl;
+              << _inventory[idx]->getType() << GREEN << " materia from the floor 🎒." << RESET << std::endl;
 }

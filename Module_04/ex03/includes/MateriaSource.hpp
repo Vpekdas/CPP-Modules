@@ -6,7 +6,7 @@
 #include <iostream>
 
 class MateriaSource : public IMateriaSource {
-  public:
+    public:
     MateriaSource();
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other
@@ -19,7 +19,7 @@ class MateriaSource : public IMateriaSource {
     void learnMateria(AMateria *);
     AMateria *createMateria(std::string const &type);
 
-  private:
+    private:
     AMateria *_materias[4];
     int _nextIndex;
 };

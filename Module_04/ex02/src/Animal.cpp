@@ -2,13 +2,11 @@
 #include "../includes/colors.hpp"
 
 Animal::Animal() : _type("Animal"), _name("") {
-    std::cout << YELLOW << "🛠️ Default Animal Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default Animal Constructor called 🛠️" << RESET << std::endl;
 }
 
 Animal::Animal(const std::string &name) : _type("Animal"), _name(name) {
-    std::cout << YELLOW << "🛠️ Parameterized Animal Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized Animal Constructor called 🛠️" << RESET << std::endl;
 }
 
 Animal::~Animal() {

@@ -5,7 +5,7 @@
 #include <iostream>
 
 class ICharacter {
-  public:
+    public:
     virtual ~ICharacter() {
     }
     virtual std::string const &getName() const = 0;
@@ -14,7 +14,7 @@ class ICharacter {
     virtual void use(int idx, ICharacter &target) = 0;
     virtual void equipFromFloor(int idx) = 0;
 
-  protected:
+    protected:
     std::string _name;
 };
 

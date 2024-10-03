@@ -14,7 +14,7 @@
 // -----------------------------------------------------------------------------//
 
 class Contact {
-  public:
+    public:
     Contact();
     ~Contact();
 
@@ -32,7 +32,7 @@ class Contact {
     std::string getPhoneNumber() const;
     std::string getDarkestSecret() const;
 
-  private:
+    private:
     std::size_t _index;
     std::string _firstName;
     std::string _lastName;

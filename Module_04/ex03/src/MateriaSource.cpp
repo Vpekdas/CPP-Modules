@@ -10,16 +10,14 @@ MateriaSource::MateriaSource() : _nextIndex(0) {
     for (int i = 0; i < 4; i++) {
         _materias[i] = 0;
     }
-    std::cout << YELLOW << "🛠️ Default MateriaSource Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default MateriaSource Constructor called 🛠️" << RESET << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other) : _nextIndex(other._nextIndex) {
     for (int i = 0; i < 4; i++) {
         _materias[i] = other._materias[i];
     }
-    std::cout << YELLOW << "🖨️ MateriaSource Copy Constructor called 🖨️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🖨️ MateriaSource Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
 MateriaSource::~MateriaSource() {
@@ -39,8 +37,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
         }
         _nextIndex = other._nextIndex;
     }
-    std::cout << YELLOW << "📞 MateriaSource Copy Assignment Operator called 📞" << RESET
-              << std::endl;
+    std::cout << YELLOW << "📞 MateriaSource Copy Assignment Operator called 📞" << RESET << std::endl;
     return *this;
 }
 
@@ -50,8 +47,8 @@ void MateriaSource::learnMateria(AMateria *m) {
         _nextIndex += 1;
     } else {
         delete m;
-        std::cout << NRED << "❌ Error: MateriaSource storage is full. Cannot learn more Materia. ❌"
-                  << RESET << std::endl;
+        std::cout << NRED << "❌ Error: MateriaSource storage is full. Cannot learn more Materia. ❌" << RESET
+                  << std::endl;
     }
 }
 
@@ -61,7 +58,6 @@ AMateria *MateriaSource::createMateria(std::string const &type) {
             return _materias[i]->clone();
         }
     }
-    std::cout << NRED << "❌ Materia of type '" << type << "' not found in MateriaSource. ❌" << RESET
-              << std::endl;
+    std::cout << NRED << "❌ Materia of type '" << type << "' not found in MateriaSource. ❌" << RESET << std::endl;
     return NULL;
 }

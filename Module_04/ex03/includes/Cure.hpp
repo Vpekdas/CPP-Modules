@@ -5,7 +5,7 @@
 #include <iostream>
 
 class Cure : public AMateria {
-  public:
+    public:
     Cure();
 
     // Copy assignment operator: Ensures that the current object gets the same state as the other

@@ -28,6 +28,6 @@ AMateria *Cure::clone() const {
 }
 
 void Cure::use(ICharacter &target) {
-    std::cout << CYAN << " casts 💊 " << BICYAN << _type << CYAN << " on " << NCYAN
-              << target.getName() << "'s wounds." << RESET << std::endl;
+    std::cout << CYAN << " casts 💊 " << BICYAN << _type << CYAN << " on " << NCYAN << target.getName() << "'s wounds."
+              << RESET << std::endl;
 }

@@ -3,8 +3,7 @@
 #include "../includes/colors.hpp"
 
 Lightning::Lightning() : AMateria("lightning") {
-    std::cout << YELLOW << "🛠️ Default Lightning Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default Lightning Constructor called 🛠️" << RESET << std::endl;
 }
 
 Lightning::~Lightning() {
@@ -12,8 +11,7 @@ Lightning::~Lightning() {
 }
 
 Lightning::Lightning(const Lightning &other) : AMateria(other) {
-    std::cout << YELLOW << "🖨️ Lightning Copy Constructor called 🖨️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🖨️ Lightning Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
 Lightning &Lightning::operator=(const Lightning &other) {
@@ -30,6 +28,6 @@ AMateria *Lightning::clone() const {
 }
 
 void Lightning::use(ICharacter &target) {
-    std::cout << CYAN << " casts ⛈️  " << BICYAN << _type << CYAN << " on " << NCYAN
-              << target.getName() << RESET << std::endl;
+    std::cout << CYAN << " casts ⛈️  " << BICYAN << _type << CYAN << " on " << NCYAN << target.getName() << RESET
+              << std::endl;
 }

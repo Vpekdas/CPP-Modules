@@ -9,7 +9,7 @@
 #define SCAV_TRAP_ATTACK_DAMAGE 20
 
 class ScavTrap : public ClapTrap {
-  public:
+    public:
     ScavTrap();
     ScavTrap(const std::string &name);
 

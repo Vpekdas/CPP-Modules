@@ -5,7 +5,7 @@
 #include <iostream>
 
 class WrongCat : public WrongAnimal {
-  public:
+    public:
     WrongCat();
     WrongCat(const std::string &name);
 

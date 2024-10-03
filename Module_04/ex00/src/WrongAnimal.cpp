@@ -2,13 +2,11 @@
 #include "../includes/colors.hpp"
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal"), _name("") {
-    std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const std::string &name) : _type("WrongAnimal"), _name(name) {
-    std::cout << YELLOW << "🛠️ Parameterized WrongAnimal Constructor called 🛠️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🛠️ Parameterized WrongAnimal Constructor called 🛠️" << RESET << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
@@ -16,8 +14,7 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type(other._type), _name(other._name) {
-    std::cout << YELLOW << "🖨️ WrongAnimal Copy Constructor called 🖨️" << RESET
-              << std::endl;
+    std::cout << YELLOW << "🖨️ WrongAnimal Copy Constructor called 🖨️" << RESET << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other) {

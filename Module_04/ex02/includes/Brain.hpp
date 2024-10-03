@@ -4,7 +4,7 @@
 #include <iostream>
 
 class Brain {
-  public:
+    public:
     Brain();
     Brain(const std::string &idea);
     // Copy assignment operator: Ensures that the current object gets the same state as the other
@@ -17,7 +17,7 @@ class Brain {
     std::string &getIdea(int &index);
     void setIdea(const std::string &newIdea);
 
-  private:
+    private:
     std::string _ideas[100];
 };
 
