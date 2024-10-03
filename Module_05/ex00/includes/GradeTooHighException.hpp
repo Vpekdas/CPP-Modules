@@ -6,11 +6,8 @@
 
 class GradeTooHighException : public std::exception {
     public:
-    // Default constructor
-    GradeTooHighException();
-
-    // Default Destructor
-    ~GradeTooHighException();
+    // Create a parameterized too.
+    virtual const char *what() const throw();
 };
 
 #endif // GRADE_TOO_HIGH_EXCEPTION_HPP

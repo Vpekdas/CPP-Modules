@@ -1,6 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "../includes/GradeTooHighException.hpp"
 #include <iostream>
 
 class Bureaucrat {
@@ -22,9 +23,18 @@ class Bureaucrat {
     // Default Destructor
     ~Bureaucrat();
 
+    const std::string &getName() const;
+    int getGrade() const;
+
+    void incrementGrade();
+    void decrementGrade();
+
     private:
     const std::string _name;
     int _grade;
+    GradeTooHighException highException;
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
 #endif // BUREAUCRAT_HPP

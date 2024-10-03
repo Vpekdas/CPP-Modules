@@ -57,6 +57,9 @@ WHITE_BG		:= \033[48;5;15m
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
+						Bureaucrat.cpp \
+						GradeTooHighException.cpp \
+						GradeTooLowException.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
