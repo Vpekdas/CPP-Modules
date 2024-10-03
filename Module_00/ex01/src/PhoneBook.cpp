@@ -36,8 +36,10 @@ bool onlyDigit(std::string input) {
 std::string validAddField(bool digitsOnly = false) {
     std::string input;
     std::getline(std::cin, input);
-
     while (input.empty() || (digitsOnly && !onlyDigit(input))) {
+        if (std::cin.eof()) {
+            exit(0);
+        }
         if (input.empty()) {
             std::cout << RED << "Error: Field cannot be empty. Please fill in the field." << RESET
                       << std::endl;
@@ -108,18 +110,10 @@ void PhoneBook::displaySpecificContact(std::size_t index) {
 void PhoneBook::displayContacts() {
     std::string input;
     std::size_t index;
-    std::cout << NCYAN << "|"
-              << "     INDEX"
-              << "|"
-              << "FIRST NAME"
-              << "|"
-              << " LAST NAME"
-              << "|"
-              << "  NICKNAME"
-              << "|" << RESET << std::endl;
+    std::cout << NCYAN << "|" << "     INDEX" << "|" << "FIRST NAME" << "|" << " LAST NAME" << "|"
+              << "  NICKNAME" << "|" << RESET << std::endl;
     for (std::size_t i = 0; i < _totalContacts; i++) {
-        std::cout << "|"
-                  << "         " << this->_contacts[i].getIndex() << "|"
+        std::cout << "|" << "         " << this->_contacts[i].getIndex() << "|"
                   << formatColumn(this->_contacts[i].getFirstName()) << "|"
                   << formatColumn(this->_contacts[i].getLastName()) << "|"
                   << formatColumn(this->_contacts[i].getNickname()) << "|" << std::endl;
