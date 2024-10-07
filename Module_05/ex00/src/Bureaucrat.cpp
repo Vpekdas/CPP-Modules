@@ -3,18 +3,17 @@
 #include "../includes/GradeTooLowException.hpp"
 #include "../includes/colors.hpp"
 
-// TODO: Check for int overflow.
-
 Bureaucrat::Bureaucrat() : _name(""), _grade(0) {
-    std::cout << YELLOW << "🛠️ Default Bureaucrat Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️ Default Bureaucrat Constructor called. 🛠️" << RESET << std::endl;
+    throw GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name), _grade(grade) {
     std::cout << YELLOW << "🛠️ Parameterized Bureaucrat Constructor called 🛠️" << RESET << std::endl;
     if (grade > 150) {
-        throw GradeTooHighException();
-    } else if (grade < 0) {
         throw GradeTooLowException();
+    } else if (grade < 0) {
+        throw GradeTooHighException();
     }
 }
 

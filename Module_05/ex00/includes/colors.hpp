@@ -33,4 +33,19 @@
 #define NEON_PINK "\033[1;95m"
 #define NEON_ORANGE "\033[1;38;5;208m"
 
+// -----------------------------------------------------------------------------//
+//	+	+	+	+	+	+	+		// BOLD ITALIC COLORS //	+	+	+	+ 	+	+	//
+// -----------------------------------------------------------------------------//
+
+#define BOLD_ITALIC_YELLOW "\033[1;3;93m"
+#define BOLD_ITALIC_GREEN "\033[1;3;92m"
+#define BOLD_ITALIC_BLUE "\033[1;3;94m"
+#define BOLD_ITALIC_RED "\033[1;3;91m"
+#define BOLD_ITALIC_PURPLE "\033[1;3;95m"
+#define BOLD_ITALIC_CYAN "\033[1;3;96m"
+#define BOLD_ITALIC_BLACK "\033[1;3;90m"
+#define BOLD_ITALIC_WHITE "\033[1;3;97m"
+#define BOLD_ITALIC_PINK "\033[1;3;95m"
+#define BOLD_ITALIC_ORANGE "\033[1;3;38;5;208m"
+
 #endif
