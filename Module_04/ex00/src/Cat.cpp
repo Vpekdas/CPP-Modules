@@ -1,5 +1,5 @@
-#include "../includes/Cat.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Cat.hpp"
+#include "../include/colors.hpp"
 
 Cat::Cat() : Animal() {
     _type = "Cat";

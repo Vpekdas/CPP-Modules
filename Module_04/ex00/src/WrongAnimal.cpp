@@ -1,5 +1,5 @@
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/colors.hpp"
+#include "../include/WrongAnimal.hpp"
+#include "../include/colors.hpp"
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal"), _name("") {
     std::cout << YELLOW << "🛠️ Default WrongAnimal Constructor called 🛠️" << RESET << std::endl;

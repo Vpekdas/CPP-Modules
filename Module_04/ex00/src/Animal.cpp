@@ -1,5 +1,5 @@
-#include "../includes/Animal.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Animal.hpp"
+#include "../include/colors.hpp"
 
 Animal::Animal() : _type("Animal"), _name("") {
     std::cout << YELLOW << "🛠️ Default Animal Constructor called 🛠️" << RESET << std::endl;

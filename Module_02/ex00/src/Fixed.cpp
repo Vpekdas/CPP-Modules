@@ -1,5 +1,5 @@
-#include "../includes/Fixed.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Fixed.hpp"
+#include "../include/colors.hpp"
 
 Fixed::Fixed() : _rawBits(0) {
     std::cout << YELLOW << "🛠️ Default Fixed Constructor called 🛠️" << RESET << std::endl;

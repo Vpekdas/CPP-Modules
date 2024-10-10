@@ -1,20 +1,20 @@
-#include "../includes/Bureaucrat.hpp"
-#include "../includes/GradeTooHighException.hpp"
-#include "../includes/GradeTooLowException.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/GradeTooHighException.hpp"
+#include "../include/GradeTooLowException.hpp"
+#include "../include/colors.hpp"
 
 Bureaucrat::Bureaucrat() : _name(""), _grade(0) {
-    std::cout << YELLOW << "🛠️ Default Bureaucrat Constructor called. 🛠️" << RESET << std::endl;
     throw GradeTooHighException();
+    std::cout << YELLOW << "🛠️ Default Bureaucrat Constructor called. 🛠️" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name), _grade(grade) {
-    std::cout << YELLOW << "🛠️ Parameterized Bureaucrat Constructor called 🛠️" << RESET << std::endl;
     if (grade > 150) {
         throw GradeTooLowException();
-    } else if (grade < 0) {
+    } else if (grade <= 0) {
         throw GradeTooHighException();
     }
+    std::cout << YELLOW << "🛠️ Parameterized Bureaucrat Constructor called 🛠️" << RESET << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -55,5 +55,6 @@ void Bureaucrat::decrementGrade() {
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
-    return out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
+    return out << NEON_CYAN << "👨‍💼 " << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
+               << RESET << std::endl;
 }

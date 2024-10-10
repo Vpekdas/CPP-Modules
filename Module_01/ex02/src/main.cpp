@@ -1,24 +1,32 @@
 #include <iostream>
 #include <string>
 
-#define NYELLOW "\033[1;93m"
-#define NGREEN "\033[1;92m"
-#define NPURPLE "\033[1;95m"
-#define NCYAN "\033[1;96m"
+#define NEON_YELLOW "\033[1;93m"
+#define NEON_GREEN "\033[1;92m"
+#define NEON_PURPLE "\033[1;95m"
+#define NEON_CYAN "\033[1;96m"
 #define RESET "\033[0m"
 
 int main() {
-    std::string string = "HI THIS IS BRAIN";
-    std::string *stringPTR = &string;
-    std::string &stringREF = string;
+  std::string string = "HI THIS IS BRAIN";
+  std::string *stringPTR = &string;
+  std::string &stringREF = string;
 
-    std::cout << NCYAN << "Memory adress of string variable : " NGREEN << &string << RESET << std::endl;
-    std::cout << NCYAN << "Memory address held by stringPTR : " NPURPLE << stringPTR << RESET << std::endl;
-    std::cout << NCYAN << "Memory address held by stringREF : " NYELLOW << &stringREF << RESET << std::endl;
+  std::cout << NEON_CYAN << "Memory adress of string variable : " NEON_GREEN
+            << &string << RESET << std::endl;
+  std::cout << NEON_CYAN << "Memory address held by stringPTR : " NEON_PURPLE
+            << stringPTR << RESET << std::endl;
+  std::cout << NEON_CYAN << "Memory address held by stringREF : " NEON_YELLOW
+            << &stringREF << RESET << std::endl;
 
-    std::cout << NYELLOW << "------------------------------------------------------------" << RESET << std::endl;
+  std::cout << NEON_YELLOW
+            << "------------------------------------------------------------"
+            << RESET << std::endl;
 
-    std::cout << NCYAN << "Value of string variable : " NGREEN << string << RESET << std::endl;
-    std::cout << NCYAN << "Value pointed to stringPTR : " NPURPLE << *stringPTR << RESET << std::endl;
-    std::cout << NCYAN << "Value pointed to stringREF : " NYELLOW << stringREF << RESET << std::endl;
+  std::cout << NEON_CYAN << "Value of string variable : " NEON_GREEN << string
+            << RESET << std::endl;
+  std::cout << NEON_CYAN << "Value pointed to stringPTR : " NEON_PURPLE
+            << *stringPTR << RESET << std::endl;
+  std::cout << NEON_CYAN << "Value pointed to stringREF : " NEON_YELLOW
+            << stringREF << RESET << std::endl;
 }

@@ -1,5 +1,5 @@
-#include "../includes/Point.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Point.hpp"
+#include "../include/colors.hpp"
 
 Point::Point() : _x(0), _y(0) {
     // std::cout << "🛠️ Default Point Constructor called 🛠️" << std::endl;

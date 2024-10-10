@@ -1,5 +1,5 @@
-#include "../includes/Dog.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Dog.hpp"
+#include "../include/colors.hpp"
 
 Dog::Dog() : Animal() {
     _type = "Dog";

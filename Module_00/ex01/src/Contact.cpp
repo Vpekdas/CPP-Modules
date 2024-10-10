@@ -1,5 +1,5 @@
-#include "../includes/Contact.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Contact.hpp"
+#include "../include/colors.hpp"
 
 Contact::Contact() : _index(0), _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""), _darkestSecret("") {
     std::cout << BLUE << "👷 Contact Constructor called 👷" << RESET << std::endl;

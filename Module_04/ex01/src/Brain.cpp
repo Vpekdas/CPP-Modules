@@ -1,5 +1,5 @@
-#include "../includes/Brain.hpp"
-#include "../includes/colors.hpp"
+#include "../include/Brain.hpp"
+#include "../include/colors.hpp"
 
 Brain::Brain() {
     for (int i = 0; i < 100; i++) {

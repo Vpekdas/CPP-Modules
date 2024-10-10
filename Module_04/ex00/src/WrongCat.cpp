@@ -1,5 +1,5 @@
-#include "../includes/WrongCat.hpp"
-#include "../includes/colors.hpp"
+#include "../include/WrongCat.hpp"
+#include "../include/colors.hpp"
 
 WrongCat::WrongCat() : WrongAnimal() {
     _type = "WrongCat";

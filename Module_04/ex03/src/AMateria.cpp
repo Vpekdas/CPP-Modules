@@ -1,6 +1,6 @@
-#include "../includes/AMateria.hpp"
-#include "../includes/ICharacter.hpp"
-#include "../includes/colors.hpp"
+#include "../include/AMateria.hpp"
+#include "../include/ICharacter.hpp"
+#include "../include/colors.hpp"
 
 AMateria::AMateria() : _type("") {
     std::cout << YELLOW << "🛠️ Default AMateria Constructor called 🛠️" << RESET << std::endl;

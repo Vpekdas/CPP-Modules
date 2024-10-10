@@ -4,7 +4,7 @@ PROJECT_NAME	:= Interface & recap
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O3 -I includes/
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I include/
 DEPFLAGS		:= -MMD -MP
 
 # ================================= ALIASES ================================== #
