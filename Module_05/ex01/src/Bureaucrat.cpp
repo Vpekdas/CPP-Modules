@@ -6,6 +6,7 @@
 Bureaucrat::Bureaucrat() : _name(""), _grade(0) {
     throw GradeTooHighException();
     std::cout << YELLOW << "🛠️ Default Bureaucrat Constructor called. 🛠️" << RESET << std::endl;
+    std::cout << *this;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name), _grade(grade) {
@@ -15,6 +16,7 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name), 
         throw GradeTooHighException();
     }
     std::cout << YELLOW << "🛠️ Parameterized Bureaucrat Constructor called 🛠️" << RESET << std::endl;
+    std::cout << *this;
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -23,6 +25,7 @@ Bureaucrat::~Bureaucrat() {
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade) {
     std::cout << YELLOW << "🖨️ Bureaucrat Copy Constructor called 🖨️" << RESET << std::endl;
+    std::cout << *this;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
@@ -31,6 +34,8 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
         _grade = other._grade;
     }
     std::cout << YELLOW << "📞 Bureaucrat Copy Assignment Operator called 📞" << RESET << std::endl;
+    std::cout << *this;
+
     return *this;
 }
 
@@ -59,6 +64,7 @@ void Bureaucrat::signForm(Form &form) {
     std::cout << BOLD_ITALIC_CYAN << "[" << getName() << "]" << BOLD_ITALIC_GREEN
               << " successfully signed the form: " << BOLD_ITALIC_CYAN << "[" << form.getName() << "]" << " ✅" << RESET
               << std::endl;
+    std::cout << form;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {

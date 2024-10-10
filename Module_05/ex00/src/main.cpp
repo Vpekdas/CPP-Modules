@@ -17,43 +17,45 @@ void announcementMessage(std::string &message) {
 }
 
 int main() {
-    std::string message = "✅ No exceptions expected. ✅";
-    announcementTitle(message);
     {
+        std::string message = "✅ No exceptions expected. ✅";
+        announcementTitle(message);
         {
-            std::string message = "Creating a Bureaucrat with an initial grade of 1 and performing 149 decrements.";
-            announcementMessage(message);
+            {
 
-            Bureaucrat bureaucrat("First", 1);
-            std::cout << bureaucrat;
+                std::string message = "Creating a Bureaucrat with an initial grade of 1 and performing 149 decrements.";
+                announcementMessage(message);
 
-            try {
-                for (int i = 0; i < 149; i++) {
-                    bureaucrat.decrementGrade();
+                Bureaucrat bureaucrat("First", 1);
+
+                try {
+                    for (int i = 0; i < 149; i++) {
+                        bureaucrat.decrementGrade();
+                    }
+                } catch (std::exception &ex) {
+                    std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
-            } catch (std::exception &ex) {
-                std::cerr << NEON_RED << ex.what() << RESET << std::endl;
+                std::cout << BOLD_ITALIC_ORANGE << "After decrements: " << bureaucrat;
             }
-            std::cout << BOLD_ITALIC_ORANGE << "After decrements: " << bureaucrat << RESET;
-        }
-        {
-            std::string message = "Creating a Bureaucrat with an initial grade of 150 and performing 149 increments.";
-            announcementMessage(message);
 
-            Bureaucrat bureaucrat("Last", 150);
-            std::cout << bureaucrat;
+            {
+                std::string message =
+                    "Creating a Bureaucrat with an initial grade of 150 and performing 149 increments.";
+                announcementMessage(message);
 
-            try {
-                for (int i = 0; i < 149; i++) {
-                    bureaucrat.incrementGrade();
+                Bureaucrat bureaucrat("Last", 150);
+
+                try {
+                    for (int i = 0; i < 149; i++) {
+                        bureaucrat.incrementGrade();
+                    }
+                } catch (std::exception &ex) {
+                    std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
-            } catch (std::exception &ex) {
-                std::cerr << NEON_RED << ex.what() << RESET << std::endl;
+                std::cout << BOLD_ITALIC_ORANGE << "After increments: " << bureaucrat;
             }
-            std::cout << BOLD_ITALIC_ORANGE << "After increments: " << bureaucrat;
         }
     }
-
     {
         std::string message = "❌ Exceptions expected. ❌";
         announcementTitle(message);
@@ -90,7 +92,6 @@ int main() {
 
                 try {
                     Bureaucrat bureaucrat;
-                    std::cout << bureaucrat;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -101,7 +102,6 @@ int main() {
 
                 try {
                     Bureaucrat bureaucrat("Too too roo!", 151);
-                    std::cout << bureaucrat;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }

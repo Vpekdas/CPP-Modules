@@ -63,3 +63,8 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
     return out << NEON_CYAN << "👨‍💼 " << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
                << RESET << std::endl;
 }
+
+void Bureaucrat::executeForm(AForm const &form) {
+    form.execute(*this);
+    std::cout << form;
+}

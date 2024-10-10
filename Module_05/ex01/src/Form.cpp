@@ -8,6 +8,7 @@
 Form::Form() : _name(""), _signed(false), _gradeToSign(0), _gradeToExecute(0) {
     throw GradeTooHighException();
     std::cout << YELLOW << "🛠️ Default Form Constructor called 🛠️" << RESET << std::endl;
+    std::cout << *this;
 }
 
 Form::Form(const std::string &name, const int gradeToSign, const int gradeToExecute)
@@ -19,6 +20,7 @@ Form::Form(const std::string &name, const int gradeToSign, const int gradeToExec
         throw GradeTooHighException();
     }
     std::cout << YELLOW << "🛠️ Parameterized Form Constructor called 🛠️" << RESET << std::endl;
+    std::cout << *this;
 }
 
 Form::~Form() {
@@ -29,6 +31,7 @@ Form::Form(const Form &other)
     : _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign),
       _gradeToExecute(other._gradeToExecute) {
     std::cout << YELLOW << "🖨️ Form Copy Constructor called 🖨️" << RESET << std::endl;
+    std::cout << *this;
 }
 
 Form &Form::operator=(const Form &other) {
@@ -37,6 +40,8 @@ Form &Form::operator=(const Form &other) {
         _signed = other._signed;
     }
     std::cout << YELLOW << "📞 Form Copy Assignment Operator called 📞" << RESET << std::endl;
+    std::cout << *this;
+
     return *this;
 }
 
@@ -61,7 +66,6 @@ void Form::beSigned(Bureaucrat &bureaucrat) {
                   << BOLD_ITALIC_CYAN << "[" << getName() << "]" << BOLD_ITALIC_RED << " because their grade ("
                   << bureaucrat.getGrade() << ") is lower than the required grade (" << getGradeToSign() << ") ❌"
                   << RESET << std::endl;
-
         throw GradeTooLowException();
     }
 }

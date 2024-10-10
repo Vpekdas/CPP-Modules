@@ -30,7 +30,6 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("First", 1);
-                std::cout << bureaucrat;
 
                 try {
                     for (int i = 0; i < 149; i++) {
@@ -39,7 +38,7 @@ int main() {
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
-                std::cout << BOLD_ITALIC_ORANGE << "After decrements: " << bureaucrat << RESET;
+                std::cout << BOLD_ITALIC_ORANGE << "After decrements: " << bureaucrat;
             }
 
             {
@@ -48,7 +47,6 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("Last", 150);
-                std::cout << bureaucrat;
 
                 try {
                     for (int i = 0; i < 149; i++) {
@@ -70,14 +68,10 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("First", 1);
-                std::cout << bureaucrat;
-
                 Form form("Form First", 1, 1);
-                std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form;
 
                 try {
                     bureaucrat.signForm(form);
-                    std::cout << form;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -88,14 +82,10 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("First", 1);
-                std::cout << bureaucrat;
-
                 Form form("Form Last", 150, 150);
-                std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form;
 
                 try {
                     bureaucrat.signForm(form);
-                    std::cout << form;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -106,14 +96,10 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("Last", 150);
-                std::cout << bureaucrat;
-
                 Form form("Form Last", 150, 150);
-                std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form;
 
                 try {
                     bureaucrat.signForm(form);
-                    std::cout << form;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -125,10 +111,7 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("Last", 150);
-                std::cout << bureaucrat;
-
                 Form form("Form First", 1, 1);
-                std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form;
 
                 for (int i = 0; i < 149; i++) {
                     bureaucrat.incrementGrade();
@@ -137,7 +120,6 @@ int main() {
 
                 try {
                     bureaucrat.signForm(form);
-                    std::cout << form;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -182,7 +164,6 @@ int main() {
 
                 try {
                     Bureaucrat bureaucrat;
-                    std::cout << bureaucrat;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -193,7 +174,6 @@ int main() {
 
                 try {
                     Bureaucrat bureaucrat("Too too roo!", 151);
-                    std::cout << bureaucrat;
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -211,14 +191,8 @@ int main() {
 
                 try {
                     Form form;
-                    std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form << RESET
-                              << std::endl;
 
                     bureaucrat.signForm(form);
-
-                    std::cout << bureaucrat;
-                    std::cout << form;
-
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
@@ -232,13 +206,7 @@ int main() {
 
                 try {
                     Form form("Form Outbound", 151, 151);
-                    std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form << RESET
-                              << std::endl;
-
                     bureaucrat.signForm(form);
-
-                    std::cout << bureaucrat;
-                    std::cout << form;
 
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
@@ -250,17 +218,10 @@ int main() {
                 announcementMessage(message);
 
                 Bureaucrat bureaucrat("Last", 150);
-                std::cout << bureaucrat;
-
                 Form form("Form High Grade", 1, 1);
-                std::cout << BOLD_ITALIC_ORANGE << "Before attempting to sign the form " << form;
 
                 try {
                     bureaucrat.signForm(form);
-
-                    std::cout << bureaucrat;
-                    std::cout << form;
-
                 } catch (std::exception &ex) {
                     std::cerr << NEON_RED << ex.what() << RESET << std::endl;
                 }
