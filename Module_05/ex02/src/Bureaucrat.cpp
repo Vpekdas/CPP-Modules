@@ -66,5 +66,5 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 
 void Bureaucrat::executeForm(AForm const &form) {
     form.execute(*this);
-    std::cout << form;
+    std::cout << CYAN << getName() << " executed " << form.getName() << RESET << std::endl;
 }

@@ -28,6 +28,8 @@ class ShrubberyCreationForm : public AForm {
 
     void execute(Bureaucrat const &executor) const;
 
+    void beSigned(Bureaucrat &bureaucrat);
+
     private:
     const std::string _target;
     static const std::string _tree;

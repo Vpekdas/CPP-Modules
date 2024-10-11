@@ -60,6 +60,7 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						Bureaucrat.cpp \
 						GradeTooHighException.cpp \
 						GradeTooLowException.cpp \
+						FormNotSignedException.cpp \
 						AForm.cpp \
 						ShrubberyCreationForm.cpp \
 						RobotomyRequestForm.cpp \

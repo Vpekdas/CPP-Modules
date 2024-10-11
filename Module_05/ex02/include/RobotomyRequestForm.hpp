@@ -3,6 +3,7 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
 #include <iostream>
 
 class RobotomyRequestForm : public AForm {

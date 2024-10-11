@@ -53,6 +53,12 @@ int AForm::getGradeToExecute() const {
     return _gradeToExecute;
 }
 
+void AForm::beSigned(Bureaucrat &bureaucrat) {
+    if (bureaucrat.getGrade() <= _gradeToSign) {
+        _signed = true;
+    }
+}
+
 std::ostream &operator<<(std::ostream &out, const AForm &Aform) {
     out << "\n" << NEON_ORANGE << std::setfill('-') << std::setw(42) << RESET << std::endl;
     out << BOLD_ITALIC_ORANGE << std::setfill(' ') << std::setw(22) << "AFORM INFO" << RESET << std::endl;
@@ -70,4 +76,3 @@ std::ostream &operator<<(std::ostream &out, const AForm &Aform) {
     out << NEON_ORANGE << std::setfill('-') << std::setw(42) << RESET << std::endl;
     return out;
 }
-

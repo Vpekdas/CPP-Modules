@@ -1,4 +1,5 @@
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/FormNotSignedException.hpp"
 #include "../include/GradeTooLowException.hpp"
 #include "../include/colors.hpp"
 
@@ -36,7 +37,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
     if (executor.getGrade() > 25 || executor.getGrade() > 5) {
         throw GradeTooLowException();
+    } else if (!getSigned()) {
+        throw FormNotSignedException(getName());
     }
+
     std::cout << BOLD_ITALIC_CYAN << "[" << getTarget() << "]" << BOLD_ITALIC_BLUE
               << " has been 🙏 officially and galactically pardoned 🙏 by the one and only Zaphod Beeblebrox! 🚀✨"
               << RESET << std::endl;
