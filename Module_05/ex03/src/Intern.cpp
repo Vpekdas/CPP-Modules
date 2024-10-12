@@ -42,6 +42,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
 
     for (int i = 0; i < FORM_NUMBER; i++) {
         if (formTypeMappings[i].formName == formName) {
+            std::cout << CYAN << "👨‍💻 Intern creates " << formName << RESET << std::endl;
             return formTypeMappings[i].creator(target);
         }
     }

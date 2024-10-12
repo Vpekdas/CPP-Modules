@@ -109,15 +109,15 @@ GRADIENT_G		:= \033[38;5;160m \
 GRAD_B_PROG		:= 0
 GRAD_G_SIZE		:= 0
 GRADIENT_B		:= \033[38;5;2m \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5;
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5;
 
 # function to get the current color of the bar by index in the gradient
 define GET_G_GRADIENT
@@ -194,7 +194,7 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.cpp
 
 clean:
 	@printf "$(PURPLE)"
-	@$(RM) $(OBJS) obj
+	@$(RM) $(OBJS) obj *_shrubbery
 	@echo "[🧼] $(BYELLOW)Objects $(YELLOW)files have been cleaned from $(PROJECT_NAME) ✔️$(NC)\n"
 
 fclean: clean

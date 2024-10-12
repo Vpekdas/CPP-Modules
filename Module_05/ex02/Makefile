@@ -192,7 +192,7 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.cpp
 
 clean:
 	@printf "$(PURPLE)"
-	@$(RM) $(OBJS) obj
+	@$(RM) $(OBJS) obj *_shrubbery
 	@echo "[🧼] $(BYELLOW)Objects $(YELLOW)files have been cleaned from $(PROJECT_NAME) ✔️$(NC)\n"
 
 fclean: clean

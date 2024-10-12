@@ -33,48 +33,48 @@ int main() {
             announcementMessage(message);
 
             Bureaucrat bureaucrat("First", 1);
-            AForm *ShrubberyForm = new ShrubberyCreationForm("Home");
+            AForm *form = new ShrubberyCreationForm("Home");
 
             try {
-                ShrubberyForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*ShrubberyForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete ShrubberyForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 1 attempts to sign and execute a RobotomyRequestForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("First", 1);
-            AForm *RobotomyForm = new RobotomyRequestForm("Terminator");
+            AForm *form = new RobotomyRequestForm("Terminator");
 
             try {
-                RobotomyForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*RobotomyForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete RobotomyForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 1 attempts to sign and execute a PresidentialPardonForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("First", 1);
-            AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
+            AForm *form = new PresidentialPardonForm("HououinKyouma");
 
             try {
-                PresidentialForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*PresidentialForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            delete form;
         }
         {
             std::string message = "A Bureaucrat with an initial grade of 150 attempts to sign and execute a "
@@ -82,20 +82,80 @@ int main() {
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Last", 150);
-            AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
+            AForm *form = new PresidentialPardonForm("HououinKyouma");
 
             for (int i = 0; i < 149; i++) {
                 bureaucrat.incrementGrade();
             }
 
             try {
-                PresidentialForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*PresidentialForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            delete form;
+        }
+        {
+            std::string message =
+                "A grade 1 Bureaucrat attempts to sign and execute a Shrubbery Form created by an intern.";
+            announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
+
+            Intern someRandomIntern;
+            Bureaucrat bureaucrat("First", 1);
+            AForm *form = NULL;
+
+            try {
+                form = someRandomIntern.makeForm("Shrubbery Form", "School");
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
+            } catch (std::exception &ex) {
+                std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+            }
+            if (form != NULL)
+                delete form;
+        }
+        {
+            std::string message =
+                "A grade 1 Bureaucrat attempts to sign and execute a Robotomy Form created by an intern.";
+            announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
+
+            Intern someRandomIntern;
+            Bureaucrat bureaucrat("First", 1);
+            AForm *form;
+
+            try {
+                form = someRandomIntern.makeForm("Robotomy Form", "School");
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
+            } catch (std::exception &ex) {
+                std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+            }
+            if (form != NULL)
+                delete form;
+        }
+        {
+            std::string message =
+                "A grade 1 Bureaucrat attempts to sign and execute a Presidential Pardon Form created by an intern.";
+            announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
+
+            Intern someRandomIntern;
+            Bureaucrat bureaucrat("First", 1);
+            AForm *form;
+
+            try {
+                form = someRandomIntern.makeForm("Presidential Pardon Form", "School");
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
+            } catch (std::exception &ex) {
+                std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+            }
+            if (form != NULL)
+                delete form;
         }
     }
     {
@@ -106,96 +166,96 @@ int main() {
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Last", 150);
-            AForm *ShrubberyForm = new ShrubberyCreationForm("Home");
+            AForm *form = new ShrubberyCreationForm("Home");
 
             try {
-                ShrubberyForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*ShrubberyForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete ShrubberyForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 150 attempts to sign and execute a RobotomyRequestForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Last", 150);
-            AForm *RobotomyForm = new RobotomyRequestForm("Terminator");
+            AForm *form = new RobotomyRequestForm("Terminator");
 
             try {
-                RobotomyForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*RobotomyForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete RobotomyForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 150 attempts to sign and execute a PresidentialPardonForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Last", 150);
-            AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
+            AForm *form = new PresidentialPardonForm("HououinKyouma");
 
             try {
-                PresidentialForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*PresidentialForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 145 attempts to sign and execute a ShrubberyCreationForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Not Last", 145);
-            AForm *ShrubberyForm = new ShrubberyCreationForm("Home");
+            AForm *form = new ShrubberyCreationForm("Home");
 
             try {
-                ShrubberyForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*ShrubberyForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete ShrubberyForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 72 attempts to sign and execute a RobotomyRequestForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Middle", 72);
-            AForm *RobotomyForm = new RobotomyRequestForm("Terminator");
+            AForm *form = new RobotomyRequestForm("Terminator");
 
             try {
-                RobotomyForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*RobotomyForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete RobotomyForm;
+            delete form;
         }
         {
             std::string message = "Bureaucrat with grade 25 attempts to sign and execute a PresidentialPardonForm.";
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Top tier but not First", 25);
-            AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
+            AForm *form = new PresidentialPardonForm("HououinKyouma");
 
             try {
-                PresidentialForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*PresidentialForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            delete form;
         }
         {
             std::string message = "Attempting to create a ShrubberyCreationForm with an invalid grade of 0.";
@@ -204,10 +264,10 @@ int main() {
             Bureaucrat bureaucrat("First", 1);
 
             try {
-                AForm *ShrubberyForm = new ShrubberyCreationForm();
-                ShrubberyForm->beSigned(bureaucrat);
-                ShrubberyForm->execute(bureaucrat);
-                delete ShrubberyForm;
+                AForm *form = new ShrubberyCreationForm();
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
+                delete form;
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
@@ -221,12 +281,12 @@ int main() {
 
             try {
 
-                AForm *RobotomyForm = new RobotomyRequestForm();
+                AForm *form = new RobotomyRequestForm();
 
-                RobotomyForm->beSigned(bureaucrat);
-                RobotomyForm->execute(bureaucrat);
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
 
-                delete RobotomyForm;
+                delete form;
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
@@ -238,12 +298,12 @@ int main() {
             Bureaucrat bureaucrat("First", 1);
 
             try {
-                AForm *PresidentialForm = new PresidentialPardonForm();
+                AForm *form = new PresidentialPardonForm();
 
-                PresidentialForm->beSigned(bureaucrat);
-                PresidentialForm->execute(bureaucrat);
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
 
-                delete PresidentialForm;
+                delete form;
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
@@ -252,7 +312,6 @@ int main() {
         {
             std::string message = "A Bureaucrat with an initial grade of 1 attempts to sign and execute a "
                                   "PresidentialPardonForm after being decremented.";
-
             announcementMessage(message);
 
             Bureaucrat bureaucrat("Was First", 1);
@@ -260,30 +319,38 @@ int main() {
             for (int i = 0; i < 20; i++) {
                 bureaucrat.decrementGrade();
             }
-            AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
+            AForm *form = new PresidentialPardonForm("HououinKyouma");
 
             try {
-                PresidentialForm->beSigned(bureaucrat);
-                bureaucrat.executeForm(*PresidentialForm);
+                form->beSigned(bureaucrat);
+                bureaucrat.executeForm(*form);
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            if (form != NULL)
+                delete form;
         }
-    }
-    {
-        Intern someRandomIntern;
-        Bureaucrat bureaucrat("First", 1);
-        AForm *rrf;
+        {
+            std::string message =
+                "A grade 1 Bureaucrat attempts to sign and execute an unknown Form created by an intern.";
+            announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
-        try {
-            rrf = someRandomIntern.makeForm("Robotomy Form", "Bender");
-            rrf->beSigned(bureaucrat);
-            rrf->execute(bureaucrat);
-        } catch (std::exception &ex) {
-            std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+            Intern someRandomIntern;
+            Bureaucrat bureaucrat("First", 1);
+            AForm *form = NULL;
+
+            try {
+                form = someRandomIntern.makeForm("Unknown", "Unknown Target");
+                form->beSigned(bureaucrat);
+                form->execute(bureaucrat);
+            } catch (std::exception &ex) {
+                std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+            }
+            if (form != NULL)
+                delete form;
         }
-        delete rrf;
     }
 }
+
