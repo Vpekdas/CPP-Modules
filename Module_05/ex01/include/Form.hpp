@@ -1,6 +1,7 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
+#include <iomanip>
 #include <iostream>
 
 class Bureaucrat;

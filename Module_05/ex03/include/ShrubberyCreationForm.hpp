@@ -3,6 +3,8 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <fstream>
 #include <iostream>
 
 class ShrubberyCreationForm : public AForm {

@@ -3,7 +3,6 @@
 #include "../include/GradeTooHighException.hpp"
 #include "../include/GradeTooLowException.hpp"
 #include "../include/colors.hpp"
-#include <iomanip>
 
 Form::Form() : _name(""), _signed(false), _gradeToSign(0), _gradeToExecute(0) {
     throw GradeTooHighException();

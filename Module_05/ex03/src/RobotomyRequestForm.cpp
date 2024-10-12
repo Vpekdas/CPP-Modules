@@ -1,7 +1,6 @@
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/ExecuteGradeTooLowException.hpp"
 #include "../include/FormNotSignedException.hpp"
-#include "../include/GradeTooLowException.hpp"
 #include "../include/colors.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm(), _target("") {

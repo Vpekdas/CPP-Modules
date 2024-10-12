@@ -1,8 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
 #include "../include/Form.hpp"
+#include <iostream>
 
 class Bureaucrat {
     public:
