@@ -18,6 +18,7 @@ void announcementMessage(std::string &message) {
 }
 
 int main() {
+
     srand(time(0));
 
     std::cout << CYAN << "\n🩵 [CYAN] represents the Bureaucrat's name.\n"
@@ -29,6 +30,7 @@ int main() {
         {
             std::string message = "Bureaucrat with grade 1 attempts to sign and execute a ShrubberyCreationForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("First", 1);
             AForm *ShrubberyForm = new ShrubberyCreationForm("Home");
@@ -40,11 +42,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete ShrubberyForm;
+            if (ShrubberyForm != NULL)
+                delete ShrubberyForm;
         }
         {
             std::string message = "Bureaucrat with grade 1 attempts to sign and execute a RobotomyRequestForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("First", 1);
             AForm *RobotomyForm = new RobotomyRequestForm("Terminator");
@@ -56,11 +60,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete RobotomyForm;
+            if (RobotomyForm != NULL)
+                delete RobotomyForm;
         }
         {
             std::string message = "Bureaucrat with grade 1 attempts to sign and execute a PresidentialPardonForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("First", 1);
             AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
@@ -72,12 +78,14 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            if (PresidentialForm != NULL)
+                delete PresidentialForm;
         }
         {
             std::string message = "A Bureaucrat with an initial grade of 150 attempts to sign and execute a "
                                   "PresidentialPardonForm after being incremented.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Last", 150);
             AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
@@ -93,7 +101,8 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            if (PresidentialForm != NULL)
+                delete PresidentialForm;
         }
     }
     {
@@ -102,6 +111,7 @@ int main() {
         {
             std::string message = "Bureaucrat with grade 150 attempts to sign and execute a ShrubberyCreationForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Last", 150);
             AForm *ShrubberyForm = new ShrubberyCreationForm("Home");
@@ -113,11 +123,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete ShrubberyForm;
+            if (ShrubberyForm != NULL)
+                delete ShrubberyForm;
         }
         {
             std::string message = "Bureaucrat with grade 150 attempts to sign and execute a RobotomyRequestForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Last", 150);
             AForm *RobotomyForm = new RobotomyRequestForm("Terminator");
@@ -129,11 +141,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete RobotomyForm;
+            if (RobotomyForm != NULL)
+                delete RobotomyForm;
         }
         {
             std::string message = "Bureaucrat with grade 150 attempts to sign and execute a PresidentialPardonForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Last", 150);
             AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
@@ -145,11 +159,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            if (PresidentialForm != NULL)
+                delete PresidentialForm;
         }
         {
             std::string message = "Bureaucrat with grade 145 attempts to sign and execute a ShrubberyCreationForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Not Last", 145);
             AForm *ShrubberyForm = new ShrubberyCreationForm("Home");
@@ -161,11 +177,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete ShrubberyForm;
+            if (ShrubberyForm != NULL)
+                delete ShrubberyForm;
         }
         {
             std::string message = "Bureaucrat with grade 72 attempts to sign and execute a RobotomyRequestForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Middle", 72);
             AForm *RobotomyForm = new RobotomyRequestForm("Terminator");
@@ -177,11 +195,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete RobotomyForm;
+            if (RobotomyForm != NULL)
+                delete RobotomyForm;
         }
         {
             std::string message = "Bureaucrat with grade 25 attempts to sign and execute a PresidentialPardonForm.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Top tier but not First", 25);
             AForm *PresidentialForm = new PresidentialPardonForm("HououinKyouma");
@@ -193,11 +213,13 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            if (PresidentialForm != NULL)
+                delete PresidentialForm;
         }
         {
             std::string message = "Attempting to create a ShrubberyCreationForm with an invalid grade of 0.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("First", 1);
 
@@ -205,7 +227,9 @@ int main() {
                 AForm *ShrubberyForm = new ShrubberyCreationForm();
                 ShrubberyForm->beSigned(bureaucrat);
                 ShrubberyForm->execute(bureaucrat);
-                delete ShrubberyForm;
+
+                if (ShrubberyForm != NULL)
+                    delete ShrubberyForm;
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
@@ -214,6 +238,7 @@ int main() {
         {
             std::string message = "Attempting to create a RobotomyRequestForm with an invalid grade of 0.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("First", 1);
 
@@ -224,7 +249,8 @@ int main() {
                 RobotomyForm->beSigned(bureaucrat);
                 RobotomyForm->execute(bureaucrat);
 
-                delete RobotomyForm;
+                if (RobotomyForm != NULL)
+                    delete RobotomyForm;
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
@@ -232,6 +258,7 @@ int main() {
         {
             std::string message = "Attempting to create a PresidentialPardonForm with an invalid grade of 0.";
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("First", 1);
 
@@ -241,7 +268,8 @@ int main() {
                 PresidentialForm->beSigned(bureaucrat);
                 PresidentialForm->execute(bureaucrat);
 
-                delete PresidentialForm;
+                if (PresidentialForm != NULL)
+                    delete PresidentialForm;
 
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
@@ -250,8 +278,8 @@ int main() {
         {
             std::string message = "A Bureaucrat with an initial grade of 1 attempts to sign and execute a "
                                   "PresidentialPardonForm after being decremented.";
-
             announcementMessage(message);
+            std::cout << BLINK_BOLD_ITALIC_GREEN << "[NEW TEST]" << RESET << std::endl;
 
             Bureaucrat bureaucrat("Was First", 1);
 
@@ -267,7 +295,8 @@ int main() {
             } catch (std::exception &ex) {
                 std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
             }
-            delete PresidentialForm;
+            if (PresidentialForm != NULL)
+                delete PresidentialForm;
         }
     }
 }
