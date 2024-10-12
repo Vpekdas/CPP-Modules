@@ -4,6 +4,11 @@
 #include "../include/AForm.hpp"
 #include <iostream>
 
+enum ErrorType {
+    BUREAUCRAT,
+    FORM
+};
+
 class Bureaucrat {
     public:
     // Default constructor

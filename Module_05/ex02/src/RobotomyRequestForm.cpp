@@ -1,4 +1,5 @@
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/ExecuteGradeTooLowException.hpp"
 #include "../include/FormNotSignedException.hpp"
 #include "../include/GradeTooLowException.hpp"
 #include "../include/colors.hpp"
@@ -35,21 +36,21 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-    if (executor.getGrade() > 72 || executor.getGrade() > 45) {
-        throw GradeTooLowException();
+    if (executor.getGrade() > 45) {
+        throw ExecuteGradeTooLowException(getName(), executor.getGrade(), getGradeToExecute());
     } else if (!getSigned()) {
-        throw FormNotSignedException(getName());
+        throw FormNotSignedException(getName(), executor.getGrade(), getGradeToSign());
     }
     std::cout << BOLD_ITALIC_PINK << "🤖 Bzzzz... Bzzzz... Bzzzz..." << RESET << std::endl;
 
     const int randNumber = rand();
 
-    if (!randNumber % 2)
-        std::cout << BOLD_ITALIC_CYAN << "[" << getTarget() << "]" << BOLD_ITALIC_GREEN
+    if (randNumber % 2) {
+        std::cout << BOLD_ITALIC_YELLOW << "[" << getTarget() << "]" << BOLD_ITALIC_GREEN
                   << " has been successfully 🦾🦿🔩 robotomized! 🦾🦿🔩 They are now part machine, part legend! 🤖"
                   << RESET << std::endl;
-    else {
-        std::cout << BOLD_ITALIC_RED << "Oh no! " << BOLD_ITALIC_CYAN << "[" << getTarget() << "]" << BOLD_ITALIC_RED
+    } else {
+        std::cout << BOLD_ITALIC_RED << "Oh no! " << BOLD_ITALIC_YELLOW << "[" << getTarget() << "]" << BOLD_ITALIC_RED
                   << " 💀 robotomization failed! 💀 Better luck next time!" << RESET << std::endl;
     }
 }

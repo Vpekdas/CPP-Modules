@@ -1,4 +1,5 @@
 #include "../include/ShrubberyCreationForm.hpp"
+#include "../include/ExecuteGradeTooLowException.hpp"
 #include "../include/FormNotSignedException.hpp"
 #include "../include/GradeTooLowException.hpp"
 #include "../include/colors.hpp"
@@ -38,17 +39,17 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-    if (executor.getGrade() > 145 || executor.getGrade() > 137) {
-        throw GradeTooLowException();
+    if (executor.getGrade() > 137) {
+        throw ExecuteGradeTooLowException(getName(), executor.getGrade(), getGradeToExecute());
     } else if (!getSigned()) {
-        throw FormNotSignedException(getName());
+        throw FormNotSignedException(getName(), executor.getGrade(), getGradeToSign());
     }
 
     std::string filename = getTarget() + "_shrubbery";
     std::ofstream outfile(filename.c_str());
 
     if (!outfile.is_open()) {
-        throw std::runtime_error("Error: Failed to create the output file: " + filename);
+        throw std::runtime_error("Error: Failed to create the output file: " + filename + "\n");
     }
 
     srand(time(0));
@@ -58,7 +59,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
         outfile << _tree << std::endl;
     outfile << "\nCongratulations! You have successfully planted " << randNumber
             << " 🌳 trees! 🌱 Keep up the great work!" << std::endl;
-    std::cout << CYAN << *this << RESET << std::endl;
 }
 
 const std::string &ShrubberyCreationForm::getTarget() const {

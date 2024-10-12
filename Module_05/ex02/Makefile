@@ -58,13 +58,14 @@ WHITE_BG		:= \033[48;5;15m
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
 						Bureaucrat.cpp \
-						GradeTooHighException.cpp \
-						GradeTooLowException.cpp \
-						FormNotSignedException.cpp \
 						AForm.cpp \
 						ShrubberyCreationForm.cpp \
 						RobotomyRequestForm.cpp \
 						PresidentialPardonForm.cpp \
+						ExecuteGradeTooLowException.cpp \
+						FormNotSignedException.cpp \
+						GradeTooHighException.cpp \
+						GradeTooLowException.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

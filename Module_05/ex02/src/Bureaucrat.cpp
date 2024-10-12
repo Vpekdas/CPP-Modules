@@ -4,16 +4,16 @@
 #include "../include/colors.hpp"
 
 Bureaucrat::Bureaucrat() : _name(""), _grade(0) {
-    throw GradeTooHighException();
+    throw GradeTooHighException(_name, _grade, BUREAUCRAT);
     std::cout << YELLOW << "🛠️ Default Bureaucrat Constructor called. 🛠️" << RESET << std::endl;
     std::cout << *this;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name), _grade(grade) {
     if (grade > 150) {
-        throw GradeTooLowException();
+        throw GradeTooLowException(_name, _grade, BUREAUCRAT);
     } else if (grade <= 0) {
-        throw GradeTooHighException();
+        throw GradeTooHighException(_name, _grade, BUREAUCRAT);
     }
     std::cout << YELLOW << "🛠️ Parameterized Bureaucrat Constructor called 🛠️" << RESET << std::endl;
     std::cout << *this;
@@ -48,13 +48,13 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::incrementGrade() {
     if (_grade - 1 <= 0) {
-        throw GradeTooHighException();
+        throw GradeTooHighException(_name, _grade, BUREAUCRAT);
     }
     _grade--;
 }
 void Bureaucrat::decrementGrade() {
     if (_grade + 1 > 150) {
-        throw GradeTooLowException();
+        throw GradeTooLowException(_name, _grade, BUREAUCRAT);
     }
     _grade++;
 }
@@ -66,5 +66,7 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 
 void Bureaucrat::executeForm(AForm const &form) {
     form.execute(*this);
-    std::cout << CYAN << getName() << " executed " << form.getName() << RESET << std::endl;
+    std::cout << BOLD_ITALIC_CYAN << "[" << getName() << "]" << CYAN << " executed " << form.getName() << "\n"
+              << RESET << std::endl;
+    std::cout << form;
 }
