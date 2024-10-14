@@ -15,10 +15,12 @@
 
 #include "../include/ScalarConverter.hpp"
 
-int main() {
+int main(int ac, char **av) {
+    if (ac != 2) {
+        return 0;
+    }
 
-    std::string input;
-    std::getline(std::cin, input);
+    std::string input = av[1];
 
     ScalarConverter::convert(input);
 }

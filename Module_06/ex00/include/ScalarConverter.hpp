@@ -5,6 +5,7 @@
 #include <cctype>
 #include <cstdint>
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 
@@ -21,6 +22,7 @@ struct Convertible {
     ConvertibleStatus status;
     void *value;
     std::string type;
+    int precision;
 };
 
 typedef void (*PrintFunction)(Convertible *convertible);
@@ -37,6 +39,7 @@ struct PrintStatus {
 
 void convertToChar(Convertible *convertible, const std::string &input);
 void convertToInt(Convertible *convertible, const std::string &input);
+void convertToFloat(Convertible *convertible, const std::string &input);
 
 class ScalarConverter {
     public:

@@ -60,6 +60,8 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						ScalarConverter.cpp \
 						convertToChar.cpp \
 						convertToInt.cpp \
+						convertToFloat.cpp \
+						print.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

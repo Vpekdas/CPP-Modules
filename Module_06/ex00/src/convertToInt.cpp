@@ -1,48 +1,86 @@
 #include "../include/convertToInt.hpp"
 
-// This function returns the index of the first non-digit character in the input string.
-// It is used to verify that the input string contains only digit characters before converting it to an integer using
-// std::atoi. This check is important to detect overflow or underflow conditions by comparing the original input string
-// with the converted result. If the input string contains non-digit characters, the conversion may be incorrect, so
-// this function helps ensure the integrity of the conversion process.
-static unsigned long findNotADigitIndex(const char *str, int length) {
+// This function checks if the input string is a valid format for an integer.
+// It ensures that the string contains at most one 'f', one operator ('+' or '-'), and one dot ('.').
+// It also ensures that the string does not end with a dot.
+static bool isValidFormatInt(const std::string &input) {
+    const char *str = input.c_str();
+    int fNumber = 0;
+    int operatorNumber = 0;
+    int dotNumber = 0;
 
-    for (int i = 0; i < length; i++) {
-        if (!std::isdigit(str[i]))
-            return i;
+    for (int i = 0; i < input.length(); i++) {
+        if (std::isalpha(str[i]) && str[i] != 'f') {
+            return false;
+        } else if (str[i] == 'f') {
+            fNumber++;
+        } else if (str[i] == '-' || str[i] == '+') {
+            operatorNumber++;
+        } else if (str[i] == '.') {
+            dotNumber++;
+        }
     }
-    return std::string::npos;
+    if (fNumber > 1 || operatorNumber > 1 || dotNumber > 1) {
+        return false;
+    } else if (str[input.length() - 1] == '.') {
+        return false;
+    }
+    return true;
 }
 
-// Convert the input string to a char and update the Convertible status accordingly.
-// This function checks for overflow, underflow, and non-displayable characters to ensure a valid conversion.
+static bool containOnlyLetter(const std::string &input) {
+    const char *str = input.c_str();
+    for (int i = 0; i < input.length(); i++) {
+        if (!std::isalpha(str[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// To accurately detect overflow or underflow, it's essential to ignore leading signs and zeros.
+// This ensures that the comparison between the newly formatted string (from stringstream) and the original input is
+// valid.
+static int skipZeroAndSign(const std::string &input) {
+    int index = 0;
+    const char *str = input.c_str();
+
+    for (int i = 0; str[i] && (str[i] == '0' || str[i] == '-' || str[i] == '+'); i++) {
+        index++;
+    }
+
+    return index;
+}
+
 void convertToInt(Convertible *convertible, const std::string &input) {
-    std::string stringFromNumber;
     std::stringstream out;
-    std::string onlyDigitInput;
+    std::string tillDot;
 
     int result = std::atoi(input.c_str());
-    unsigned long index = findNotADigitIndex(input.c_str(), input.length());
 
-    // If the input string contains only digits, use the entire string for comparison.
-    // This ensures that the conversion process accurately reflects the original input.
-    if (index != std::string::npos)
-        onlyDigitInput = input.substr(0, index);
-    else {
-        onlyDigitInput = input;
+    // Extract the portion of the input string that represents the integer value to ensure accurate comparison with the
+    // formatted result.
+    tillDot = input.substr(skipZeroAndSign(input), input.find(".") - skipZeroAndSign(input));
+
+    if (result < 0) {
+        tillDot = "-" + tillDot;
     }
 
-    // Use std::stringstream to convert the integer to a string because itoa is not part of the standard library.
+    // Convert the integer result to a string using stringstream to facilitate further processing and comparison.
     out << result;
-    stringFromNumber = out.str();
 
-    // Check for overflow/underflow and not displayable.
-    if (stringFromNumber != onlyDigitInput || result < 0 || result > 127) {
+    if (!isValidFormatInt(input) || out.str() != tillDot && !containOnlyLetter(input)) {
         convertible->status = CONVERTIBLE_IMPOSSIBLE;
-    } else if (!std::isprint(result)) {
-        convertible->status = CONVERTIBLE_NON_DISPLAYABLE;
     } else {
         convertible->status = CONVERTIBLE_DISPLAYABLE;
-        convertible->value = new int(result);
+
+        // Ensure that the ASCII value of the character is stored when the input is a single letter, for accurate
+        // representation.
+        if (containOnlyLetter(input)) {
+            convertible->value = new int(input.c_str()[0]);
+        } else {
+            convertible->value = new int(result);
+        }
     }
+    convertible->type = "int";
 }
