@@ -58,8 +58,12 @@ int Form::getGradeToExecute() const {
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat) {
-    if (bureaucrat.getGrade() <= _gradeToExecute) {
+    if (bureaucrat.getGrade() <= _gradeToSign) {
         _signed = true;
+    } else if (_signed) {
+        std::cout << BOLD_ITALIC_CYAN << "[" << bureaucrat.getName() << "]" << BOLD_ITALIC_RED << " could not sign "
+                  << BOLD_ITALIC_CYAN << "[" << getName() << "]" << BOLD_ITALIC_RED
+                  << " because the form is already signed." << RESET << std::endl;
     } else {
         std::cout << BOLD_ITALIC_CYAN << "[" << bureaucrat.getName() << "]" << BOLD_ITALIC_RED << " could not sign "
                   << BOLD_ITALIC_CYAN << "[" << getName() << "]" << BOLD_ITALIC_RED << " because their grade ("

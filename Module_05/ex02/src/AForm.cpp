@@ -53,12 +53,15 @@ int AForm::getGradeToExecute() const {
 }
 
 void AForm::beSigned(Bureaucrat &bureaucrat) {
-    if (bureaucrat.getGrade() <= _gradeToSign) {
-        _signed = true;
-    }
     std::cout << BOLD_ITALIC_CYAN << "[" << bureaucrat.getName() << "]" << BOLD_ITALIC_ORANGE
               << " is attempting to sign the form.\n"
               << *this << RESET << std::endl;
+    if (bureaucrat.getGrade() <= _gradeToSign && !_signed) {
+        _signed = true;
+        std::cout << BOLD_ITALIC_GREEN << "Form ✅ successfully ✅ signed." << RESET << std::endl;
+    } else {
+        std::cout << BOLD_ITALIC_RED << "❌ Failed ❌ to sign the form." << RESET << std::endl;
+    }
 }
 
 std::ostream &operator<<(std::ostream &out, const AForm &Aform) {
