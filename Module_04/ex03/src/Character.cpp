@@ -16,7 +16,7 @@ Character::Character(const std::string &name) : _nextIndex(0) {
         _inventory[i] = 0;
         _floor[i] = 0;
     }
-    std::cout << YELLOW << "🛠️ Parameterized Character Constructor called 🛠️" << RESET << std::endl;
+    std::cout << YELLOW << "🛠️Parameterized Character Constructor called 🛠️" << RESET << std::endl;
 }
 
 Character::~Character() {
@@ -55,8 +55,25 @@ Character &Character::operator=(const Character &other) {
     // Check for self-assignment
     if (this != &other) {
         for (int i = 0; i < 4; i++) {
-            _inventory[i] = other._inventory[i]->clone();
-            _floor[i] = other._floor[i]->clone();
+            if (_inventory[i] != 0) {
+                delete _inventory[i];
+            }
+            if (_floor[i] != 0) {
+                delete _floor[i];
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            if (other._inventory[i] != 0) {
+                _inventory[i] = other._inventory[i]->clone();
+            } else {
+                _inventory[i] = 0;
+            }
+
+            if (other._floor[i] != 0) {
+                _floor[i] = other._floor[i]->clone();
+            } else {
+                _floor[i] = 0;
+            }
         }
         _name = other._name;
         _nextIndex = other._nextIndex;
