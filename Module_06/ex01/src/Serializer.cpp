@@ -1,5 +1,6 @@
 #include "../include/Serializer.hpp"
 #include "../include/colors.hpp"
+#include <cstdint>
 
 Serializer::Serializer() {
     std::cout << YELLOW << "🛠️ Default Serializer Constructor called 🛠️" << RESET << std::endl;
@@ -22,10 +23,14 @@ Serializer &Serializer::operator=(const Serializer &other) {
     return *this;
 }
 
-unsigned long Serializer::serialize(Data *ptr) {
-    return reinterpret_cast<unsigned long>(ptr);
+uintptr_t Serializer::serialize(Data *ptr) {
+    uintptr_t newPtr = reinterpret_cast<uintptr_t>(ptr);
+    std::cout << BOLD_ITALIC_PINK << "Serialized address: " << newPtr << RESET << std::endl;
+    return newPtr;
 }
 
-Data *Serializer::deserialize(unsigned long raw) {
-    return reinterpret_cast<Data *>(raw);
+Data *Serializer::deserialize(uintptr_t raw) {
+    Data *ptr = reinterpret_cast<Data *>(raw);
+    std::cout << BOLD_ITALIC_YELLOW << "Deserialized address: " << ptr << RESET << std::endl;
+    return ptr;
 }
