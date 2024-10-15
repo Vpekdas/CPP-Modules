@@ -24,16 +24,56 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
     return *this;
 }
 
+// This function checks if the input string is a valid format for an integer.
+// It ensures that the string contains at most one 'f', one operator ('+' or '-'), and one dot ('.').
+// It also ensures that the string does not end with a dot.
+bool isValidFormat(const std::string &input) {
+    const char *str = input.c_str();
+    int fNumber = 0;
+    int operatorNumber = 0;
+    int dotNumber = 0;
+
+    for (std::size_t i = 0; i < input.length(); i++) {
+        if (std::isalpha(str[i]) && str[i] != 'f' && input.length() > 1) {
+            return false;
+        } else if (str[i] == 'f') {
+            if (i != input.length() - 1) {
+                return false;
+            }
+            fNumber++;
+        } else if (str[i] == '-' || str[i] == '+') {
+            if (i != 0) {
+                return false;
+            }
+            operatorNumber++;
+        } else if (str[i] == '.') {
+            dotNumber++;
+        } else if (std::isdigit(str[i])) {
+        } else {
+            return false;
+        }
+    }
+    if (fNumber > 1 || operatorNumber > 1 || dotNumber > 1) {
+        return false;
+    } else if (str[input.length() - 1] == '.') {
+        return false;
+    }
+    return true;
+}
+
 void ScalarConverter::convert(const std::string &input) {
     Convertible charValue;
     Convertible intValue;
     Convertible floatValue;
+    Convertible doubleValue;
 
     convertToChar(&charValue, input);
     convertToInt(&intValue, input);
     convertToFloat(&floatValue, input);
+    convertToDouble(&doubleValue, input);
 
     print(&charValue);
     print(&intValue);
     print(&floatValue);
+    print(&doubleValue);
 }

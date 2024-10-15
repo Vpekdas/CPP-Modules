@@ -4,7 +4,7 @@ PROJECT_NAME	:= Conversion of scalar types
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98  -g3 -O2 -I includes/ # -Wall -Wextra -Werror
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I includes/ 
 DEPFLAGS		:= -MMD -MP
 
 # ================================= ALIASES ================================== #
@@ -61,6 +61,7 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						convertToChar.cpp \
 						convertToInt.cpp \
 						convertToFloat.cpp \
+						convertToDouble.cpp \
 						print.cpp \
 )
 

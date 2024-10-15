@@ -32,7 +32,14 @@ void printDisplayableFloat(Convertible *convertible) {
     std::cout << CYAN << "float: " << out.str() << RESET << std::endl;
 };
 
-void printDisplayableDouble(Convertible *convertible) {};
+void printDisplayableDouble(Convertible *convertible) {
+    std::stringstream out;
+
+    double *result = static_cast<double *>(convertible->value);
+    out << std::fixed << std::setprecision(convertible->precision) << *result;
+
+    std::cout << CYAN << "double: " << out.str() << RESET << std::endl;
+};
 
 void printDisplayable(Convertible *convertible) {
     for (int i = 0; i < CONVERTIBLE_COUNT; i++) {

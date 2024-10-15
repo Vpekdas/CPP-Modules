@@ -9,6 +9,11 @@
 #include <iostream>
 #include <sstream>
 
+bool isValidFormat(const std::string &input);
+int skipZeroAndSign(const std::string &input);
+int countPrecision(const std::string &input);
+bool isContainingDigit(const std::string &input);
+
 #define CONVERTIBLE_COUNT 4
 
 enum ConvertibleStatus {
@@ -40,6 +45,7 @@ struct PrintStatus {
 void convertToChar(Convertible *convertible, const std::string &input);
 void convertToInt(Convertible *convertible, const std::string &input);
 void convertToFloat(Convertible *convertible, const std::string &input);
+void convertToDouble(Convertible *convertible, const std::string &input);
 
 class ScalarConverter {
     public:
