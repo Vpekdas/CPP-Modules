@@ -4,7 +4,7 @@ PROJECT_NAME	:= Mommy, when I grow up, I want to be a bureaucrat!
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I includes/
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I include/
 DEPFLAGS		:= -MMD -MP
 
 # ================================= ALIASES ================================== #

@@ -1,10 +1,10 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= IdentifyRealType
-PROJECT_NAME	:= Identify real type
+NAME			:= StartWithAFewFunctions
+PROJECT_NAME	:= Start with a few functions
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I include/
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I include/ 
 DEPFLAGS		:= -MMD -MP
 
 # ================================= ALIASES ================================== #
@@ -56,8 +56,10 @@ WHITE_BG		:= \033[48;5;15m
 # ================================ SRC FILES ================================= #
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
-					main.cpp \
-					Base.cpp \
+						main.cpp \
+						swapTest.cpp \
+						minTest.cpp \
+						maxTest.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
