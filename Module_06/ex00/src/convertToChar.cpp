@@ -1,6 +1,4 @@
 #include "../include/convertToChar.hpp"
-#include <cctype>
-#include <cstdlib>
 
 bool isContainingDigit(const std::string &input) {
     const char *str = input.c_str();

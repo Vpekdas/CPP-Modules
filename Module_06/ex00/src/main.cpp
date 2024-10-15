@@ -1,6 +1,8 @@
 #include "../include/ScalarConverter.hpp"
 
 int main(int ac, char **av) {
+    //TODO: Add some cerr message.
+
     if (ac != 2) {
         return 0;
     }

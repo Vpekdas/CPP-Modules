@@ -34,7 +34,7 @@ void convertToFloat(Convertible *convertible, const std::string &input) {
 
     out << std::fixed << std::setprecision(convertible->precision) << result << 'f';
 
-    if (isinf(result) || (result != 0.0f && std::fabs(result) < std::numeric_limits<float>::min()) ||
+    if (std::isinf(result) || (result != 0.0f && std::fabs(result) < std::numeric_limits<float>::min()) ||
         !isValidFormat(input)) {
         convertible->status = CONVERTIBLE_IMPOSSIBLE;
     } else if (isContainingDigit(input)) {

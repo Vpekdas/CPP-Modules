@@ -3,10 +3,11 @@
 
 #include "../include/colors.hpp"
 #include <cctype>
-#include <cstdint>
 #include <cstdlib>
+#include <float.h>
 #include <iomanip>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 
 bool isValidFormat(const std::string &input);
