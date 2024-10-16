@@ -13,7 +13,19 @@ void convertToDouble(Convertible *convertible, const std::string &input) {
 
     out << std::fixed << std::setprecision(convertible->precision) << result << 'f';
 
-    if (isinf(result) || !isValidFormat(input)) {
+    if (isinf(result)) {
+        convertible->status = CONVERTIBLE_DISPLAYABLE;
+        convertible->value = new double(result);
+        return;
+    }
+
+    else if (std::isnan(result)) {
+        convertible->status = CONVERTIBLE_DISPLAYABLE;
+        convertible->value = new double(NAN);
+        return;
+    }
+
+    if (!isValidFormat(input)) {
         convertible->status = CONVERTIBLE_IMPOSSIBLE;
     } else if (isContainingDigit(input)) {
         convertible->status = CONVERTIBLE_DISPLAYABLE;

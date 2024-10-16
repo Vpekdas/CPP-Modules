@@ -1,4 +1,5 @@
 #include "../include/convertToFloat.hpp"
+#include <cmath>
 #include <limits>
 #include <math.h>
 
@@ -34,8 +35,20 @@ void convertToFloat(Convertible *convertible, const std::string &input) {
 
     out << std::fixed << std::setprecision(convertible->precision) << result << 'f';
 
-    if (std::isinf(result) || (result != 0.0f && std::fabs(result) < std::numeric_limits<float>::min()) ||
-        !isValidFormat(input)) {
+    if (isinf(result)) {
+        convertible->status = CONVERTIBLE_DISPLAYABLE;
+        convertible->value = new float(result);
+        return;
+    }
+
+    else if (std::isnan(result)) {
+        convertible->status = CONVERTIBLE_DISPLAYABLE;
+        convertible->value = new float(NAN);
+        return;
+    }
+
+    if ((result != 0.0f && std::fabs(result) < std::numeric_limits<float>::min()) ||
+        (result != 0.0f && std::fabs(result) > std::numeric_limits<float>::max()) || !isValidFormat(input)) {
         convertible->status = CONVERTIBLE_IMPOSSIBLE;
     } else if (isContainingDigit(input)) {
         convertible->status = CONVERTIBLE_DISPLAYABLE;
