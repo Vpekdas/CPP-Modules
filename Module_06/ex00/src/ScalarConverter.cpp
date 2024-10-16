@@ -60,6 +60,7 @@ bool isValidFormat(const std::string &input) {
 }
 
 void ScalarConverter::convert(const std::string &input) {
+
     Convertible charValue;
     Convertible intValue;
     Convertible floatValue;

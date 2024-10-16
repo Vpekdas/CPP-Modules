@@ -8,12 +8,16 @@ Base *generate(void) {
     const int randNumber = (std::rand() % 3) + 1;
     switch (randNumber) {
     case 1:
+        std::cout << NEON_GREEN << "Class A created." << RESET << std::endl;
         return new A();
     case 2:
+        std::cout << NEON_ORANGE << "Class B created." << RESET << std::endl;
         return new B();
     case 3:
+        std::cout << NEON_PURPLE << "Class C created." << RESET << std::endl;
         return new C();
     default:
+        std::cout << NEON_GREEN << "Class A created." << RESET << std::endl;
         return new A();
     }
 }
