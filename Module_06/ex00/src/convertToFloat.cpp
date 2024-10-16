@@ -1,7 +1,4 @@
 #include "../include/convertToFloat.hpp"
-#include <cmath>
-#include <limits>
-#include <math.h>
 
 int countPrecision(const std::string &input) {
     int precision = 0;
