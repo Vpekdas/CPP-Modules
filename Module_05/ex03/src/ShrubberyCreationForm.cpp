@@ -48,8 +48,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
         throw std::runtime_error("Error: Failed to create the output file: " + filename + "\n");
     }
 
-    srand(time(0));
-    const int randNumber = rand() % 150;
+    const int randNumber = std::rand() % 150;
 
     for (int i = 0; i < randNumber; i++)
         outfile << _tree << std::endl;

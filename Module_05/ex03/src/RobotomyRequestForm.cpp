@@ -42,7 +42,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     }
     std::cout << BOLD_ITALIC_PINK << "🤖 Bzzzz... Bzzzz... Bzzzz..." << RESET << std::endl;
 
-    const int randNumber = rand();
+    const int randNumber = std::rand();
 
     if (randNumber % 2) {
         std::cout << BOLD_ITALIC_YELLOW << "[" << getTarget() << "]" << BOLD_ITALIC_GREEN

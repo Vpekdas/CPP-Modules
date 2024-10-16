@@ -5,7 +5,7 @@
 #include "../include/colors.hpp"
 
 Base *generate(void) {
-    const int randNumber = (rand() % 3) + 1;
+    const int randNumber = (std::rand() % 3) + 1;
     switch (randNumber) {
     case 1:
         return new A();
@@ -61,7 +61,7 @@ void identify(Base &p) {
 }
 
 int main() {
-    srand((time(0)));
+    std::srand((time(0)));
 
     Base *obj = generate();
 

@@ -19,7 +19,7 @@ void announcementMessage(std::string &message) {
 }
 
 int main() {
-    srand(time(0));
+    std::srand(time(0));
 
     std::cout << CYAN << "\n🩵 [CYAN] represents the Bureaucrat's name.\n"
               << YELLOW << "💛 [YELLOW] represents the target's name." << RESET << std::endl;
