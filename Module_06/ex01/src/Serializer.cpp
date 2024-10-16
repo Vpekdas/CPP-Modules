@@ -1,6 +1,5 @@
 #include "../include/Serializer.hpp"
 #include "../include/colors.hpp"
-#include <cstdint>
 
 Serializer::Serializer() {
     std::cout << YELLOW << "🛠️ Default Serializer Constructor called 🛠️" << RESET << std::endl;

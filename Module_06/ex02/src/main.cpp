@@ -20,13 +20,13 @@ Base *generate(void) {
 
 void identify(Base *p) {
     if (A *ap = dynamic_cast<A *>(p)) {
-        std::cout << CYAN << "A" << RESET << std::endl;
+        std::cout << NEON_GREEN << "A" << RESET << std::endl;
         return;
     } else if (B *bp = dynamic_cast<B *>(p)) {
-        std::cout << CYAN << "B" << RESET << std::endl;
+        std::cout << NEON_ORANGE << "B" << RESET << std::endl;
         return;
     } else if (C *cp = dynamic_cast<C *>(p)) {
-        std::cout << CYAN << "C" << RESET << std::endl;
+        std::cout << NEON_PURPLE << "C" << RESET << std::endl;
         return;
     }
 }
@@ -35,7 +35,7 @@ void identify(Base &p) {
     try {
         A &ap = dynamic_cast<A &>(p);
         (void)ap;
-        std::cout << CYAN << "A" << RESET << std::endl;
+        std::cout << NEON_GREEN << "A" << RESET << std::endl;
         return;
     } catch (std::exception &ex) {
         std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
@@ -44,7 +44,7 @@ void identify(Base &p) {
     try {
         B &bp = dynamic_cast<B &>(p);
         (void)bp;
-        std::cout << CYAN << "B" << RESET << std::endl;
+        std::cout << NEON_ORANGE << "B" << RESET << std::endl;
         return;
     } catch (std::exception &ex) {
         std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
@@ -53,7 +53,7 @@ void identify(Base &p) {
     try {
         C &cp = dynamic_cast<C &>(p);
         (void)cp;
-        std::cout << CYAN << "C" << RESET << std::endl;
+        std::cout << NEON_PURPLE << "C" << RESET << std::endl;
         return;
     } catch (std::exception &ex) {
         std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;

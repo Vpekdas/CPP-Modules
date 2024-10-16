@@ -49,8 +49,6 @@ bool isValidFormat(const std::string &input) {
         } else if (str[i] == '.') {
             dotNumber++;
         } else if (std::isdigit(str[i])) {
-        } else {
-            return false;
         }
     }
     if (fNumber > 1 || operatorNumber > 1 || dotNumber > 1) {
@@ -76,4 +74,17 @@ void ScalarConverter::convert(const std::string &input) {
     print(&intValue);
     print(&floatValue);
     print(&doubleValue);
+
+    if (charValue.status == CONVERTIBLE_DISPLAYABLE) {
+        delete static_cast<char *>(charValue.value);
+    }
+    if (intValue.status == CONVERTIBLE_DISPLAYABLE) {
+        delete static_cast<int *>(intValue.value);
+    }
+    if (floatValue.status == CONVERTIBLE_DISPLAYABLE) {
+        delete static_cast<float *>(floatValue.value);
+    }
+    if (doubleValue.status == CONVERTIBLE_DISPLAYABLE) {
+        delete static_cast<double *>(doubleValue.value);
+    }
 }

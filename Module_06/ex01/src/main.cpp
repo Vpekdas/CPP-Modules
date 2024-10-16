@@ -56,15 +56,18 @@ int main() {
         Data data;
         data.content = "Too too roo !";
 
+        Data data2;
+        data.content = "Hello !";
+
         std::string message = "Serializing data and storing the serialized address.";
         announcementMessage(message);
 
-        uintptr_t serializedData = Serializer::serialize(&data);
+        uintptr_t serializedData = Serializer::serialize(&data2);
 
         std::string message2 = "Deserializing the stored address back to data.";
         announcementMessage(message2);
 
-        Data *deserializedData = Serializer::deserialize(serializedData + 42);
+        Data *deserializedData = Serializer::deserialize(serializedData);
 
         std::string message3 = "Comparing original and deserialized addresses.";
         announcementMessage(message3);
