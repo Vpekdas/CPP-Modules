@@ -3,7 +3,7 @@
 int main() {
 
     std::srand(time(0));
-    
+
     testInt();
     testDouble();
     testString();

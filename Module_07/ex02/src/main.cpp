@@ -1,47 +1,64 @@
 #include "../include/Array.hpp"
-#include <cstdlib>
-#include <iostream>
+#include <cstddef>
 
-#define MAX_VAL 750
+static const Test tests[NUMBER_OF_TESTS] = {
+    {"int", testInt}, {"char", testChar}, {"string", testString}, {"float", testFloat}, {"all", testAll}};
 
-int main(int, char **) {
+void announcementTitle(const std::string &title) {
+    std::cout << "\n" << NEON_BLUE << std::setfill('-') << std::setw(title.length() + 3) << RESET << std::endl;
+    std::cout << NEON_YELLOW << title << RESET << std::endl;
+    std::cout << NEON_BLUE << std::setfill('-') << std::setw(title.length()) << "\n" << RESET << std::endl;
+}
 
-    Array<int> numbers(MAX_VAL);
-    int *mirror = new int[MAX_VAL];
+void announcementMessage(const std::string &message) {
+    std::cout << "\n" << NEON_PURPLE << std::setfill('-') << std::setw(message.length() + 3) << RESET << std::endl;
+    std::cout << NEON_GREEN << message << RESET << std::endl;
+    std::cout << NEON_PURPLE << std::setfill('-') << std::setw(message.length()) << "\n" << RESET << std::endl;
+}
+
+void testAll() {
+    testInt();
+    testChar();
+    testString();
+    testFloat();
+}
+
+// Converts a character to uppercase, ensuring correct behavior for characters with negative values
+// by first casting to unsigned char before using std::toupper.
+static char tolower(char ch) {
+    return static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
+}
+
+void stringToLower(std::string &input) {
+    for (std::size_t i = 0; i < input.length(); i++) {
+        input[i] = tolower(input[i]);
+    }
+}
+
+int main() {
 
     std::srand(time(NULL));
 
-    for (int i = 0; i < MAX_VAL; i++) {
-        const int value = std::rand();
-        numbers[i] = value;
-        mirror[i] = value;
+    std::string input;
+
+    std::cout << BOLD_ITALIC_PINK << "Hi! Please choose a test to run from the following options:" << RESET
+              << std::endl;
+    std::cout << NEON_CYAN << "- Int\n- Char\n- String\n- Float\n- All" << RESET << std::endl;
+
+    std::getline(std::cin, input);
+
+    if (std::cin.eof() || input.empty()) {
+        std::cout << NEON_YELLOW << "👋 Bye Bye ! 👋" << RESET << std::endl;
+        return 0;
     }
 
-    // {
-    //     Array<int> tmp = numbers;
-    //     Array<int> test(tmp);
-    // }
-
-    for (int i = 0; i < MAX_VAL; i++) {
-        if (mirror[i] != numbers[i]) {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
+    for (int i = 0; i < NUMBER_OF_TESTS; i++) {
+        stringToLower(input);
+        if (tests[i].type == input) {
+            tests[i].testFunction();
+            return 0;
         }
     }
-    try {
-        numbers[-2] = 0;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
-    }
-    try {
-        numbers[MAX_VAL] = 0;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
-    }
-
-    for (int i = 0; i < MAX_VAL; i++) {
-        numbers[i] = rand();
-    }
-    delete[] mirror;
-    return 0;
+    std::cerr << NEON_RED << "❌ Error: Your input did not match any available tests. ❌" << RESET << std::endl;
+    return 1;
 }

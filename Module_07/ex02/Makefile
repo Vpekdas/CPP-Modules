@@ -57,6 +57,10 @@ WHITE_BG		:= \033[48;5;15m
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
+						testInt.cpp \
+						testChar.cpp \
+						testString.cpp \
+						testFloat.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
@@ -98,15 +102,15 @@ GRADIENT_G		:= \033[38;5;160m \
 GRAD_B_PROG		:= 0
 GRAD_G_SIZE		:= 0
 GRADIENT_B		:= \033[38;5;2m \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5;
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5;
 
 # function to get the current color of the bar by index in the gradient
 define GET_G_GRADIENT
