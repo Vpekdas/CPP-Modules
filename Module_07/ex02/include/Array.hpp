@@ -17,13 +17,15 @@
 void announcementTitle(const std::string &title);
 void announcementMessage(const std::string &message);
 
-void testInt();
-void testChar();
-void testString();
-void testFloat();
-void testAll();
+void testInt(bool skip);
+void testChar(bool skip);
+void testString(bool skip);
+void testFloat(bool skip);
+void testAll(bool skip = true);
 
-typedef void (*TestFunction)();
+void displayPressButton(bool skip);
+
+typedef void (*TestFunction)(bool skip);
 
 struct Test {
     const std::string type;
