@@ -1,5 +1,5 @@
 #include "../include/colors.hpp"
-#include "../include/utility.hpp"
+#include "../include/whatever.hpp"
 
 void maxTest() {
     std::string message = "MAX";

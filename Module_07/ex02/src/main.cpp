@@ -1,8 +1,10 @@
 #include "../include/Array.hpp"
 
-static const Test tests[NUMBER_OF_TESTS] = {
+// Use an array of tests to avoid a large number of if-else statements.
+static const Test tests[] = {
     {"int", testInt}, {"char", testChar}, {"string", testString}, {"float", testFloat}, {"all", testAll}};
 
+// Display a formatted message with decorative borders.
 void announcementTitle(const std::string &title) {
     std::cout << "\n" << NEON_BLUE << std::setfill('-') << std::setw(title.length() + 3) << RESET << std::endl;
     std::cout << NEON_YELLOW << title << RESET << std::endl;
@@ -15,6 +17,8 @@ void announcementMessage(const std::string &message) {
     std::cout << NEON_PURPLE << std::setfill('-') << std::setw(message.length()) << "\n" << RESET << std::endl;
 }
 
+// The 'skip' parameter is not used here, but it is included for consistency
+// with other function pointers in the structure.
 void testAll(bool skip) {
     (void)skip;
     testInt(true);
@@ -31,18 +35,16 @@ void displayPressButton(bool skip) {
                   << std::endl;
 
         std::getline(std::cin, input);
+        if (std::cin.eof()) {
+            std::cout << NEON_YELLOW << "👋 Bye Bye ! 👋" << RESET << std::endl;
+            return;
+        }
     }
-}
-
-// Converts a character to uppercase, ensuring correct behavior for characters with negative values
-// by first casting to unsigned char before using std::toupper.
-static char tolower(char ch) {
-    return static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
 }
 
 static void stringToLower(std::string &input) {
     for (std::size_t i = 0; i < input.length(); i++) {
-        input[i] = tolower(input[i]);
+        input[i] = std::tolower(input[i]);
     }
 }
 
