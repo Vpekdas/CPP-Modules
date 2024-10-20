@@ -1,5 +1,5 @@
-#ifndef whateverR_HPP
-#define whateverR_HPP
+#ifndef WHATEVERR_HPP
+#define WHATEVERR_HPP
 
 #include <iomanip>
 #include <iostream>
@@ -24,4 +24,4 @@ template <typename T> T max(T x, T y) {
     return x > y ? x : y;
 }
 
-#endif // whateverR_HPP
+#endif // WHATEVER_HPP
