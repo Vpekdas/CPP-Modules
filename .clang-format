@@ -1,6 +1,7 @@
 ---
 Language:        Cpp
 # BasedOnStyle:  LLVM
+Standard: C++03
 AccessModifierOffset: 0
 AlignAfterOpenBracket: Align
 AlignArrayOfStructures: None
@@ -197,7 +198,6 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false
 BitFieldColonSpacing: Both
-Standard:        Latest
 StatementAttributeLikeMacros:
   - Q_EMIT
 StatementMacros:

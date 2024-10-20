@@ -1,6 +1,6 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= StartWithAFewFunctions
-PROJECT_NAME	:= Start with a few functions
+NAME			:= MutatedAbomination
+PROJECT_NAME	:= Mutated abomination
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
@@ -57,9 +57,7 @@ WHITE_BG		:= \033[48;5;15m
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
-						swapTest.cpp \
-						minTest.cpp \
-						maxTest.cpp \
+						MutantStack.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
