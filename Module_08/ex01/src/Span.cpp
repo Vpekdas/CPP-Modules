@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <climits>
 #include <exception>
+#include <iterator>
 #include <stdexcept>
 #include <vector>
 
@@ -34,7 +35,7 @@ Span &Span::operator=(const Span &other) {
 }
 
 void Span::addNumber(int number) {
-    if (_currentSize > _maxSize) {
+    if (_currentSize >= _maxSize) {
         throw std::length_error("Error: You cannot add more numbers.");
     }
     _vec.push_back(number);
@@ -69,7 +70,7 @@ long Span::shortestSpan() {
         throw std::range_error("Error: No valid span found. Ensure the container has distinct elements.");
     }
 
-    std::cout << NEON_CYAN << "Shortest span is " << span << " between (" << firstLowestNumber << ") and ("
+    std::cout << BOLD_ITALIC_ORANGE << "Shortest span is " << span << " between (" << firstLowestNumber << ") and ("
               << secondLowestNumber << ")" << RESET << std::endl;
     return span;
 }
@@ -87,8 +88,8 @@ long Span::longestSpan() {
 
     long span = *last - *first;
 
-    std::cout << NEON_CYAN << "Longest span is " << span << " between (" << *last << ") and ("
-          << *first << ")" << RESET << std::endl;
+    std::cout << BOLD_ITALIC_BLUE << "Longest span is " << span << " between (" << *last << ") and (" << *first << ")"
+              << RESET << std::endl;
     return span;
 }
 
@@ -102,4 +103,14 @@ void Span::addMultipleNumber(std::vector<int>::iterator first, std::vector<int>:
     std::vector<int>::iterator position = _vec.begin();
 
     _vec.insert(position, first, last);
+
+    _currentSize = std::distance(first, last);
+}
+
+void Span::displayNumber() const {
+    std::cout << NEON_CYAN << "[Span]: " << RESET;
+    for (std::vector<int>::const_iterator it = _vec.begin(); it != _vec.end(); it++) {
+        std::cout << NEON_CYAN << *it << " " << RESET;
+    }
+    std::cout << std::endl;
 }

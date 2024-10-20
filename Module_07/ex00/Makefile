@@ -57,9 +57,11 @@ WHITE_BG		:= \033[48;5;15m
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
+						display.cpp \
 						swapTest.cpp \
 						minTest.cpp \
 						maxTest.cpp \
+						subjectTest.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

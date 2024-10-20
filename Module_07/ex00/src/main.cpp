@@ -1,36 +1,46 @@
-#include "../include/colors.hpp"
-#include "../include/whatever.hpp"
+#include "../include/display.hpp"
+#include "../include/test.hpp"
 
-void announcementTitle(const std::string &message) {
-    std::cout << "\n" << NEON_BLUE << std::setfill('-') << std::setw(message.length() + 3) << RESET << std::endl;
-    std::cout << NEON_YELLOW << message << RESET << std::endl;
-    std::cout << NEON_BLUE << std::setfill('-') << std::setw(message.length()) << "\n" << RESET << std::endl;
+static const TestFunction testFunctions[] = {{"max", maxTest}, {"min", minTest}, {"swap", swapTest}, {"all", allTest}};
+
+void allTest(bool skip) {
+    (void)skip;
+    maxTest(true);
+    minTest(true);
+    swapTest(true);
+    subjectTest(true);
 }
 
-void announcementMessage(const std::string &message) {
-    std::cout << "\n" << NEON_PURPLE << std::setfill('-') << std::setw(message.length() + 3) << RESET << std::endl;
-    std::cout << NEON_GREEN << message << RESET << std::endl;
-    std::cout << NEON_PURPLE << std::setfill('-') << std::setw(message.length()) << "\n" << RESET << std::endl;
-}
+int main() {
+    try {
+        bool skip = false;
+        std::string input;
+        std::srand(time(NULL));
 
-int main(void) {
+        std::cout << BOLD_ITALIC_PINK << "Hi! Please choose a test to run from the following options:" << RESET
+                  << std::endl;
+        std::cout << NEON_CYAN << "- max\n- min\n- swap\n- all" << RESET << std::endl;
 
-    std::string message = "Exercise test.";
-    announcementTitle(message);
-    int a = 2;
-    int b = 3;
-    ::swap(a, b);
-    std::cout << "a = " << a << ", b = " << b << std::endl;
-    std::cout << "min( a, b ) = " << ::min(a, b) << std::endl;
-    std::cout << "max( a, b ) = " << ::max(a, b) << std::endl;
-    std::string c = "chaine1";
-    std::string d = "chaine2";
-    ::swap(c, d);
-    std::cout << "c = " << c << ", d = " << d << std::endl;
-    std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
-    std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
+        std::getline(std::cin, input);
 
-    swapTest();
-    minTest();
-    maxTest();
+        if (std::cin.eof() || input.empty()) {
+            std::cout << NEON_YELLOW << "👋 Bye Bye ! 👋" << RESET << std::endl;
+            return 0;
+        }
+        for (int i = 0; i < NUMBER_OF_TESTS; i++) {
+            stringToLower(input);
+            if (input == "all") {
+                skip = true;
+            }
+            if (testFunctions[i].type == input) {
+                testFunctions[i].test(skip);
+                return 0;
+            }
+        }
+        std::cerr << NEON_RED << "❌ Error: Your input did not match any available tests. ❌" << RESET << std::endl;
+        std::cout << NEON_YELLOW << "👋 Bye Bye ! 👋" << RESET << std::endl;
+    } catch (std::exception &ex) {
+        std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+    }
+    return 0;
 }

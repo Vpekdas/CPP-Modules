@@ -56,8 +56,12 @@ WHITE_BG		:= \033[48;5;15m
 # ================================ SRC FILES ================================= #
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
-						main.cpp \
-						testFunction.cpp \
+					display.cpp \
+					main.cpp \
+					testDouble.cpp \
+					testFunction.cpp \
+					testInt.cpp \
+					testString.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

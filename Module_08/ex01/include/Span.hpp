@@ -29,6 +29,7 @@ class Span {
     void addMultipleNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
     long shortestSpan();
     long longestSpan();
+    void displayNumber() const;
 
     private:
     unsigned int _maxSize;

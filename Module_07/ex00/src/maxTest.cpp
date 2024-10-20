@@ -1,12 +1,14 @@
 #include "../include/colors.hpp"
+#include "../include/display.hpp"
 #include "../include/whatever.hpp"
 
-void maxTest() {
-    std::string message = "MAX";
-    announcementTitle(message);
+void maxTest(bool skip) {
+    std::string title = "Running tests on the max template function.";
+    announcementTitle(title);
     {
-        std::string message = "INT";
+        std::string message = "Testing max function with INT values.";
         announcementMessage(message);
+        displayPressButton(skip);
 
         int a = +42;
         int b = -24;
@@ -15,8 +17,9 @@ void maxTest() {
         std::cout << CYAN << "Maximum value is: " << ::max(a, b) << RESET << std::endl;
     }
     {
-        std::string message = "CHAR";
+        std::string message = "Testing max function with CHAR values.";
         announcementMessage(message);
+        displayPressButton(skip);
 
         char a = 'S';
         char b = 'G';
@@ -25,8 +28,9 @@ void maxTest() {
         std::cout << CYAN << "Maximum value is: " << ::max(a, b) << RESET << std::endl;
     }
     {
-        std::string message = "STRING";
+        std::string message = "Testing max function with STRING values.";
         announcementMessage(message);
+        displayPressButton(skip);
 
         std::string a = "Steins";
         std::string b = "Gate";
@@ -35,8 +39,10 @@ void maxTest() {
         std::cout << CYAN << "Maximum value is: " << ::max(a, b) << RESET << std::endl;
     }
     {
-        std::string message = "FLOAT";
+        std::string message = "Testing max function with FLOAT values.";
         announcementMessage(message);
+        displayPressButton(skip);
+
         float a = -42.42f;
         float b = +24.24f;
 
