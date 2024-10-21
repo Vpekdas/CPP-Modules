@@ -1,11 +1,12 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= Harl2.0
-PROJECT_NAME	:= Harl 2.0
+NAME			:= EasyFind
+PROJECT_NAME	:= Easy find
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -O2 -iquote include/
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -O2 -iquotequote include/ 
 DEPFLAGS		:= -MMD -MP
+
 ifdef DEBUG
 CXXFLAGS		+= 
 endif
@@ -60,7 +61,8 @@ WHITE_BG		:= \033[48;5;15m
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
-						Harl.cpp \
+						display.cpp \
+						test.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
@@ -102,15 +104,15 @@ GRADIENT_G		:= \033[38;5;160m \
 GRAD_B_PROG		:= 0
 GRAD_G_SIZE		:= 0
 GRADIENT_B		:= \033[38;5;2m \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5; \
-				 \033[38;5;
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5; \
+				\033[38;5;
 
 # function to get the current color of the bar by index in the gradient
 define GET_G_GRADIENT

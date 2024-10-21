@@ -4,8 +4,11 @@ PROJECT_NAME	:= No, you need form 28B, not 28C...
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
-CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -g3 -O2 -I include/
+CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -O2 -iquote include/
 DEPFLAGS		:= -MMD -MP
+ifdef DEBUG
+CXXFLAGS		+= 
+endif
 
 # ================================= ALIASES ================================== #
 SRCS_PATH = src/
