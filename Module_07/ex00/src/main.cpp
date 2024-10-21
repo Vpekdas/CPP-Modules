@@ -1,5 +1,6 @@
 #include "../include/display.hpp"
 #include "../include/test.hpp"
+#include <cstdlib>
 
 static const TestFunction testFunctions[] = {{"max", maxTest}, {"min", minTest}, {"swap", swapTest}, {"all", allTest}};
 

@@ -4,6 +4,7 @@
 #include "../include/colors.hpp"
 #include "iostream"
 #include <cstddef>
+#include <cstdlib>
 #include <exception>
 #include <iomanip>
 #include <iostream>

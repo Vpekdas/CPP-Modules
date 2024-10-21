@@ -7,7 +7,7 @@ void testString(bool skip) {
     std::string strArray[3] = {"H3llO", "wOr lD", "t3st"};
 
     std::cout << NEON_CYAN << "Initial Array:" << RESET << std::endl;
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 3; ++i) {
         std::cout << NEON_CYAN << strArray[i] << " " << RESET;
     }
     std::cout << std::endl;

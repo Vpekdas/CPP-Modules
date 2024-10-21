@@ -2,7 +2,7 @@
 #include "../include/test.hpp"
 
 static const TestFunction testFunctions[] = {
-    {"int", testInt}, {"float", testDouble}, {"string", testString}, {"all", allTest}};
+    {"int", testInt}, {"double", testDouble}, {"string", testString}, {"all", allTest}};
 
 void allTest(bool skip) {
     (void)skip;

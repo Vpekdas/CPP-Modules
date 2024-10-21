@@ -6,6 +6,7 @@
 #include "../include/colors.hpp"
 #include "../include/display.hpp"
 #include "../include/iter.hpp"
+#include <cstdlib>
 #include <iostream>
 
 typedef void (*Test)(bool skip);
