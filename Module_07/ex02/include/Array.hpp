@@ -33,7 +33,8 @@ struct Test {
     TestFunction testFunction;
 };
 
-template <class T> class Array {
+template <class T>
+class Array {
     public:
     // Default Constructor
     Array() : _size(0), _array(new T[0]) {

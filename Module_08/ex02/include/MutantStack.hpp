@@ -7,7 +7,8 @@
 #include <stack>
 
 // Using std::deque as the underlying container while providing stack operations :).
-template <typename T, class container = std::deque<T> > class MutantStack : public std::stack<T, container> {
+template <typename T, class container = std::deque<T> >
+class MutantStack : public std::stack<T, container> {
     public:
     // Default constructor
     MutantStack() : std::stack<T, container>() {
