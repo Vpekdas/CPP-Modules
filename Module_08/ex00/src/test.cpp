@@ -1,6 +1,7 @@
 #include "../include/test.hpp"
 #include "../include/display.hpp"
 #include "../include/easyfind.hpp"
+#include <vector>
 
 void testVector(bool skip) {
     std::string title = "Running tests on vector container.";
