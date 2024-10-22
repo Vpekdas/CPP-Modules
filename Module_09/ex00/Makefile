@@ -1,6 +1,6 @@
 # ============================== PROJECT INFO ================================ #
-NAME			:= EasyFind
-PROJECT_NAME	:= Easy find
+NAME			:= btc
+PROJECT_NAME	:= Bitcoin Exchange
 
 # =========================== COMPILER AND FLAGS ============================= #
 CXX				:= clang++
@@ -61,8 +61,7 @@ WHITE_BG		:= \033[48;5;15m
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
-						display.cpp \
-						test.cpp \
+						BitcoinExchange.cpp \
 )
 
 # ================================ OBJ FILES ================================= #
