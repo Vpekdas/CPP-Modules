@@ -19,11 +19,6 @@ struct Date {
     std::string fullFormat;
 };
 
-enum Type {
-    INT,
-    FLOAT,
-};
-
 class BitcoinExchange {
     public:
     // Default constructor
@@ -47,7 +42,7 @@ class BitcoinExchange {
     std::map<std::string, float> _database;
     bool validateDate(Date &date);
     bool validateValue(const std::string &value, Date &date);
-    void findLowerDate(Date &date, float result, Type type);
+    void findLowerDate(Date &date, float result);
 };
 
 #endif // BITCOIN_EXCHANGE_HPP

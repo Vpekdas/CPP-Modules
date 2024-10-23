@@ -43,19 +43,45 @@ void BitcoinExchange::parseDatabase(const std::string &path) {
     }
 }
 
+// TODO: Separate in multiple functions.
+static bool countSeparatorInDate(const std::string &date) {
+    std::size_t separatorCount = 0;
+    for (std::size_t i = 0; i < date.length(); i++) {
+        if (!std::isdigit(date[i]) && date[i] != '-') {
+            return false;
+        } else if (date[i] == '-') {
+            separatorCount++;
+        }
+    }
+
+    if (separatorCount != 2) {
+        return false;
+    }
+    return true;
+}
+
 bool BitcoinExchange::validateDate(Date &dates) {
     std::ostringstream oss;
+
+    if (!countSeparatorInDate(dates.fullFormat)) {
+        std::cerr << NEON_RED << "Error: Wrong date format: (" << dates.fullFormat << ")." << RESET << std::endl;
+        return false;
+    }
 
     if (dates.year < 0) {
         std::cerr << NEON_RED << "Error: year cannot be negative (" << dates.fullFormat << ")." << RESET << std::endl;
         return false;
     }
 
-    if (dates.month < 0 || dates.month > 12) {
+    if (dates.month <= 0 || dates.month > 12) {
         std::cerr << NEON_RED << "Error: month cannot be negative or higher than 12 (" << dates.fullFormat << ")."
                   << RESET << std::endl;
         return false;
     }
+
+    // TODO:
+    // https://stackoverflow.com/questions/37082316/return-number-of-days-in-a-given-month-of-a-given-year
+    // tips for handling well 30 or 31 days.
 
     // Special case for February month.
     if (dates.month == 2 && (dates.day < 0 || dates.day > 28)) {
@@ -63,7 +89,11 @@ bool BitcoinExchange::validateDate(Date &dates) {
                   << RESET << std::endl;
         return false;
 
-    } else if (dates.day < 0 || dates.day > 31) {
+    } else if ((dates.day < 0 || dates.day > 30) && (dates.month % 2 == 0)) {
+        std::cerr << NEON_RED << "Error: day cannot be negative or higher than 30 (" << dates.fullFormat << ")."
+                  << RESET << std::endl;
+        return false;
+    } else if ((dates.day < 0 || dates.day > 31) && (dates.month % 2 != 0)) {
         std::cerr << NEON_RED << "Error: day cannot be negative or higher than 31 (" << dates.fullFormat << ")."
                   << RESET << std::endl;
         return false;
@@ -71,23 +101,12 @@ bool BitcoinExchange::validateDate(Date &dates) {
     return true;
 }
 
-static std::size_t findStartIndex(const std::string &value) {
-
-    for (std::size_t i = 0; i < value.length(); i++) {
-        if (value[i] == '-' || value[i] == '+' || std::isdigit(value[i])) {
-            return i;
-        }
-    }
-    return std::string::npos;
-}
-
-void BitcoinExchange::findLowerDate(Date &date, float result, Type type) {
+// TODO:
+// https://stackoverflow.com/questions/37082316/return-number-of-days-in-a-given-month-of-a-given-year
+// tips for handling well 30 or 31 days.
+void BitcoinExchange::findLowerDate(Date &date, float result) {
 
     std::map<std::string, float>::iterator it;
-
-    if (type == INT) {
-        result = static_cast<int>(result);
-    }
 
     for (int i = 0; i < date.year; i++) {
 
@@ -109,8 +128,12 @@ void BitcoinExchange::findLowerDate(Date &date, float result, Type type) {
                 }
                 date.day--;
             }
-            date.day = 31;
             date.month--;
+            if (date.month % 2 == 0) {
+                date.day = 30;
+            } else {
+                date.day = 31;
+            }
         }
         date.month = 12;
         date.year--;
@@ -120,8 +143,42 @@ void BitcoinExchange::findLowerDate(Date &date, float result, Type type) {
 // TODO: Separate in 2 functions.
 // TODO: Adapt set precision by counting ".".
 
+static std::size_t findStartIndex(const std::string &value) {
+
+    for (std::size_t i = 0; i < value.length(); i++) {
+        if (std::isdigit(value[i]) && value[i] != '0') {
+            return i;
+        }
+    }
+    return std::string::npos;
+}
+
+static bool validFormat(const std::string &value) {
+    std::size_t countOperator = 0;
+
+    for (std::size_t i = 0; i < value.length(); i++) {
+        if (!std::isdigit(value[i]) && value[i] != '-' && value[i] != '+' && value[i] != '.') {
+            return false;
+        } else if (value[i] == '-' || value[i] == '+') {
+            if (i != 0) {
+                return false;
+            }
+            countOperator++;
+        }
+    }
+
+    if (countOperator > 1) {
+        return false;
+    }
+
+    return true;
+}
+
 bool BitcoinExchange::validateValue(const std::string &value, Date &date) {
     std::stringstream oss;
+    std::stringstream ossZero;
+    std::string valueWithoutZero;
+
     std::size_t indexNumber = findStartIndex(value);
 
     if (value.find(".") != std::string::npos) {
@@ -129,8 +186,16 @@ bool BitcoinExchange::validateValue(const std::string &value, Date &date) {
 
         oss << result;
 
-        if (value.substr(indexNumber) != oss.str()) {
-            std::cerr << NEON_RED << "Error: Value is not in Float range (" << oss.str() << ")." << RESET << std::endl;
+        valueWithoutZero = value.substr(indexNumber);
+
+        if (value.find("-") != std::string::npos) {
+            ossZero << "-" << valueWithoutZero.c_str();
+        } else {
+            ossZero << valueWithoutZero.c_str();
+        }
+
+        if ((!validFormat(ossZero.str())) || (ossZero.str() != oss.str())) {
+            std::cerr << NEON_RED << "Error: Wrong value format (" << value << ")" << RESET << std::endl;
             return false;
         }
 
@@ -141,8 +206,7 @@ bool BitcoinExchange::validateValue(const std::string &value, Date &date) {
         } else {
             std::map<std::string, float>::iterator it = _database.find(date.fullFormat);
             if (it == _database.end()) {
-                // std::cerr << NEON_RED << "Error: date not in database" << RESET << std::endl;
-                findLowerDate(date, result, FLOAT);
+                findLowerDate(date, result);
                 return false;
             }
             std::stringstream oss;
@@ -153,10 +217,21 @@ bool BitcoinExchange::validateValue(const std::string &value, Date &date) {
         int result = std::atoi(value.c_str());
 
         oss << result;
-        if (value.substr(indexNumber) != oss.str()) {
-            std::cerr << NEON_RED << "Error: Value is not in Int range (" << oss.str() << ")." << RESET << std::endl;
+
+        valueWithoutZero = value.substr(indexNumber);
+
+        if (value.find("-") != std::string::npos) {
+            ossZero << "-" << valueWithoutZero.c_str();
+        } else {
+            ossZero << valueWithoutZero.c_str();
+        }
+
+        if ((!validFormat(ossZero.str())) || (ossZero.str() != oss.str())) {
+            std::cerr << NEON_RED << "Error: Wrong value format. Verify that you are in Int range (" << value << ")"
+                      << RESET << std::endl;
             return false;
         }
+
         if (result > 1000 || result < 0) {
             std::cerr << NEON_RED << "Error: Value cannot exceed 1000 or be less than 0 (" << oss.str() << ")." << RESET
                       << std::endl;
@@ -164,8 +239,7 @@ bool BitcoinExchange::validateValue(const std::string &value, Date &date) {
         } else {
             std::map<std::string, float>::iterator it = _database.find(date.fullFormat);
             if (it == _database.end()) {
-                // std::cerr << NEON_RED << "Error: date not in database" << RESET << std::endl;
-                findLowerDate(date, result, INT);
+                findLowerDate(date, result);
                 return false;
             }
 
@@ -175,6 +249,16 @@ bool BitcoinExchange::validateValue(const std::string &value, Date &date) {
         }
     }
     return true;
+}
+
+static std::size_t countSpace(const std::string &value) {
+
+    for (std::size_t i = 0; i < value.length(); i++) {
+        if (value[i] != ' ') {
+            return i;
+        }
+    }
+    return 0;
 }
 
 void BitcoinExchange::parseInput(const std::string &path) {
@@ -229,9 +313,13 @@ void BitcoinExchange::parseInput(const std::string &path) {
         pipeIndex = line.find("|");
         if (pipeIndex == std::string::npos) {
             std::cerr << NEON_RED << "Error: Wrong format. Format should be date | value." << RESET << std::endl;
+            continue;
         }
 
         value = line.substr(pipeIndex + 1);
+
+        value = value.substr(countSpace(value));
+
         validateValue(value, dates);
     }
 }
