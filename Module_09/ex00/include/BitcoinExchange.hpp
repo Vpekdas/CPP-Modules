@@ -11,6 +11,7 @@
 #include <ostream>
 #include <sstream>
 #include <stdexcept>
+#include <string>
 
 struct Date {
     int year;
@@ -42,6 +43,8 @@ class BitcoinExchange {
     std::map<std::string, float> _database;
     bool validateDate(Date &date);
     bool validateValue(const std::string &value, Date &date);
+    bool validateFloat(const std::string &value, Date &date);
+    bool validateInt(const std::string &value, Date &date);
     void findLowerDate(Date &date, float result);
 };
 
