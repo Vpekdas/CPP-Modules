@@ -1,15 +1,27 @@
 #ifndef BITCOIN_EXCHANGE_HPP
 #define BITCOIN_EXCHANGE_HPP
 
+#include <cctype>
+#include <cstddef>
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <map>
+#include <ostream>
 #include <sstream>
+#include <stdexcept>
 
 struct Date {
     int year;
     int month;
     int day;
     std::string fullFormat;
+};
+
+enum Type {
+    INT,
+    FLOAT,
 };
 
 class BitcoinExchange {
@@ -33,8 +45,9 @@ class BitcoinExchange {
 
     private:
     std::map<std::string, float> _database;
-    void validateDate(Date &date);
-    void validateValue(const std::string &value, Date &date);
+    bool validateDate(Date &date);
+    bool validateValue(const std::string &value, Date &date);
+    void findLowerDate(Date &date, float result, Type type);
 };
 
 #endif // BITCOIN_EXCHANGE_HPP
