@@ -23,15 +23,17 @@ void RPN::subtraction(int &topNumber, int &bottomNumber) {
 }
 
 void RPN::multiplication(int &topNumber, int &bottomNumber) {
-    // general case
-    if ((bottomNumber != 0 && topNumber > INT_MAX / bottomNumber) ||
-        (bottomNumber != 0 && topNumber < INT_MIN / bottomNumber)) {
-        throw std::runtime_error("❌ Error: Overflow/Underflow occurred during multiplication.");
+    // General case
+    if (bottomNumber != 0) {
+        if ((topNumber > 0 && bottomNumber > 0 && topNumber > INT_MAX / bottomNumber) ||
+            (topNumber > 0 && bottomNumber < 0 && bottomNumber < INT_MIN / topNumber) ||
+            (topNumber < 0 && bottomNumber > 0 && topNumber < INT_MIN / bottomNumber) ||
+            (topNumber < 0 && bottomNumber < 0 && topNumber < INT_MAX / bottomNumber)) {
+            throw std::runtime_error("❌ Error: Overflow/Underflow occurred during multiplication.");
+        }
     }
-    // There may be a need to check for -1 for two's complement machines.
-    // If one number is -1 and another is INT_MIN, multiplying them we get abs(INT_MIN) which is 1 higher than
-    // INT_MAX
-    else if ((topNumber == -1 && bottomNumber == INT_MIN) || (bottomNumber == -1 && topNumber == INT_MIN)) {
+    // Special case for two's complement machines
+    if ((topNumber == -1 && bottomNumber == INT_MIN) || (bottomNumber == -1 && topNumber == INT_MIN)) {
         throw std::runtime_error("❌ Error: Overflow/Underflow occurred during multiplication.");
     }
     _stack.push(topNumber * bottomNumber);
@@ -73,10 +75,13 @@ bool RPN::parseInput(const std::string &input) {
     std::size_t operandCount = 0;
 
     for (std::size_t i = 0; i < input.length(); i++) {
-        if (isOperator(input[i])) {
-            operatorCount++;
-        } else if (std::isdigit(input[i])) {
+        if (std::isdigit(input[i])) {
             operandCount++;
+        } else if ((input[i] == '-' || input[i] == '+') && input[i + 1] && std::isdigit(input[i + 1])) {
+            operandCount++;
+            i++;
+        } else if (isOperator(input[i])) {
+            operatorCount++;
         } else if (std::isspace(input[i])) {
             continue;
         } else {
@@ -111,10 +116,14 @@ void RPN::calculate(const std::string &input) {
 
     for (std::size_t i = 0; i < input.length(); i++) {
         if (std::isdigit(input[i])) {
-            _stack.push((input[i] - '0'));
+            if (input[i - 1] && input[i - 1] == '-') {
+                _stack.push(-(input[i] - '0'));
+            } else {
+                _stack.push((input[i] - '0'));
+            }
         } else if (std::isspace(input[i])) {
             continue;
-        } else if (isOperator(input[i])) {
+        } else if (isOperator(input[i]) && ((input[i + 1] && input[i + 1] == ' ') || i == input.length() - 1)) {
             popTwoNumberFromStack(topNumber, bottomNumber);
             for (std::size_t indexFunction = 0; indexFunction < NUMBER_OF_OPERATIONS; indexFunction++) {
                 if (operations[indexFunction].operation == input[i]) {
