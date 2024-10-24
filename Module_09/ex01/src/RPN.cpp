@@ -85,14 +85,14 @@ bool RPN::parseInput(const std::string &input) {
         } else if (std::isspace(input[i])) {
             continue;
         } else {
-            std::cout << NEON_RED << "❌ Error: The character '" << input[i] << "' is not allowed in the input."
+            std::cerr << NEON_RED << "❌ Error: The character '" << input[i] << "' is not allowed in the input."
                       << RESET << std::endl;
             return false;
         }
     }
 
     if (operandCount != (operatorCount + 1)) {
-        std::cout << NEON_RED << "❌ Error: The number of operands should be equal to the number of operators plus one."
+        std::cerr << NEON_RED << "❌ Error: The number of operands should be equal to the number of operators plus one."
                   << RESET << std::endl;
         return false;
     }

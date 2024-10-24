@@ -1,5 +1,8 @@
 #include "../include/BitcoinExchange.hpp"
 #include "../include/colors.hpp"
+#include <cstddef>
+#include <sstream>
+#include <stdexcept>
 
 static int daysInMonth(int month, int year);
 static std::size_t countSpace(const std::string &value);
@@ -30,9 +33,15 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 
 void BitcoinExchange::parseDatabase(const std::string &path) {
     std::ifstream file;
+
     std::string line;
     std::string date;
     std::string exchangeRate;
+    std::string value;
+
+    std::size_t firstSeparatorIndex = 0;
+    std::size_t lastSeparatorIndex = 0;
+    std::size_t comaSeparatorIndex = 0;
 
     file.open(path.c_str());
 
@@ -41,6 +50,7 @@ void BitcoinExchange::parseDatabase(const std::string &path) {
     }
 
     while (std::getline(file, line)) {
+
         if (line == "date,exchange_rate")
             continue;
 
@@ -52,15 +62,44 @@ void BitcoinExchange::parseDatabase(const std::string &path) {
             throw std::runtime_error(ss.str());
         }
 
-        // Since the CSV file is provided as per the subject requirements, we assume that the database
-        // will always be correctly formatted.
         date = line.substr(0, comaIndex);
 
         exchangeRate = line.substr(comaIndex + 1);
 
-        // Use std::stof instead of std::atof because std::stof throws an exception on error,
-        // allowing us to handle invalid input more gracefully.
-        _database[date] = std::stof(exchangeRate.c_str());
+        Date dates;
+
+        dates.fullFormat = date;
+
+        firstSeparatorIndex = date.find("-");
+        lastSeparatorIndex = date.rfind("-");
+
+        if (firstSeparatorIndex == std::string::npos || lastSeparatorIndex == std::string::npos) {
+            throw std::runtime_error("❌ Error: wrong date format. date should be on format YYYY-MM-DD");
+        }
+
+        dates.year = std::atoi(date.substr(0, firstSeparatorIndex).c_str());
+
+        dates.month =
+            std::atoi(date.substr(firstSeparatorIndex + 1, lastSeparatorIndex - firstSeparatorIndex - 1).c_str());
+
+        dates.day = std::atoi(date.substr(lastSeparatorIndex + 1).c_str());
+
+        if (!validateDate(dates)) {
+            throw std::runtime_error("");
+        }
+
+        comaSeparatorIndex = line.find(",");
+        if (comaSeparatorIndex == std::string::npos) {
+            throw std::runtime_error("Error: Wrong format. Format should be date , value.");
+        }
+
+        // Detect where the value starts and then skip leading spaces.
+        // This allows us to handle cases where there are multiple spaces before the number after the pipe separator.
+        value = line.substr(comaSeparatorIndex + 1);
+
+        value = value.substr(countSpace(value));
+
+        _database[date] = std::atof(exchangeRate.c_str());
     }
 }
 

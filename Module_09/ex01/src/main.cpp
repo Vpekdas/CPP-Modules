@@ -17,6 +17,6 @@ int main(int ac, char **av) {
 
         rpn.calculate(av[1]);
     } catch (std::exception &ex) {
-        std::cout << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+        std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
     }
 }
