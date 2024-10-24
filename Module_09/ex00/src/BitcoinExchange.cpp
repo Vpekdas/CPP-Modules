@@ -290,7 +290,7 @@ void BitcoinExchange::parseInput(const std::string &path) {
         lastSeparatorIndex = date.rfind("-");
 
         if (firstSeparatorIndex == std::string::npos || lastSeparatorIndex == std::string::npos) {
-            std::cerr << NEON_RED << "❌ Error: wrong date format. date should be on format YYYY-NN-DD" << RESET
+            std::cerr << NEON_RED << "❌ Error: wrong date format. date should be on format YYYY-MM-DD" << RESET
                       << std::endl;
             continue;
         }
