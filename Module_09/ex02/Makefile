@@ -60,9 +60,10 @@ WHITE_BG		:= \033[48;5;15m
 # ================================ SRC FILES ================================= #
 
 SRCS 			:=	$(addprefix $(SRCS_PATH), \
+						display.cpp \
 						main.cpp \
 						PmergeMe.cpp \
-						display.cpp \
+						VectorMergeInsert.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

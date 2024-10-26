@@ -1,14 +1,10 @@
 #ifndef P_MERGE_ME_HPP
 #define P_MERGE_ME_HPP
 
-#include <cstddef>
+#include "VectorMergeInsert.hpp"
 #include <deque>
 #include <iostream>
 #include <vector>
-
-// The exact threshold must be determined experimentally and depends on the machine, but is commonly around ten.
-// https://en.wikipedia.org/wiki/Insertion_sort
-#define INSERTION_SORT_THRESHOLD 10
 
 class PMergeMe {
     public:
@@ -26,11 +22,12 @@ class PMergeMe {
     // Default Destructor
     ~PMergeMe();
 
-    void insertionSortVector(std::vector<int> &vector, std::size_t left, std::size_t right);
-    void mergeSortVector(std::vector<int> &vector, std::size_t left, std::size_t right);
-    void mergeVector(std::vector<int> &vector, std::size_t left, std::size_t middle, std::size_t right);
+    void parseInput(int ac, const char **av);
 
     private:
+    std::vector<std::string> _inputVector;
+
+    VectorMergeInsert _vectorMergeInsert;
 };
 
 #endif // P_MERGE_ME_HPP
