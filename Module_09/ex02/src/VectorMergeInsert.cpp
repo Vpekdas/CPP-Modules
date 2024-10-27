@@ -226,23 +226,23 @@ int VectorMergeInsert::binarySearch(std::vector<int> &array, int target, int sta
     return binarySearch(array, target, middle + 1, end);
 }
 
+// https://www.youtube.com/watch?v=-OVB5pOZJug&t=99s
+
 // Use binary search to efficiently insert pending numbers into mainChain.
-// Each time we insert a number, we increment the index so we don't need to check from the beginning.
-// This optimization reduces the number of comparisons needed for each insertion.
+// This optimization reduces the number of comparisons needed for each insertion,
+// improving overall insertion efficiency.
 void VectorMergeInsert::insertSort() {
 
     generateInsertionPositions();
 
     int target = 0;
-    size_t end = 0, alreadySortedIndex = 0, pos = 0;
+    std::size_t pos = 0;
 
     for (std::vector<int>::iterator it = _positions.begin(); it != _positions.end(); it++) {
         target = _pending[*it - 1];
 
-        end = *it + alreadySortedIndex;
-        pos = binarySearch(_mainChain, target, 0, end);
+        pos = binarySearch(_mainChain, target, 0, _mainChain.size());
         _mainChain.insert(_mainChain.begin() + pos, target);
-        alreadySortedIndex++;
     }
 
     // If the number of elements is odd, insert the last unpaired element into mainChain.
