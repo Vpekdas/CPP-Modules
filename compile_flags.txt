@@ -2,3 +2,6 @@
 -Wall
 -Werror
 -Wextra
+-iquote include
+-I /usr/local/include
+-I /usr/include

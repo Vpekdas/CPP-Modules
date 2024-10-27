@@ -1,13 +1,20 @@
 #include "../include/PmergeMe.hpp"
 #include "../include/colors.hpp"
-#include "../include/display.hpp"
 
-int main(int ac, const char **av) {
+int main(int ac, char **av) {
+
     if (ac == 1) {
-        return 1;
+        return (1);
     }
 
-    PMergeMe pMergeMe;
+    try {
+        PMergeMe pMergeMe;
 
-    pMergeMe.parseInput(ac, av);
+        pMergeMe.mergeInsertSort(ac, av);
+
+    } catch (std::exception &ex) {
+        std::cerr << BOLD_ITALIC_RED << ex.what() << RESET << std::endl;
+    }
+
+    return 0;
 }

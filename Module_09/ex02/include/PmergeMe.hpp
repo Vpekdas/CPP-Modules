@@ -2,9 +2,13 @@
 #define P_MERGE_ME_HPP
 
 #include "VectorMergeInsert.hpp"
-#include <deque>
+#include <cstddef>
+#include <cstdlib>
 #include <iostream>
+#include <sstream>
 #include <vector>
+#include <algorithm>
+#include <set>
 
 class PMergeMe {
     public:
@@ -22,11 +26,14 @@ class PMergeMe {
     // Default Destructor
     ~PMergeMe();
 
-    void parseInput(int ac, const char **av);
+    void mergeInsertSort(int ac, char **av);
 
     private:
-    std::vector<std::string> _inputVector;
+    void parseInput(int ac, char **av);
+    void validateOverflow();
+    void validateDuplicate();
 
+    std::vector<std::string> _inputStringVector;
     VectorMergeInsert _vectorMergeInsert;
 };
 
