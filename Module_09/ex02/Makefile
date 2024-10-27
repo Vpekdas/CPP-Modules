@@ -64,6 +64,7 @@ SRCS 			:=	$(addprefix $(SRCS_PATH), \
 						main.cpp \
 						PmergeMe.cpp \
 						VectorMergeInsert.cpp \
+						DequeMergeInsert.cpp \
 )
 
 # ================================ OBJ FILES ================================= #

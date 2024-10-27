@@ -3,7 +3,7 @@
 
 static void validateFormat(const std::string &input);
 
-PMergeMe::PMergeMe() : _inputStringVector(), _vectorMergeInsert() {
+PMergeMe::PMergeMe() : _inputStringVector(), _vectorMergeInsert(), _dequeMergeInsert() {
     std::cout << YELLOW << "🛠️ Default PMergeMe Constructor called 🛠️" << RESET << std::endl;
 }
 
@@ -37,10 +37,13 @@ static std::size_t findStartIndex(const std::string &value) {
 }
 
 void PMergeMe::mergeInsertSort(int ac, char **av) {
-
     parseInput(ac, av);
 
     _vectorMergeInsert.MergeInsertSort(_inputStringVector);
+    _dequeMergeInsert.MergeInsertSort(_inputStringVector);
+
+    _durationMsVector = _vectorMergeInsert._durationMs;
+    _durationMsDeque = _dequeMergeInsert._durationMs;
 }
 
 void PMergeMe::parseInput(int ac, char **av) {
@@ -120,4 +123,20 @@ void PMergeMe::validateDuplicate() {
             throw std::runtime_error(ss.str());
         }
     }
+}
+
+void PMergeMe::printInitialVector() const {
+    _vectorMergeInsert.printInitialVector();
+}
+
+void PMergeMe::printSortedVector() const {
+    _vectorMergeInsert.printSortedVector();
+}
+
+void PMergeMe::printInitialDeque() const {
+    _dequeMergeInsert.printInitialDeque();
+}
+
+void PMergeMe::printSortedDeque() const {
+    _dequeMergeInsert.printSortedDeque();
 }

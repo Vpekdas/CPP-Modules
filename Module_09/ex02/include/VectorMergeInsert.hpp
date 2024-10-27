@@ -2,8 +2,11 @@
 #define VECTOR_MERGE_INSERT_HPP
 
 #include <cstddef>
+#include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <iterator>
+#include <sys/time.h>
 #include <vector>
 
 class VectorMergeInsert {
@@ -24,8 +27,12 @@ class VectorMergeInsert {
 
     void MergeInsertSort(std::vector<std::string> &input);
 
-    void printInitialVector();
-    void printSortedVector();
+    void printInitialVector() const;
+    void printSortedVector() const;
+
+    std::vector<int> _intVector;
+    std::vector<int> _mainChain;
+    double _durationMs;
 
     private:
     typedef std::vector<std::pair<int, int> > PairVector;
@@ -50,12 +57,10 @@ class VectorMergeInsert {
 
     void MergeInsertSort();
 
-    std::vector<int> _intVector;
     std::vector<std::pair<int, int> > _pairVector;
-    std::vector<int> _mainChain;
     std::vector<int> _pending;
-    std::vector<int> _jacobsthalNumbers;
     std::vector<int> _jacobsthalCache;
+    std::vector<int> _jacobsthalNumbers;
     std::vector<int> _positions;
 };
 
