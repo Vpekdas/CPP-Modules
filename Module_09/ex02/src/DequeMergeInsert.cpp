@@ -37,8 +37,8 @@ void DequeMergeInsert::MergeInsertSort(std::vector<std::string> &input) {
 
     // We are using gettimeofday instead of clock, as clock is suitable for measuring CPU time.
     // We care more about wall-clock time, so we use gettimeofday.
-    pushIntToDeque(input);
     gettimeofday(&t_start, NULL);
+    pushIntToDeque(input);
 
     createPairs();
     sortPairs();
