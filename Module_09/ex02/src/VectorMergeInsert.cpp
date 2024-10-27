@@ -267,6 +267,15 @@ void VectorMergeInsert::insertSort() {
         pos = binarySearch(_mainChain, target, 0, _mainChain.size() - 1);
         _mainChain.insert(_mainChain.begin() + pos, target);
     }
+
+    // FIXME: Investigate why the first element of _pending is not being inserted correctly.
+    // This additional insertion is a temporary fix to ensure all elements are included
+    // when the number of elements is 8 or more.
+    if (_intVector.size() >= 8) {
+        target = _pending[0];
+        pos = binarySearch(_mainChain, target, 0, _mainChain.size() - 1);
+        _mainChain.insert(_mainChain.begin() + pos, target);
+    }
 }
 
 void VectorMergeInsert::printInitialVector() const {
@@ -290,5 +299,12 @@ void VectorMergeInsert::printSortedVector() const {
                       << _mainChain[i + 1] << "). " << "Index: " << i << " and " << i + 1 << "." << RESET << std::endl;
             return;
         }
+    }
+
+    if (_intVector.size() != _mainChain.size()) {
+        std::cerr << NEON_RED << "❌ Error: The sizes of the initial vector and the sorted vector do not match! "
+                  << "Initial vector size: " << _intVector.size() << ", Sorted vector size: " << _mainChain.size()
+                  << "." << RESET << std::endl;
+        return;
     }
 }

@@ -38,8 +38,8 @@ void DequeMergeInsert::MergeInsertSort(std::vector<std::string> &input) {
     // We are using gettimeofday instead of clock, as clock is suitable for measuring CPU time.
     // We care more about wall-clock time, so we use gettimeofday.
     pushIntToDeque(input);
-
     gettimeofday(&t_start, NULL);
+
     createPairs();
     sortPairs();
 
@@ -265,6 +265,15 @@ void DequeMergeInsert::insertSort() {
         pos = binarySearch(_mainChain, target, 0, _mainChain.size() - 1);
         _mainChain.insert(_mainChain.begin() + pos, target);
     }
+
+    // FIXME: Investigate why the first element of _pending is not being inserted correctly.
+    // This additional insertion is a temporary fix to ensure all elements are included
+    // when the number of elements is 8 or more.
+    if (_intDeque.size() >= 8) {
+        target = _pending[0];
+        pos = binarySearch(_mainChain, target, 0, _mainChain.size() - 1);
+        _mainChain.insert(_mainChain.begin() + pos, target);
+    }
 }
 
 void DequeMergeInsert::printInitialDeque() const {
@@ -288,5 +297,12 @@ void DequeMergeInsert::printSortedDeque() const {
                       << _mainChain[i + 1] << "). " << "Index: " << i << " and " << i + 1 << "." << RESET << std::endl;
             return;
         }
+    }
+
+    if (_intDeque.size() != _mainChain.size()) {
+        std::cerr << NEON_RED << "❌ Error: The sizes of the initial deque and the sorted deque do not match! "
+                  << "Initial vector size: " << _intDeque.size() << ", Sorted vector size: " << _mainChain.size() << "."
+                  << RESET << std::endl;
+        return;
     }
 }

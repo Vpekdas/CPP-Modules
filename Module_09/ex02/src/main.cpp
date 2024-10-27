@@ -1,6 +1,8 @@
 #include "../include/PmergeMe.hpp"
 #include "../include/colors.hpp"
 
+// The command `getconf ARG_MAX` retrieves the maximum number of arguments that can be passed to a program.
+// Exceeding this limit will cause zsh or bash to produce an error.
 int main(int ac, char **av) {
 
     if (ac == 1) {
