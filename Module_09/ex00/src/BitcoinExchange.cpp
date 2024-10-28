@@ -46,7 +46,7 @@ void BitcoinExchange::parseDatabase(const std::string &path) {
     file.open(path.c_str());
 
     if (!file.is_open()) {
-        throw std::runtime_error("Failed to open file: " + path);
+        throw std::runtime_error("❌ Failed to open file: " + path);
     }
 
     while (std::getline(file, line)) {
@@ -58,7 +58,7 @@ void BitcoinExchange::parseDatabase(const std::string &path) {
 
         if (comaIndex == std::string::npos) {
             std::stringstream ss;
-            ss << "Error: input.csv is not formatted correctly (" << line << ").";
+            ss << "❌ Error: input.csv is not formatted correctly (" << line << ").";
             throw std::runtime_error(ss.str());
         }
 
@@ -90,7 +90,7 @@ void BitcoinExchange::parseDatabase(const std::string &path) {
 
         comaSeparatorIndex = line.find(",");
         if (comaSeparatorIndex == std::string::npos) {
-            throw std::runtime_error("Error: Wrong format. Format should be date , value.");
+            throw std::runtime_error("❌ Error: Wrong format. Format should be date , value.");
         }
 
         // Detect where the value starts and then skip leading spaces.

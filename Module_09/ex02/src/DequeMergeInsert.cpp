@@ -38,6 +38,13 @@ void DequeMergeInsert::MergeInsertSort(std::vector<std::string> &input) {
     // We are using gettimeofday instead of clock, as clock is suitable for measuring CPU time.
     // We care more about wall-clock time, so we use gettimeofday.
     gettimeofday(&t_start, NULL);
+
+    if (_intDeque.size() == 1) {
+        _mainChain.push_back(_intDeque.back());
+        gettimeofday(&t_end, NULL);
+        _durationMs = (t_end.tv_sec - t_start.tv_sec) * 1000.0 + (t_end.tv_usec - t_start.tv_usec) / 1000.0;
+        return;
+    }
     pushIntToDeque(input);
 
     createPairs();

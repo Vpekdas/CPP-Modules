@@ -41,6 +41,13 @@ void VectorMergeInsert::MergeInsertSort(std::vector<std::string> &input) {
     gettimeofday(&t_start, NULL);
     pushIntToVector(input);
 
+    if (_intVector.size() == 1) {
+        _mainChain.push_back(_intVector.back());
+        gettimeofday(&t_end, NULL);
+        _durationMs = (t_end.tv_sec - t_start.tv_sec) * 1000.0 + (t_end.tv_usec - t_start.tv_usec) / 1000.0;
+        return;
+    }
+
     createPairs();
 
     sortPairs();

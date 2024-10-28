@@ -1,6 +1,7 @@
 #include "../include/RPN.hpp"
 #include "../include/colors.hpp"
 #include <climits>
+#include <stdexcept>
 
 static bool isOperator(char c);
 
@@ -9,7 +10,7 @@ static bool isOperator(char c);
 void RPN::addition(int &topNumber, int &bottomNumber) {
     if ((bottomNumber > 0 && topNumber > INT_MAX - bottomNumber) ||
         (bottomNumber < 0 && topNumber < INT_MIN - bottomNumber)) {
-        throw std::runtime_error("❌ Error: Overflow/Underflow occurred during addition.");
+        throw std::overflow_error("❌ Error: Overflow/Underflow occurred during addition.");
     }
     _stack.push(topNumber + bottomNumber);
 }
@@ -17,7 +18,7 @@ void RPN::addition(int &topNumber, int &bottomNumber) {
 void RPN::subtraction(int &topNumber, int &bottomNumber) {
     if ((bottomNumber < 0 && topNumber > INT_MAX + bottomNumber) ||
         (bottomNumber > 0 && topNumber < INT_MIN + bottomNumber)) {
-        throw std::runtime_error("❌ Error: Overflow/Underflow occurred during subtraction.");
+        throw std::overflow_error("❌ Error: Overflow/Underflow occurred during subtraction.");
     }
     _stack.push(topNumber - bottomNumber);
 }
@@ -29,12 +30,12 @@ void RPN::multiplication(int &topNumber, int &bottomNumber) {
             (topNumber > 0 && bottomNumber < 0 && bottomNumber < INT_MIN / topNumber) ||
             (topNumber < 0 && bottomNumber > 0 && topNumber < INT_MIN / bottomNumber) ||
             (topNumber < 0 && bottomNumber < 0 && topNumber < INT_MAX / bottomNumber)) {
-            throw std::runtime_error("❌ Error: Overflow/Underflow occurred during multiplication.");
+            throw std::overflow_error("❌ Error: Overflow/Underflow occurred during multiplication.");
         }
     }
     // Special case for two's complement machines
     if ((topNumber == -1 && bottomNumber == INT_MIN) || (bottomNumber == -1 && topNumber == INT_MIN)) {
-        throw std::runtime_error("❌ Error: Overflow/Underflow occurred during multiplication.");
+        throw std::overflow_error("❌ Error: Overflow/Underflow occurred during multiplication.");
     }
     _stack.push(topNumber * bottomNumber);
 }
