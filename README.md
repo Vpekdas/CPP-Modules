@@ -116,7 +116,7 @@ If you have any questions, issues, or if you want to contribute, feel free to re
 
 ### Development Process
 
-The development of the "CPP_Modules" project began with understanding the problem and the concept of multithreading. I then researched extensively on multithreading and mutex functions.
+The development of the "CPP_Modules" project began with understanding the differences between C and C++.
 
 ### Challenges and Solutions
 
