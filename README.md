@@ -1,4 +1,4 @@
-# CPP_Modules
+# CPP-Modules
 
 # Table of Contents
 1. [Description](#description)
@@ -19,7 +19,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Download the project**: You can clone the project from GitHub using the following command in your terminal:
 ```bash
-git clone https://github.com/Vpekdas/CPP_Modules.git
+git clone https://github.com/Vpekdas/CPP-Modules.git
 ```
 
 2. **Install a C++ compiler**: If you don't already have a C compiler installed, you will need one to build and use this library. You can install the [Clang compiler](https://clang.llvm.org).
@@ -77,7 +77,7 @@ I welcome contributions from everyone. Here are some guidelines to follow:
 
 2. **Clone the repository**: Clone the forked repository to your local machine.
 ```bash
-git clone https://github.com/Vpekdas/CPP_Modules.git
+git clone https://github.com/Vpekdas/CPP-Modules.git
 ```
 
 3. **Create a new branch**: Create a new branch for each feature or bug fix you're working on. Do not make changes directly on the master branch
@@ -116,7 +116,7 @@ If you have any questions, issues, or if you want to contribute, feel free to re
 
 ### Development Process
 
-The development of the "CPP_Modules" project began with understanding the differences between C and C++.
+The development of the "CPP-Modules" project began with understanding the differences between C and C++.
 
 ### Challenges and Solutions
 
@@ -128,7 +128,7 @@ As a result, I used fewer structures and more classes.
 
 ### Tools and Technologies Used
 
-The "CPP_Modules" project was developed using C++ 98.
+The "CPP-Modules" project was developed using C++ 98.
 
 ### Lessons Learned
 
@@ -138,7 +138,7 @@ Now, C++ is my favorite language, and I love object-oriented programming (OOP)!
 
 ### Future Plans
 
-There are currently no plans to further improve the "CPP_Modules" project. The experience gained from this project has been invaluable and will be applied to future projects.
+There are currently no plans to further improve the "CPP-Modules" project. The experience gained from this project has been invaluable and will be applied to future projects.
 
 ### Current Status
 
@@ -150,7 +150,7 @@ Plans for future development include improving performance and expanding the doc
 
 ### Known Issues
 
-There are currently no known issues. If you find a bug, please report it in the [issue tracker](https://github.com/Vpekdas/CPP_Modules/issues).
+There are currently no known issues. If you find a bug, please report it in the [issue tracker](https://github.com/Vpekdas/CPP-Modules/issues).
 
 ### Contributing
 
