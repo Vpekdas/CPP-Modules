@@ -7,7 +7,7 @@ CXX				:= clang++
 CXXFLAGS		:= -std=c++98 -Wall -Wextra -Werror -O2 -iquote include/ 
 DEPFLAGS		:= -MMD -MP
 ifdef DEBUG
-CXXFLAGS		+= 
+CXXFLAGS		+= -g3
 endif
 
 # ================================= ALIASES ================================== #
