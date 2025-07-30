@@ -27,7 +27,7 @@ CPP Modules is a project from the 42 Common Core curriculum. Its purpose is to i
 
 ### Purpose
 
-The goal is to learn C++ in its most basic and fundamental form—without relying on modern libraries or advanced language features. The idea is to explore the standard C++ library, understand core object-oriented concepts, and re-implement certain features ourselves in order to build a solid foundation.
+The goal is to learn C++ in its most basic and fundamental form without relying on modern libraries or advanced language features. The idea is to explore the standard C++ library, understand core object-oriented concepts, and re-implement certain features ourselves in order to build a solid foundation.
 
 ### Technologies used
 
